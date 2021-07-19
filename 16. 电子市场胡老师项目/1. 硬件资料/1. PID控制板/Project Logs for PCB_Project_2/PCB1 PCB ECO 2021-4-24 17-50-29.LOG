@@ -1,0 +1,25 @@
+Removed Pin From Net: NetName=+3.2V Pin=L2-2
+Change Component Footprint: Designator=KEY1 Old Footprint=BNC-KWE New Footprint=KEY-M
+Change Component Footprint: Designator=KEY2 Old Footprint=BNC-KWE New Footprint=KEY-M
+Change Component Footprint: Designator=KEY3 Old Footprint=BNC-KWE New Footprint=KEY-M
+Added Component: Designator=U7(LQFP64)
+Added Pin To Net: NetName=KEY1 Pin=KEY1-2
+Added Pin To Net: NetName=KEY1 Pin=KEY1-2
+Added Pin To Net: NetName=KEY2 Pin=KEY2-2
+Added Pin To Net: NetName=KEY2 Pin=KEY2-2
+Added Pin To Net: NetName=KEY3 Pin=KEY3-2
+Added Pin To Net: NetName=KEY3 Pin=KEY3-2
+Added Pin To Net: NetName=+3.3V Pin=L2-1
+Added Pin To Net: NetName=+3.2V Pin=L2-2
+Added Pin To Net: NetName=+3.3V Pin=U7-1
+Added Pin To Net: NetName=GND Pin=U7-12
+Added Pin To Net: NetName=+3.2V Pin=U7-13
+Added Pin To Net: NetName=GND Pin=U7-18
+Added Pin To Net: NetName=+3.3V Pin=U7-19
+Added Pin To Net: NetName=GND Pin=U7-31
+Added Pin To Net: NetName=+3.3V Pin=U7-32
+Added Pin To Net: NetName=GND Pin=U7-47
+Added Pin To Net: NetName=+3.3V Pin=U7-48
+Added Pin To Net: NetName=GND Pin=U7-63
+Added Pin To Net: NetName=+3.3V Pin=U7-64
+Added Member To Class: ClassName=Sheet1 Member=Component U7 STM32F103RBT6

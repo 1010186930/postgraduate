@@ -1,0 +1,78 @@
+Added Component: Designator=C71(0603C)
+Added Component: Designator=CE2(C-0808-S)
+Added Component: Designator=CE3(C-0808-S)
+Added Component: Designator=D2(DO-214AA)
+Added Component: Designator=L2(L1270)
+Added Component: Designator=R52(0603R)
+Added Component: Designator=R53(0603R)
+Added Component: Designator=U11(TO-263)
+Added Pin To Net: NetName=+3.2V Pin=L2-2
+Added Net: Name=+3.2V
+Added Pin To Net: NetName=+3.3V Pin=L2-1
+Added Net: Name=+3.3V
+Added Net: Name=+6V
+Added Net: Name=+12V
+Added Net: Name=+24V
+Added Net: Name=1-5V S
+Added Net: Name=3.3V
+Added Pin To Net: NetName=6V Pin=C71-1
+Added Pin To Net: NetName=6V Pin=CE3-1
+Added Pin To Net: NetName=6V Pin=L2-1
+Added Pin To Net: NetName=6V Pin=R53-2
+Added Net: Name=6V
+Added Pin To Net: NetName=24V Pin=CE2-1
+Added Pin To Net: NetName=24V Pin=U11-1
+Added Net: Name=24V
+Added Net: Name=BL
+Added Net: Name=CS
+Added Net: Name=DO
+Added Pin To Net: NetName=GND Pin=C71-2
+Added Pin To Net: NetName=GND Pin=CE2-2
+Added Pin To Net: NetName=GND Pin=CE3-2
+Added Pin To Net: NetName=GND Pin=D2-1
+Added Pin To Net: NetName=GND Pin=R52-2
+Added Pin To Net: NetName=GND Pin=U11-3
+Added Pin To Net: NetName=GND Pin=U11-5
+Added Net: Name=GND
+Added Net: Name=KEY1
+Added Net: Name=KEY2
+Added Net: Name=KEY3
+Added Net: Name=NetC1_2
+Added Pin To Net: NetName=NetC4_1 Pin=D2-1
+Added Net: Name=NetC4_1
+Added Net: Name=NetC26_2
+Added Net: Name=NetC28_1
+Added Net: Name=NetC29_1
+Added Net: Name=NetC31_2
+Added Net: Name=NetC33_1
+Added Pin To Net: NetName=NetD2_2 Pin=D2-2
+Added Pin To Net: NetName=NetD2_2 Pin=L2-2
+Added Pin To Net: NetName=NetD2_2 Pin=U11-2
+Added Net: Name=NetD2_2
+Added Net: Name=NetD5_1
+Added Net: Name=NetD5_2
+Added Net: Name=NetJP1_2
+Added Net: Name=NetP6_1
+Added Net: Name=NetP6_2
+Added Net: Name=NetR13_1
+Added Pin To Net: NetName=NetR52_1 Pin=R52-1
+Added Pin To Net: NetName=NetR52_1 Pin=R53-1
+Added Pin To Net: NetName=NetR52_1 Pin=U11-4
+Added Net: Name=NetR52_1
+Added Net: Name=NRST
+Added Net: Name=PA2
+Added Net: Name=PA3
+Added Net: Name=PA4
+Added Net: Name=PA5
+Added Net: Name=PA6
+Added Net: Name=PA8
+Added Net: Name=PA9
+Added Net: Name=PA10
+Added Net: Name=PA13
+Added Net: Name=PA14
+Added Net: Name=PB5
+Added Net: Name=RST
+Added Net: Name=SCL
+Added Net: Name=SDA
+Added Class: Name=Sheet1
+Added Room: Name=Sheet1

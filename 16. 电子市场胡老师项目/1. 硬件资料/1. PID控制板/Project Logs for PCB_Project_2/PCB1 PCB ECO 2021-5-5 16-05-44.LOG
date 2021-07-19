@@ -1,0 +1,8 @@
+Removed Pin From Net: NetName=+24V Pin=D2-2
+Removed Pin From Net: NetName=+24V Pin=P1-2
+Change Component Footprint: Designator=D1 Old Footprint=0805D-1 New Footprint=1206D-N
+Change Component Footprint: Designator=U8 Old Footprint=LQFP64-1 New Footprint=STM32F103RBT6
+Change Component Comment : Designator=R16 Old Comment=10k New Comment=2K
+Added Pin To Net: NetName=NetD2_2 Pin=D2-2
+Added Pin To Net: NetName=NetD2_2 Pin=P1-2
+Added Room: Name=Sheet1

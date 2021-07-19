@@ -1,0 +1,1595 @@
+###############################################################################
+#                                                                             #
+#                                                       16/Aug/2015  08:45:41 #
+# IAR ANSI C/C++ Compiler V6.30.6.23336/W32 EVALUATION for ARM                #
+# Copyright 1999-2012 IAR Systems AB.                                         #
+#                                                                             #
+#    Cpu mode     =  thumb                                                    #
+#    Endian       =  little                                                   #
+#    Source file  =  C:\Users\Ping\Desktop\K60_TFT144_SPI\src\cpu\start.c     #
+#    Command line =  C:\Users\Ping\Desktop\K60_TFT144_SPI\src\cpu\start.c -D  #
+#                    IAR -D TWR_K60N512 -lCN C:\Users\Ping\Desktop\K60_TFT144 #
+#                    _SPI\build\iar\hello_world\RAM_128KB\List\ -lB           #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\RAM_128KB\List\ -o C:\Users\Ping\Desktop\K60_TFT144_S #
+#                    PI\build\iar\hello_world\RAM_128KB\Obj\ --no_cse         #
+#                    --no_unroll --no_inline --no_code_motion --no_tbaa       #
+#                    --no_clustering --no_scheduling --debug --endian=little  #
+#                    --cpu=Cortex-M4 -e --fpu=None --dlib_config "C:\Program  #
+#                    Files (x86)\IAR Systems\Embedded Workbench 6.0           #
+#                    Evaluation\arm\INC\c\DLib_Config_Normal.h" -I            #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\projects\hello_world\ -I                 #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\common\ -I C:\Users\Ping\Desktop\K60_TFT #
+#                    144_SPI\build\iar\hello_world\..\..\..\src\cpu\ -I       #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\cpu\headers\ -I                          #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\drivers\adc16\ -I                        #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\drivers\enet\ -I                         #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\drivers\pmc\ -I                          #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\drivers\rtc\ -I                          #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\drivers\lptmr\ -I                        #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\drivers\uart\ -I                         #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\drivers\mcg\ -I                          #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\drivers\wdog\ -I                         #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\platforms\ -I                            #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\drivers\ftm\ -I                          #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\drivers\SPI\ -I                          #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\drivers\OLED\ -I                         #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\drivers\TFT\ -I                          #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\ -On --use_c++_inline                              #
+#    List file    =  C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\RAM_128KB\List\start.lst                              #
+#    Object file  =  C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\RAM_128KB\Obj\start.o                                 #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+C:\Users\Ping\Desktop\K60_TFT144_SPI\src\cpu\start.c
+      1          /*
+      2           * File:	start.c
+      3           * Purpose:	Kinetis start up routines. 
+      4           *
+      5           * Notes:		
+      6           */
+      7          
+      8          #include "start.h"
+      9          #include "common.h"
+     10          #include "wdog.h"
+     11          #include "sysinit.h"
+     12          
+     13          /********************************************************************/
+     14          /*!
+     15           * \brief   Kinetis Start
+     16           * \return  None
+     17           *
+     18           * This function calls all of the needed starup routines and then 
+     19           * branches to the main process.
+     20           */
+
+   \                                 In section .text, align 2, keep-with-next
+     21          void start(void)
+     22          {
+   \                     start:
+   \   00000000   0xB580             PUSH     {R7,LR}
+     23          	/* Disable the watchdog timer */
+     24                  /* 关闭看门狗 */
+     25          	wdog_disable();
+   \   00000002   0x.... 0x....      BL       wdog_disable
+     26          
+     27          	/* Copy any vector or data sections that need to be in RAM */
+     28                  /* 复制中断向量表、初始化数据、以__ramfunc声明的子函数复制到RAM区 */
+     29                  
+     30          	common_startup();
+   \   00000006   0x.... 0x....      BL       common_startup
+     31          
+     32          	/* Perform processor initialization */
+     33                  /* CPU初始化，设置频率 */
+     34                  
+     35          	sysinit();
+   \   0000000A   0x.... 0x....      BL       sysinit
+     36                  
+     37          
+     38          	/* Jump to main process */
+     39          	main();
+   \   0000000E   0x.... 0x....      BL       main
+     40          
+     41          	/* No actions to perform after this so wait forever */
+     42          	while(1);
+   \                     ??start_0:
+   \   00000012   0xE7FE             B.N      ??start_0
+     43          }
+     44          /********************************************************************/
+     45          /*!
+     46           * \brief   Kinetis Identify
+     47           * \return  None
+     48           *
+     49           * This is primarly a reporting function that displays information
+     50           * about the specific CPU to the default terminal including:
+     51           * - Kinetis family
+     52           * - package
+     53           * - die revision
+     54           * - P-flash size
+     55           * - Ram size
+     56           */
+
+   \                                 In section .text, align 2, keep-with-next
+     57          void cpu_identify (void)
+     58          {
+   \                     cpu_identify:
+   \   00000000   0xB580             PUSH     {R7,LR}
+     59              /* Determine the Kinetis family */
+     60              switch((SIM_SDID & SIM_SDID_FAMID(0x7))>>SIM_SDID_FAMID_SHIFT) 
+   \   00000002   0x....             LDR.N    R0,??DataTable1  ;; 0x40048024
+   \   00000004   0x6800             LDR      R0,[R0, #+0]
+   \   00000006   0x0900             LSRS     R0,R0,#+4
+   \   00000008   0xF010 0x0007      ANDS     R0,R0,#0x7
+   \   0000000C   0x2800             CMP      R0,#+0
+   \   0000000E   0xD00B             BEQ.N    ??cpu_identify_0
+   \   00000010   0x2802             CMP      R0,#+2
+   \   00000012   0xD011             BEQ.N    ??cpu_identify_1
+   \   00000014   0xD30C             BCC.N    ??cpu_identify_2
+   \   00000016   0x2804             CMP      R0,#+4
+   \   00000018   0xD016             BEQ.N    ??cpu_identify_3
+   \   0000001A   0xD311             BCC.N    ??cpu_identify_4
+   \   0000001C   0x2806             CMP      R0,#+6
+   \   0000001E   0xD01B             BEQ.N    ??cpu_identify_5
+   \   00000020   0xD316             BCC.N    ??cpu_identify_6
+   \   00000022   0x2807             CMP      R0,#+7
+   \   00000024   0xD01C             BEQ.N    ??cpu_identify_7
+   \   00000026   0xE01F             B.N      ??cpu_identify_8
+     61              {  
+     62              	case 0x0:
+     63              		printf("\nK10-");
+   \                     ??cpu_identify_0:
+   \   00000028   0x....             LDR.N    R0,??DataTable1_1
+   \   0000002A   0x.... 0x....      BL       printf
+     64              		break;
+   \   0000002E   0xE01E             B.N      ??cpu_identify_9
+     65              	case 0x1:
+     66              		printf("\nK20-");
+   \                     ??cpu_identify_2:
+   \   00000030   0x....             LDR.N    R0,??DataTable1_2
+   \   00000032   0x.... 0x....      BL       printf
+     67              		break;
+   \   00000036   0xE01A             B.N      ??cpu_identify_9
+     68              	case 0x2:
+     69              		printf("\nK30-");
+   \                     ??cpu_identify_1:
+   \   00000038   0x....             LDR.N    R0,??DataTable1_3
+   \   0000003A   0x.... 0x....      BL       printf
+     70              		break;
+   \   0000003E   0xE016             B.N      ??cpu_identify_9
+     71              	case 0x3:
+     72              		printf("\nK40-");
+   \                     ??cpu_identify_4:
+   \   00000040   0x....             LDR.N    R0,??DataTable1_4
+   \   00000042   0x.... 0x....      BL       printf
+     73              		break;
+   \   00000046   0xE012             B.N      ??cpu_identify_9
+     74              	case 0x4:
+     75              		printf("\nK60-");
+   \                     ??cpu_identify_3:
+   \   00000048   0x....             LDR.N    R0,??DataTable1_5
+   \   0000004A   0x.... 0x....      BL       printf
+     76              		break;
+   \   0000004E   0xE00E             B.N      ??cpu_identify_9
+     77              	case 0x5:
+     78              		printf("\nK70-");
+   \                     ??cpu_identify_6:
+   \   00000050   0x....             LDR.N    R0,??DataTable1_6
+   \   00000052   0x.... 0x....      BL       printf
+     79              		break;
+   \   00000056   0xE00A             B.N      ??cpu_identify_9
+     80              	case 0x6:
+     81              		printf("\nK50-");
+   \                     ??cpu_identify_5:
+   \   00000058   0x....             LDR.N    R0,??DataTable1_7
+   \   0000005A   0x.... 0x....      BL       printf
+     82              		break;
+   \   0000005E   0xE006             B.N      ??cpu_identify_9
+     83              	case 0x7:
+     84              		printf("\nK53-");
+   \                     ??cpu_identify_7:
+   \   00000060   0x....             LDR.N    R0,??DataTable1_8
+   \   00000062   0x.... 0x....      BL       printf
+     85              		break;
+   \   00000066   0xE002             B.N      ??cpu_identify_9
+     86          	default:
+     87          		printf("\nUnrecognized Kinetis family device.\n");  
+   \                     ??cpu_identify_8:
+   \   00000068   0x....             LDR.N    R0,??DataTable1_9
+   \   0000006A   0x.... 0x....      BL       printf
+     88          		break;  	
+     89              }
+     90          
+     91              /* Determine the package size */
+     92              switch((SIM_SDID & SIM_SDID_PINID(0xF))>>SIM_SDID_PINID_SHIFT) 
+   \                     ??cpu_identify_9:
+   \   0000006E   0x....             LDR.N    R0,??DataTable1  ;; 0x40048024
+   \   00000070   0x6800             LDR      R0,[R0, #+0]
+   \   00000072   0xF010 0x000F      ANDS     R0,R0,#0xF
+   \   00000076   0x2802             CMP      R0,#+2
+   \   00000078   0xD012             BEQ.N    ??cpu_identify_10
+   \   0000007A   0x2804             CMP      R0,#+4
+   \   0000007C   0xD014             BEQ.N    ??cpu_identify_11
+   \   0000007E   0x2805             CMP      R0,#+5
+   \   00000080   0xD016             BEQ.N    ??cpu_identify_12
+   \   00000082   0x2806             CMP      R0,#+6
+   \   00000084   0xD018             BEQ.N    ??cpu_identify_13
+   \   00000086   0x2807             CMP      R0,#+7
+   \   00000088   0xD01A             BEQ.N    ??cpu_identify_14
+   \   0000008A   0x2808             CMP      R0,#+8
+   \   0000008C   0xD01C             BEQ.N    ??cpu_identify_15
+   \   0000008E   0x2809             CMP      R0,#+9
+   \   00000090   0xD01E             BEQ.N    ??cpu_identify_16
+   \   00000092   0x280A             CMP      R0,#+10
+   \   00000094   0xD020             BEQ.N    ??cpu_identify_17
+   \   00000096   0x280C             CMP      R0,#+12
+   \   00000098   0xD022             BEQ.N    ??cpu_identify_18
+   \   0000009A   0x280E             CMP      R0,#+14
+   \   0000009C   0xD024             BEQ.N    ??cpu_identify_19
+   \   0000009E   0xE027             B.N      ??cpu_identify_20
+     93              {  
+     94              	case 0x2:
+     95              		printf("32pin       ");
+   \                     ??cpu_identify_10:
+   \   000000A0   0x....             LDR.N    R0,??DataTable1_10
+   \   000000A2   0x.... 0x....      BL       printf
+     96              		break;
+   \   000000A6   0xE026             B.N      ??cpu_identify_21
+     97              	case 0x4:
+     98              		printf("48pin       ");
+   \                     ??cpu_identify_11:
+   \   000000A8   0x....             LDR.N    R0,??DataTable1_11
+   \   000000AA   0x.... 0x....      BL       printf
+     99              		break;
+   \   000000AE   0xE022             B.N      ??cpu_identify_21
+    100              	case 0x5:
+    101              		printf("64pin       ");
+   \                     ??cpu_identify_12:
+   \   000000B0   0x....             LDR.N    R0,??DataTable1_12
+   \   000000B2   0x.... 0x....      BL       printf
+    102              		break;
+   \   000000B6   0xE01E             B.N      ??cpu_identify_21
+    103              	case 0x6:
+    104              		printf("80pin       ");
+   \                     ??cpu_identify_13:
+   \   000000B8   0x....             LDR.N    R0,??DataTable1_13
+   \   000000BA   0x.... 0x....      BL       printf
+    105              		break;
+   \   000000BE   0xE01A             B.N      ??cpu_identify_21
+    106              	case 0x7:
+    107              		printf("81pin       ");
+   \                     ??cpu_identify_14:
+   \   000000C0   0x....             LDR.N    R0,??DataTable1_14
+   \   000000C2   0x.... 0x....      BL       printf
+    108              		break;
+   \   000000C6   0xE016             B.N      ??cpu_identify_21
+    109              	case 0x8:
+    110              		printf("100pin      ");
+   \                     ??cpu_identify_15:
+   \   000000C8   0x....             LDR.N    R0,??DataTable1_15
+   \   000000CA   0x.... 0x....      BL       printf
+    111              		break;
+   \   000000CE   0xE012             B.N      ??cpu_identify_21
+    112              	case 0x9:
+    113              		printf("104pin      ");
+   \                     ??cpu_identify_16:
+   \   000000D0   0x....             LDR.N    R0,??DataTable1_16
+   \   000000D2   0x.... 0x....      BL       printf
+    114              		break;
+   \   000000D6   0xE00E             B.N      ??cpu_identify_21
+    115              	case 0xA:
+    116              		printf("144pin      ");
+   \                     ??cpu_identify_17:
+   \   000000D8   0x....             LDR.N    R0,??DataTable1_17
+   \   000000DA   0x.... 0x....      BL       printf
+    117              		break;
+   \   000000DE   0xE00A             B.N      ??cpu_identify_21
+    118              	case 0xC:
+    119              		printf("196pin      ");
+   \                     ??cpu_identify_18:
+   \   000000E0   0x....             LDR.N    R0,??DataTable1_18
+   \   000000E2   0x.... 0x....      BL       printf
+    120              		break;
+   \   000000E6   0xE006             B.N      ??cpu_identify_21
+    121              	case 0xE:
+    122              		printf("256pin      ");
+   \                     ??cpu_identify_19:
+   \   000000E8   0x....             LDR.N    R0,??DataTable1_19
+   \   000000EA   0x.... 0x....      BL       printf
+    123              		break;
+   \   000000EE   0xE002             B.N      ??cpu_identify_21
+    124          	default:
+    125          		printf("\nUnrecognized Kinetis package code.      ");  
+   \                     ??cpu_identify_20:
+   \   000000F0   0x....             LDR.N    R0,??DataTable1_20
+   \   000000F2   0x.... 0x....      BL       printf
+    126          		break;  	
+    127              }                
+    128          
+    129              /* Determine the revision ID */
+    130              
+    131              switch((SIM_SDID & SIM_SDID_REVID(0xF))>>SIM_SDID_REVID_SHIFT) 
+   \                     ??cpu_identify_21:
+   \   000000F6   0x....             LDR.N    R0,??DataTable1  ;; 0x40048024
+   \   000000F8   0x6800             LDR      R0,[R0, #+0]
+   \   000000FA   0x0B00             LSRS     R0,R0,#+12
+   \   000000FC   0xF010 0x000F      ANDS     R0,R0,#0xF
+   \   00000100   0x2800             CMP      R0,#+0
+   \   00000102   0xD003             BEQ.N    ??cpu_identify_22
+   \   00000104   0x2802             CMP      R0,#+2
+   \   00000106   0xD009             BEQ.N    ??cpu_identify_23
+   \   00000108   0xD304             BCC.N    ??cpu_identify_24
+   \   0000010A   0xE00B             B.N      ??cpu_identify_25
+    132              { 
+    133             
+    134              case 0x0:
+    135              		printf("Silicon rev 1.0   \n ");
+   \                     ??cpu_identify_22:
+   \   0000010C   0x....             LDR.N    R0,??DataTable1_21
+   \   0000010E   0x.... 0x....      BL       printf
+    136              		break;
+   \   00000112   0xE00A             B.N      ??cpu_identify_26
+    137              case 0x1:
+    138              		printf("Silicon rev 1.1  \n ");
+   \                     ??cpu_identify_24:
+   \   00000114   0x....             LDR.N    R0,??DataTable1_22
+   \   00000116   0x.... 0x....      BL       printf
+    139              		break;
+   \   0000011A   0xE006             B.N      ??cpu_identify_26
+    140              case 0x2:
+    141              		printf("Silicon rev 1.2  \n ");
+   \                     ??cpu_identify_23:
+   \   0000011C   0x....             LDR.N    R0,??DataTable1_23
+   \   0000011E   0x.... 0x....      BL       printf
+    142              		break;
+   \   00000122   0xE002             B.N      ??cpu_identify_26
+    143              default:
+    144          		printf("\nThis version of software doesn't recognize the revision code.");  
+   \                     ??cpu_identify_25:
+   \   00000124   0x....             LDR.N    R0,??DataTable1_24
+   \   00000126   0x.... 0x....      BL       printf
+    145          		break;  
+    146              }
+    147              
+    148              /* Determine the flash revision */
+    149              flash_identify();  
+   \                     ??cpu_identify_26:
+   \   0000012A   0x.... 0x....      BL       flash_identify
+    150              
+    151              
+    152              /* Determine the P-flash size */
+    153              switch((SIM_FCFG1 & SIM_FCFG1_PFSIZE(0xF))>>SIM_FCFG1_PFSIZE_SHIFT)
+   \   0000012E   0x....             LDR.N    R0,??DataTable1_25  ;; 0x4004804c
+   \   00000130   0x6800             LDR      R0,[R0, #+0]
+   \   00000132   0x0E00             LSRS     R0,R0,#+24
+   \   00000134   0xF010 0x000F      ANDS     R0,R0,#0xF
+   \   00000138   0x2807             CMP      R0,#+7
+   \   0000013A   0xD006             BEQ.N    ??cpu_identify_27
+   \   0000013C   0x2809             CMP      R0,#+9
+   \   0000013E   0xD008             BEQ.N    ??cpu_identify_28
+   \   00000140   0x280B             CMP      R0,#+11
+   \   00000142   0xD00A             BEQ.N    ??cpu_identify_29
+   \   00000144   0x280F             CMP      R0,#+15
+   \   00000146   0xD00C             BEQ.N    ??cpu_identify_30
+   \   00000148   0xE00F             B.N      ??cpu_identify_31
+    154              {
+    155              	case 0x7:
+    156              		printf("128 kBytes of P-flash	");
+   \                     ??cpu_identify_27:
+   \   0000014A   0x....             LDR.N    R0,??DataTable1_26
+   \   0000014C   0x.... 0x....      BL       printf
+    157              		break;
+   \   00000150   0xE00E             B.N      ??cpu_identify_32
+    158              	case 0x9:
+    159              		printf("256 kBytes of P-flash	");
+   \                     ??cpu_identify_28:
+   \   00000152   0x....             LDR.N    R0,??DataTable1_27
+   \   00000154   0x.... 0x....      BL       printf
+    160              		break;
+   \   00000158   0xE00A             B.N      ??cpu_identify_32
+    161                  case 0xB:
+    162              		printf("512 kBytes of P-flash	");
+   \                     ??cpu_identify_29:
+   \   0000015A   0x....             LDR.N    R0,??DataTable1_28
+   \   0000015C   0x.... 0x....      BL       printf
+    163              		break;
+   \   00000160   0xE006             B.N      ??cpu_identify_32
+    164              	case 0xF:
+    165              		printf("512 kBytes of P-flash	");
+   \                     ??cpu_identify_30:
+   \   00000162   0x....             LDR.N    R0,??DataTable1_28
+   \   00000164   0x.... 0x....      BL       printf
+    166              		break;
+   \   00000168   0xE002             B.N      ??cpu_identify_32
+    167          	default:
+    168          		printf("ERR!! Undefined P-flash size\n");  
+   \                     ??cpu_identify_31:
+   \   0000016A   0x....             LDR.N    R0,??DataTable1_29
+   \   0000016C   0x.... 0x....      BL       printf
+    169          		break;  		
+    170              }
+    171              
+    172              /* Determine if the part has P-flash only or P-flash and FlexNVM */
+    173              if (SIM_FCFG2 & SIM_FCFG2_PFLSH_MASK)  
+   \                     ??cpu_identify_32:
+   \   00000170   0x....             LDR.N    R0,??DataTable1_30  ;; 0x40048050
+   \   00000172   0x6800             LDR      R0,[R0, #+0]
+   \   00000174   0x0200             LSLS     R0,R0,#+8
+   \   00000176   0xD503             BPL.N    ??cpu_identify_33
+    174                printf("P-flash only\n");
+   \   00000178   0x....             LDR.N    R0,??DataTable1_31
+   \   0000017A   0x.... 0x....      BL       printf
+   \   0000017E   0xE01E             B.N      ??cpu_identify_34
+    175              else
+    176                /* if part has FlexNVM determine the FlexNVM size*/
+    177                switch((SIM_FCFG1 & SIM_FCFG1_NVMSIZE(0xF))>>SIM_FCFG1_NVMSIZE_SHIFT)
+   \                     ??cpu_identify_33:
+   \   00000180   0x....             LDR.N    R0,??DataTable1_25  ;; 0x4004804c
+   \   00000182   0x6800             LDR      R0,[R0, #+0]
+   \   00000184   0x0F00             LSRS     R0,R0,#+28
+   \   00000186   0x2800             CMP      R0,#+0
+   \   00000188   0xD006             BEQ.N    ??cpu_identify_35
+   \   0000018A   0x2807             CMP      R0,#+7
+   \   0000018C   0xD008             BEQ.N    ??cpu_identify_36
+   \   0000018E   0x2809             CMP      R0,#+9
+   \   00000190   0xD00A             BEQ.N    ??cpu_identify_37
+   \   00000192   0x280F             CMP      R0,#+15
+   \   00000194   0xD00C             BEQ.N    ??cpu_identify_38
+   \   00000196   0xE00F             B.N      ??cpu_identify_39
+    178                {
+    179                	case 0x0:
+    180                		printf("0 kBytes of FlexNVM\n");
+   \                     ??cpu_identify_35:
+   \   00000198   0x....             LDR.N    R0,??DataTable1_32
+   \   0000019A   0x.... 0x....      BL       printf
+    181                		break;
+   \   0000019E   0xE00E             B.N      ??cpu_identify_34
+    182              	case 0x7:
+    183                		printf("128 kBytes of FlexNVM\n");
+   \                     ??cpu_identify_36:
+   \   000001A0   0x....             LDR.N    R0,??DataTable1_33
+   \   000001A2   0x.... 0x....      BL       printf
+    184              		break;
+   \   000001A6   0xE00A             B.N      ??cpu_identify_34
+    185                  case 0x9:
+    186                		printf("256 kBytes of FlexNVM\n");
+   \                     ??cpu_identify_37:
+   \   000001A8   0x....             LDR.N    R0,??DataTable1_34
+   \   000001AA   0x.... 0x....      BL       printf
+    187              		break;
+   \   000001AE   0xE006             B.N      ??cpu_identify_34
+    188              	case 0xF:
+    189                		printf("256 kBytes of FlexNVM\n");
+   \                     ??cpu_identify_38:
+   \   000001B0   0x....             LDR.N    R0,??DataTable1_34
+   \   000001B2   0x.... 0x....      BL       printf
+    190              		break;
+   \   000001B6   0xE002             B.N      ??cpu_identify_34
+    191          	default:
+    192          		printf("ERR!! Undefined FlexNVM size\n");  
+   \                     ??cpu_identify_39:
+   \   000001B8   0x....             LDR.N    R0,??DataTable1_35
+   \   000001BA   0x.... 0x....      BL       printf
+    193          		break;  		
+    194                }
+    195                
+    196          
+    197              /* Determine the RAM size */
+    198              switch((SIM_SOPT1 & SIM_SOPT1_RAMSIZE(0xF))>>SIM_SOPT1_RAMSIZE_SHIFT)
+   \                     ??cpu_identify_34:
+   \   000001BE   0x....             LDR.N    R0,??DataTable1_36  ;; 0x40047000
+   \   000001C0   0x6800             LDR      R0,[R0, #+0]
+   \   000001C2   0x0B00             LSRS     R0,R0,#+12
+   \   000001C4   0xF010 0x000F      ANDS     R0,R0,#0xF
+   \   000001C8   0x2805             CMP      R0,#+5
+   \   000001CA   0xD006             BEQ.N    ??cpu_identify_40
+   \   000001CC   0x2807             CMP      R0,#+7
+   \   000001CE   0xD008             BEQ.N    ??cpu_identify_41
+   \   000001D0   0x2808             CMP      R0,#+8
+   \   000001D2   0xD00A             BEQ.N    ??cpu_identify_42
+   \   000001D4   0x2809             CMP      R0,#+9
+   \   000001D6   0xD00C             BEQ.N    ??cpu_identify_43
+   \   000001D8   0xE00F             B.N      ??cpu_identify_44
+    199              {
+    200              	case 0x5:
+    201              		printf("32 kBytes of RAM\n\n");
+   \                     ??cpu_identify_40:
+   \   000001DA   0x....             LDR.N    R0,??DataTable1_37
+   \   000001DC   0x.... 0x....      BL       printf
+    202              		break;
+   \   000001E0   0xE00E             B.N      ??cpu_identify_45
+    203              	case 0x7:
+    204              		printf("64 kBytes of RAM\n\n");
+   \                     ??cpu_identify_41:
+   \   000001E2   0x....             LDR.N    R0,??DataTable1_38
+   \   000001E4   0x.... 0x....      BL       printf
+    205              		break;
+   \   000001E8   0xE00A             B.N      ??cpu_identify_45
+    206              	case 0x8:
+    207              		printf("96 kBytes of RAM\n\n");
+   \                     ??cpu_identify_42:
+   \   000001EA   0x....             LDR.N    R0,??DataTable1_39
+   \   000001EC   0x.... 0x....      BL       printf
+    208              		break;
+   \   000001F0   0xE006             B.N      ??cpu_identify_45
+    209              	case 0x9:
+    210              		printf("128 kBytes of RAM\n\n");
+   \                     ??cpu_identify_43:
+   \   000001F2   0x....             LDR.N    R0,??DataTable1_40
+   \   000001F4   0x.... 0x....      BL       printf
+    211              		break;
+   \   000001F8   0xE002             B.N      ??cpu_identify_45
+    212          		default:
+    213          			printf("ERR!! Undefined RAM size\n\n");  
+   \                     ??cpu_identify_44:
+   \   000001FA   0x....             LDR.N    R0,??DataTable1_41
+   \   000001FC   0x.... 0x....      BL       printf
+    214          			break;  		
+    215              }
+    216          
+    217          }
+   \                     ??cpu_identify_45:
+   \   00000200   0xBD01             POP      {R0,PC}          ;; return
+    218          /********************************************************************/
+    219          /*!
+    220           * \brief   flash Identify
+    221           * \return  None
+    222           *
+    223           * This is primarly a reporting function that displays information
+    224           * about the specific flash parameters and flash version ID for 
+    225           * the current device. These parameters are obtained using a special
+    226           * flash command call "read resource." The first four bytes returned
+    227           * are the flash parameter revision, and the second four bytes are
+    228           * the flash version ID.
+    229           */
+
+   \                                 In section .text, align 2, keep-with-next
+    230          void flash_identify (void)
+    231          {
+   \                     flash_identify:
+   \   00000000   0xB580             PUSH     {R7,LR}
+    232              /* Get the flash parameter version */
+    233          
+    234              /* Write the flash FCCOB registers with the values for a read resource command */
+    235              FTFL_FCCOB0 = 0x03;
+   \   00000002   0x....             LDR.N    R0,??DataTable1_42  ;; 0x40020007
+   \   00000004   0x2103             MOVS     R1,#+3
+   \   00000006   0x7001             STRB     R1,[R0, #+0]
+    236              FTFL_FCCOB1 = 0x00;
+   \   00000008   0x....             LDR.N    R0,??DataTable1_43  ;; 0x40020006
+   \   0000000A   0x2100             MOVS     R1,#+0
+   \   0000000C   0x7001             STRB     R1,[R0, #+0]
+    237              FTFL_FCCOB2 = 0x00;
+   \   0000000E   0x....             LDR.N    R0,??DataTable1_44  ;; 0x40020005
+   \   00000010   0x2100             MOVS     R1,#+0
+   \   00000012   0x7001             STRB     R1,[R0, #+0]
+    238              FTFL_FCCOB3 = 0x00;
+   \   00000014   0x....             LDR.N    R0,??DataTable1_45  ;; 0x40020004
+   \   00000016   0x2100             MOVS     R1,#+0
+   \   00000018   0x7001             STRB     R1,[R0, #+0]
+    239              FTFL_FCCOB8 = 0x01;
+   \   0000001A   0x....             LDR.N    R0,??DataTable1_46  ;; 0x4002000f
+   \   0000001C   0x2101             MOVS     R1,#+1
+   \   0000001E   0x7001             STRB     R1,[R0, #+0]
+    240          
+    241              /* All required FCCOBx registers are written, so launch the command */
+    242              FTFL_FSTAT = FTFL_FSTAT_CCIF_MASK;
+   \   00000020   0x....             LDR.N    R0,??DataTable1_47  ;; 0x40020000
+   \   00000022   0x2180             MOVS     R1,#+128
+   \   00000024   0x7001             STRB     R1,[R0, #+0]
+    243          
+    244              /* Wait for the command to complete */
+    245              while(!(FTFL_FSTAT & FTFL_FSTAT_CCIF_MASK));
+   \                     ??flash_identify_0:
+   \   00000026   0x....             LDR.N    R0,??DataTable1_47  ;; 0x40020000
+   \   00000028   0x7800             LDRB     R0,[R0, #+0]
+   \   0000002A   0x0600             LSLS     R0,R0,#+24
+   \   0000002C   0xD5FB             BPL.N    ??flash_identify_0
+    246              
+    247              printf("Flash parameter version %d.%d.%d.%d\n",FTFL_FCCOB4,FTFL_FCCOB5,FTFL_FCCOB6,FTFL_FCCOB7);
+   \   0000002E   0x....             LDR.N    R0,??DataTable1_48  ;; 0x40020008
+   \   00000030   0x7800             LDRB     R0,[R0, #+0]
+   \   00000032   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \   00000034   0x9000             STR      R0,[SP, #+0]
+   \   00000036   0x....             LDR.N    R0,??DataTable1_49  ;; 0x40020009
+   \   00000038   0x7803             LDRB     R3,[R0, #+0]
+   \   0000003A   0xB2DB             UXTB     R3,R3            ;; ZeroExt  R3,R3,#+24,#+24
+   \   0000003C   0x....             LDR.N    R0,??DataTable1_50  ;; 0x4002000a
+   \   0000003E   0x7802             LDRB     R2,[R0, #+0]
+   \   00000040   0xB2D2             UXTB     R2,R2            ;; ZeroExt  R2,R2,#+24,#+24
+   \   00000042   0x....             LDR.N    R0,??DataTable1_51  ;; 0x4002000b
+   \   00000044   0x7801             LDRB     R1,[R0, #+0]
+   \   00000046   0xB2C9             UXTB     R1,R1            ;; ZeroExt  R1,R1,#+24,#+24
+   \   00000048   0x....             LDR.N    R0,??DataTable1_52
+   \   0000004A   0x.... 0x....      BL       printf
+    248          
+    249              /* Get the flash version ID */   
+    250          
+    251              /* Write the flash FCCOB registers with the values for a read resource command */
+    252              FTFL_FCCOB0 = 0x03;
+   \   0000004E   0x....             LDR.N    R0,??DataTable1_42  ;; 0x40020007
+   \   00000050   0x2103             MOVS     R1,#+3
+   \   00000052   0x7001             STRB     R1,[R0, #+0]
+    253              FTFL_FCCOB1 = 0x00;
+   \   00000054   0x....             LDR.N    R0,??DataTable1_43  ;; 0x40020006
+   \   00000056   0x2100             MOVS     R1,#+0
+   \   00000058   0x7001             STRB     R1,[R0, #+0]
+    254              FTFL_FCCOB2 = 0x00;
+   \   0000005A   0x....             LDR.N    R0,??DataTable1_44  ;; 0x40020005
+   \   0000005C   0x2100             MOVS     R1,#+0
+   \   0000005E   0x7001             STRB     R1,[R0, #+0]
+    255              FTFL_FCCOB3 = 0x04;
+   \   00000060   0x....             LDR.N    R0,??DataTable1_45  ;; 0x40020004
+   \   00000062   0x2104             MOVS     R1,#+4
+   \   00000064   0x7001             STRB     R1,[R0, #+0]
+    256              FTFL_FCCOB8 = 0x01;
+   \   00000066   0x....             LDR.N    R0,??DataTable1_46  ;; 0x4002000f
+   \   00000068   0x2101             MOVS     R1,#+1
+   \   0000006A   0x7001             STRB     R1,[R0, #+0]
+    257          
+    258              /* All required FCCOBx registers are written, so launch the command */
+    259              FTFL_FSTAT = FTFL_FSTAT_CCIF_MASK;
+   \   0000006C   0x....             LDR.N    R0,??DataTable1_47  ;; 0x40020000
+   \   0000006E   0x2180             MOVS     R1,#+128
+   \   00000070   0x7001             STRB     R1,[R0, #+0]
+    260          
+    261              /* Wait for the command to complete */
+    262              while(!(FTFL_FSTAT & FTFL_FSTAT_CCIF_MASK));
+   \                     ??flash_identify_1:
+   \   00000072   0x....             LDR.N    R0,??DataTable1_47  ;; 0x40020000
+   \   00000074   0x7800             LDRB     R0,[R0, #+0]
+   \   00000076   0x0600             LSLS     R0,R0,#+24
+   \   00000078   0xD5FB             BPL.N    ??flash_identify_1
+    263          
+    264              printf("Flash version ID %d.%d.%d.%d\n",FTFL_FCCOB4,FTFL_FCCOB5,FTFL_FCCOB6,FTFL_FCCOB7);  
+   \   0000007A   0x....             LDR.N    R0,??DataTable1_48  ;; 0x40020008
+   \   0000007C   0x7800             LDRB     R0,[R0, #+0]
+   \   0000007E   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \   00000080   0x9000             STR      R0,[SP, #+0]
+   \   00000082   0x....             LDR.N    R0,??DataTable1_49  ;; 0x40020009
+   \   00000084   0x7803             LDRB     R3,[R0, #+0]
+   \   00000086   0xB2DB             UXTB     R3,R3            ;; ZeroExt  R3,R3,#+24,#+24
+   \   00000088   0x....             LDR.N    R0,??DataTable1_50  ;; 0x4002000a
+   \   0000008A   0x7802             LDRB     R2,[R0, #+0]
+   \   0000008C   0xB2D2             UXTB     R2,R2            ;; ZeroExt  R2,R2,#+24,#+24
+   \   0000008E   0x....             LDR.N    R0,??DataTable1_51  ;; 0x4002000b
+   \   00000090   0x7801             LDRB     R1,[R0, #+0]
+   \   00000092   0xB2C9             UXTB     R1,R1            ;; ZeroExt  R1,R1,#+24,#+24
+   \   00000094   0x....             LDR.N    R0,??DataTable1_53
+   \   00000096   0x.... 0x....      BL       printf
+    265              
+    266              /* Clear all of the flags in the flash status register */
+    267              FTFL_FSTAT = 0xFF;
+   \   0000009A   0x....             LDR.N    R0,??DataTable1_47  ;; 0x40020000
+   \   0000009C   0x21FF             MOVS     R1,#+255
+   \   0000009E   0x7001             STRB     R1,[R0, #+0]
+    268          }
+   \   000000A0   0xBD01             POP      {R0,PC}          ;; return
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1:
+   \   00000000   0x40048024         DC32     0x40048024
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_1:
+   \   00000000   0x........         DC32     `?<Constant "\\nK10-">`
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_2:
+   \   00000000   0x........         DC32     `?<Constant "\\nK20-">`
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_3:
+   \   00000000   0x........         DC32     `?<Constant "\\nK30-">`
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_4:
+   \   00000000   0x........         DC32     `?<Constant "\\nK40-">`
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_5:
+   \   00000000   0x........         DC32     `?<Constant "\\nK60-">`
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_6:
+   \   00000000   0x........         DC32     `?<Constant "\\nK70-">`
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_7:
+   \   00000000   0x........         DC32     `?<Constant "\\nK50-">`
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_8:
+   \   00000000   0x........         DC32     `?<Constant "\\nK53-">`
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_9:
+   \   00000000   0x........         DC32     `?<Constant "\\nUnrecognized Kinetis...">`
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_10:
+   \   00000000   0x........         DC32     `?<Constant "32pin       ">`
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_11:
+   \   00000000   0x........         DC32     `?<Constant "48pin       ">`
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_12:
+   \   00000000   0x........         DC32     `?<Constant "64pin       ">`
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_13:
+   \   00000000   0x........         DC32     `?<Constant "80pin       ">`
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_14:
+   \   00000000   0x........         DC32     `?<Constant "81pin       ">`
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_15:
+   \   00000000   0x........         DC32     `?<Constant "100pin      ">`
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_16:
+   \   00000000   0x........         DC32     `?<Constant "104pin      ">`
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_17:
+   \   00000000   0x........         DC32     `?<Constant "144pin      ">`
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_18:
+   \   00000000   0x........         DC32     `?<Constant "196pin      ">`
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_19:
+   \   00000000   0x........         DC32     `?<Constant "256pin      ">`
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_20:
+   \   00000000   0x........         DC32     `?<Constant "\\nUnrecognized Kinetis...">_1`
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_21:
+   \   00000000   0x........         DC32     `?<Constant "Silicon rev 1.0   \\n ">`
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_22:
+   \   00000000   0x........         DC32     `?<Constant "Silicon rev 1.1  \\n ">`
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_23:
+   \   00000000   0x........         DC32     `?<Constant "Silicon rev 1.2  \\n ">`
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_24:
+   \   00000000   0x........         DC32     `?<Constant "\\nThis version of soft...">`
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_25:
+   \   00000000   0x4004804C         DC32     0x4004804c
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_26:
+   \   00000000   0x........         DC32     `?<Constant "128 kBytes of P-flash\\t">`
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_27:
+   \   00000000   0x........         DC32     `?<Constant "256 kBytes of P-flash\\t">`
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_28:
+   \   00000000   0x........         DC32     `?<Constant "512 kBytes of P-flash\\t">`
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_29:
+   \   00000000   0x........         DC32     `?<Constant "ERR!! Undefined P-fla...">`
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_30:
+   \   00000000   0x40048050         DC32     0x40048050
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_31:
+   \   00000000   0x........         DC32     `?<Constant "P-flash only\\n">`
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_32:
+   \   00000000   0x........         DC32     `?<Constant "0 kBytes of FlexNVM\\n">`
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_33:
+   \   00000000   0x........         DC32     `?<Constant "128 kBytes of FlexNVM\\n">`
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_34:
+   \   00000000   0x........         DC32     `?<Constant "256 kBytes of FlexNVM\\n">`
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_35:
+   \   00000000   0x........         DC32     `?<Constant "ERR!! Undefined FlexN...">`
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_36:
+   \   00000000   0x40047000         DC32     0x40047000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_37:
+   \   00000000   0x........         DC32     `?<Constant "32 kBytes of RAM\\n\\n">`
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_38:
+   \   00000000   0x........         DC32     `?<Constant "64 kBytes of RAM\\n\\n">`
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_39:
+   \   00000000   0x........         DC32     `?<Constant "96 kBytes of RAM\\n\\n">`
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_40:
+   \   00000000   0x........         DC32     `?<Constant "128 kBytes of RAM\\n\\n">`
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_41:
+   \   00000000   0x........         DC32     `?<Constant "ERR!! Undefined RAM s...">`
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_42:
+   \   00000000   0x40020007         DC32     0x40020007
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_43:
+   \   00000000   0x40020006         DC32     0x40020006
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_44:
+   \   00000000   0x40020005         DC32     0x40020005
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_45:
+   \   00000000   0x40020004         DC32     0x40020004
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_46:
+   \   00000000   0x4002000F         DC32     0x4002000f
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_47:
+   \   00000000   0x40020000         DC32     0x40020000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_48:
+   \   00000000   0x40020008         DC32     0x40020008
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_49:
+   \   00000000   0x40020009         DC32     0x40020009
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_50:
+   \   00000000   0x4002000A         DC32     0x4002000a
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_51:
+   \   00000000   0x4002000B         DC32     0x4002000b
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_52:
+   \   00000000   0x........         DC32     `?<Constant "Flash parameter versi...">`
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_53:
+   \   00000000   0x........         DC32     `?<Constant "Flash version ID %d.%...">`
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant "\\nK10-">`:
+   \   00000000   0x0A 0x4B          DC8 "\012K10-"
+   \              0x31 0x30    
+   \              0x2D 0x00    
+   \   00000006   0x00 0x00          DC8 0, 0
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant "\\nK20-">`:
+   \   00000000   0x0A 0x4B          DC8 "\012K20-"
+   \              0x32 0x30    
+   \              0x2D 0x00    
+   \   00000006   0x00 0x00          DC8 0, 0
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant "\\nK30-">`:
+   \   00000000   0x0A 0x4B          DC8 "\012K30-"
+   \              0x33 0x30    
+   \              0x2D 0x00    
+   \   00000006   0x00 0x00          DC8 0, 0
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant "\\nK40-">`:
+   \   00000000   0x0A 0x4B          DC8 "\012K40-"
+   \              0x34 0x30    
+   \              0x2D 0x00    
+   \   00000006   0x00 0x00          DC8 0, 0
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant "\\nK60-">`:
+   \   00000000   0x0A 0x4B          DC8 "\012K60-"
+   \              0x36 0x30    
+   \              0x2D 0x00    
+   \   00000006   0x00 0x00          DC8 0, 0
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant "\\nK70-">`:
+   \   00000000   0x0A 0x4B          DC8 "\012K70-"
+   \              0x37 0x30    
+   \              0x2D 0x00    
+   \   00000006   0x00 0x00          DC8 0, 0
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant "\\nK50-">`:
+   \   00000000   0x0A 0x4B          DC8 "\012K50-"
+   \              0x35 0x30    
+   \              0x2D 0x00    
+   \   00000006   0x00 0x00          DC8 0, 0
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant "\\nK53-">`:
+   \   00000000   0x0A 0x4B          DC8 "\012K53-"
+   \              0x35 0x33    
+   \              0x2D 0x00    
+   \   00000006   0x00 0x00          DC8 0, 0
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant "\\nUnrecognized Kinetis...">`:
+   \   00000000   0x0A 0x55          DC8 "\012Unrecognized Kinetis family device.\012"
+   \              0x6E 0x72    
+   \              0x65 0x63    
+   \              0x6F 0x67    
+   \              0x6E 0x69    
+   \              0x7A 0x65    
+   \              0x64 0x20    
+   \              0x4B 0x69    
+   \              0x6E 0x65    
+   \              0x74 0x69    
+   \              0x73 0x20    
+   \              0x66 0x61    
+   \              0x6D 0x69    
+   \              0x6C 0x79    
+   \              0x20 0x64    
+   \              0x65 0x76    
+   \              0x69 0x63    
+   \              0x65 0x2E    
+   \              0x0A 0x00    
+   \   00000026   0x00 0x00          DC8 0, 0
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant "32pin       ">`:
+   \   00000000   0x33 0x32          DC8 "32pin       "
+   \              0x70 0x69    
+   \              0x6E 0x20    
+   \              0x20 0x20    
+   \              0x20 0x20    
+   \              0x20 0x20    
+   \              0x00         
+   \   0000000D   0x00 0x00          DC8 0, 0, 0
+   \              0x00         
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant "48pin       ">`:
+   \   00000000   0x34 0x38          DC8 "48pin       "
+   \              0x70 0x69    
+   \              0x6E 0x20    
+   \              0x20 0x20    
+   \              0x20 0x20    
+   \              0x20 0x20    
+   \              0x00         
+   \   0000000D   0x00 0x00          DC8 0, 0, 0
+   \              0x00         
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant "64pin       ">`:
+   \   00000000   0x36 0x34          DC8 "64pin       "
+   \              0x70 0x69    
+   \              0x6E 0x20    
+   \              0x20 0x20    
+   \              0x20 0x20    
+   \              0x20 0x20    
+   \              0x00         
+   \   0000000D   0x00 0x00          DC8 0, 0, 0
+   \              0x00         
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant "80pin       ">`:
+   \   00000000   0x38 0x30          DC8 "80pin       "
+   \              0x70 0x69    
+   \              0x6E 0x20    
+   \              0x20 0x20    
+   \              0x20 0x20    
+   \              0x20 0x20    
+   \              0x00         
+   \   0000000D   0x00 0x00          DC8 0, 0, 0
+   \              0x00         
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant "81pin       ">`:
+   \   00000000   0x38 0x31          DC8 "81pin       "
+   \              0x70 0x69    
+   \              0x6E 0x20    
+   \              0x20 0x20    
+   \              0x20 0x20    
+   \              0x20 0x20    
+   \              0x00         
+   \   0000000D   0x00 0x00          DC8 0, 0, 0
+   \              0x00         
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant "100pin      ">`:
+   \   00000000   0x31 0x30          DC8 "100pin      "
+   \              0x30 0x70    
+   \              0x69 0x6E    
+   \              0x20 0x20    
+   \              0x20 0x20    
+   \              0x20 0x20    
+   \              0x00         
+   \   0000000D   0x00 0x00          DC8 0, 0, 0
+   \              0x00         
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant "104pin      ">`:
+   \   00000000   0x31 0x30          DC8 "104pin      "
+   \              0x34 0x70    
+   \              0x69 0x6E    
+   \              0x20 0x20    
+   \              0x20 0x20    
+   \              0x20 0x20    
+   \              0x00         
+   \   0000000D   0x00 0x00          DC8 0, 0, 0
+   \              0x00         
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant "144pin      ">`:
+   \   00000000   0x31 0x34          DC8 "144pin      "
+   \              0x34 0x70    
+   \              0x69 0x6E    
+   \              0x20 0x20    
+   \              0x20 0x20    
+   \              0x20 0x20    
+   \              0x00         
+   \   0000000D   0x00 0x00          DC8 0, 0, 0
+   \              0x00         
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant "196pin      ">`:
+   \   00000000   0x31 0x39          DC8 "196pin      "
+   \              0x36 0x70    
+   \              0x69 0x6E    
+   \              0x20 0x20    
+   \              0x20 0x20    
+   \              0x20 0x20    
+   \              0x00         
+   \   0000000D   0x00 0x00          DC8 0, 0, 0
+   \              0x00         
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant "256pin      ">`:
+   \   00000000   0x32 0x35          DC8 "256pin      "
+   \              0x36 0x70    
+   \              0x69 0x6E    
+   \              0x20 0x20    
+   \              0x20 0x20    
+   \              0x20 0x20    
+   \              0x00         
+   \   0000000D   0x00 0x00          DC8 0, 0, 0
+   \              0x00         
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant "\\nUnrecognized Kinetis...">_1`:
+   \   00000000   0x0A 0x55          DC8 "\012Unrecognized Kinetis package code.      "
+   \              0x6E 0x72    
+   \              0x65 0x63    
+   \              0x6F 0x67    
+   \              0x6E 0x69    
+   \              0x7A 0x65    
+   \              0x64 0x20    
+   \              0x4B 0x69    
+   \              0x6E 0x65    
+   \              0x74 0x69    
+   \              0x73 0x20    
+   \              0x70 0x61    
+   \              0x63 0x6B    
+   \              0x61 0x67    
+   \              0x65 0x20    
+   \              0x63 0x6F    
+   \              0x64 0x65    
+   \              0x2E 0x20    
+   \              0x20 0x20    
+   \              0x20 0x20    
+   \              0x20 0x00    
+   \   0000002A   0x00 0x00          DC8 0, 0
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant "Silicon rev 1.0   \\n ">`:
+   \   00000000   0x53 0x69          DC8 "Silicon rev 1.0   \012 "
+   \              0x6C 0x69    
+   \              0x63 0x6F    
+   \              0x6E 0x20    
+   \              0x72 0x65    
+   \              0x76 0x20    
+   \              0x31 0x2E    
+   \              0x30 0x20    
+   \              0x20 0x20    
+   \              0x0A 0x20    
+   \              0x00         
+   \   00000015   0x00 0x00          DC8 0, 0, 0
+   \              0x00         
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant "Silicon rev 1.1  \\n ">`:
+   \   00000000   0x53 0x69          DC8 "Silicon rev 1.1  \012 "
+   \              0x6C 0x69    
+   \              0x63 0x6F    
+   \              0x6E 0x20    
+   \              0x72 0x65    
+   \              0x76 0x20    
+   \              0x31 0x2E    
+   \              0x31 0x20    
+   \              0x20 0x0A    
+   \              0x20 0x00    
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant "Silicon rev 1.2  \\n ">`:
+   \   00000000   0x53 0x69          DC8 "Silicon rev 1.2  \012 "
+   \              0x6C 0x69    
+   \              0x63 0x6F    
+   \              0x6E 0x20    
+   \              0x72 0x65    
+   \              0x76 0x20    
+   \              0x31 0x2E    
+   \              0x32 0x20    
+   \              0x20 0x0A    
+   \              0x20 0x00    
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant "\\nThis version of soft...">`:
+   \   00000000   0x0A 0x54          DC8 0AH, 54H, 68H, 69H, 73H, 20H, 76H, 65H
+   \              0x68 0x69    
+   \              0x73 0x20    
+   \              0x76 0x65    
+   \   00000008   0x72 0x73          DC8 72H, 73H, 69H, 6FH, 6EH, 20H, 6FH, 66H
+   \              0x69 0x6F    
+   \              0x6E 0x20    
+   \              0x6F 0x66    
+   \   00000010   0x20 0x73          DC8 20H, 73H, 6FH, 66H, 74H, 77H, 61H, 72H
+   \              0x6F 0x66    
+   \              0x74 0x77    
+   \              0x61 0x72    
+   \   00000018   0x65 0x20          DC8 65H, 20H, 64H, 6FH, 65H, 73H, 6EH, 27H
+   \              0x64 0x6F    
+   \              0x65 0x73    
+   \              0x6E 0x27    
+   \   00000020   0x74 0x20          DC8 74H, 20H, 72H, 65H, 63H, 6FH, 67H, 6EH
+   \              0x72 0x65    
+   \              0x63 0x6F    
+   \              0x67 0x6E    
+   \   00000028   0x69 0x7A          DC8 69H, 7AH, 65H, 20H, 74H, 68H, 65H, 20H
+   \              0x65 0x20    
+   \              0x74 0x68    
+   \              0x65 0x20    
+   \   00000030   0x72 0x65          DC8 72H, 65H, 76H, 69H, 73H, 69H, 6FH, 6EH
+   \              0x76 0x69    
+   \              0x73 0x69    
+   \              0x6F 0x6E    
+   \   00000038   0x20 0x63          DC8 20H, 63H, 6FH, 64H, 65H, 2EH, 0
+   \              0x6F 0x64    
+   \              0x65 0x2E    
+   \              0x00         
+   \   0000003F   0x00               DC8 0
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant "128 kBytes of P-flash\\t">`:
+   \   00000000   0x31 0x32          DC8 "128 kBytes of P-flash\t"
+   \              0x38 0x20    
+   \              0x6B 0x42    
+   \              0x79 0x74    
+   \              0x65 0x73    
+   \              0x20 0x6F    
+   \              0x66 0x20    
+   \              0x50 0x2D    
+   \              0x66 0x6C    
+   \              0x61 0x73    
+   \              0x68 0x09    
+   \              0x00         
+   \   00000017   0x00               DC8 0
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant "256 kBytes of P-flash\\t">`:
+   \   00000000   0x32 0x35          DC8 "256 kBytes of P-flash\t"
+   \              0x36 0x20    
+   \              0x6B 0x42    
+   \              0x79 0x74    
+   \              0x65 0x73    
+   \              0x20 0x6F    
+   \              0x66 0x20    
+   \              0x50 0x2D    
+   \              0x66 0x6C    
+   \              0x61 0x73    
+   \              0x68 0x09    
+   \              0x00         
+   \   00000017   0x00               DC8 0
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant "512 kBytes of P-flash\\t">`:
+   \   00000000   0x35 0x31          DC8 "512 kBytes of P-flash\t"
+   \              0x32 0x20    
+   \              0x6B 0x42    
+   \              0x79 0x74    
+   \              0x65 0x73    
+   \              0x20 0x6F    
+   \              0x66 0x20    
+   \              0x50 0x2D    
+   \              0x66 0x6C    
+   \              0x61 0x73    
+   \              0x68 0x09    
+   \              0x00         
+   \   00000017   0x00               DC8 0
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant "ERR!! Undefined P-fla...">`:
+   \   00000000   0x45 0x52          DC8 "ERR!! Undefined P-flash size\012"
+   \              0x52 0x21    
+   \              0x21 0x20    
+   \              0x55 0x6E    
+   \              0x64 0x65    
+   \              0x66 0x69    
+   \              0x6E 0x65    
+   \              0x64 0x20    
+   \              0x50 0x2D    
+   \              0x66 0x6C    
+   \              0x61 0x73    
+   \              0x68 0x20    
+   \              0x73 0x69    
+   \              0x7A 0x65    
+   \              0x0A 0x00    
+   \   0000001E   0x00 0x00          DC8 0, 0
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant "P-flash only\\n">`:
+   \   00000000   0x50 0x2D          DC8 "P-flash only\012"
+   \              0x66 0x6C    
+   \              0x61 0x73    
+   \              0x68 0x20    
+   \              0x6F 0x6E    
+   \              0x6C 0x79    
+   \              0x0A 0x00    
+   \   0000000E   0x00 0x00          DC8 0, 0
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant "0 kBytes of FlexNVM\\n">`:
+   \   00000000   0x30 0x20          DC8 "0 kBytes of FlexNVM\012"
+   \              0x6B 0x42    
+   \              0x79 0x74    
+   \              0x65 0x73    
+   \              0x20 0x6F    
+   \              0x66 0x20    
+   \              0x46 0x6C    
+   \              0x65 0x78    
+   \              0x4E 0x56    
+   \              0x4D 0x0A    
+   \              0x00         
+   \   00000015   0x00 0x00          DC8 0, 0, 0
+   \              0x00         
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant "128 kBytes of FlexNVM\\n">`:
+   \   00000000   0x31 0x32          DC8 "128 kBytes of FlexNVM\012"
+   \              0x38 0x20    
+   \              0x6B 0x42    
+   \              0x79 0x74    
+   \              0x65 0x73    
+   \              0x20 0x6F    
+   \              0x66 0x20    
+   \              0x46 0x6C    
+   \              0x65 0x78    
+   \              0x4E 0x56    
+   \              0x4D 0x0A    
+   \              0x00         
+   \   00000017   0x00               DC8 0
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant "256 kBytes of FlexNVM\\n">`:
+   \   00000000   0x32 0x35          DC8 "256 kBytes of FlexNVM\012"
+   \              0x36 0x20    
+   \              0x6B 0x42    
+   \              0x79 0x74    
+   \              0x65 0x73    
+   \              0x20 0x6F    
+   \              0x66 0x20    
+   \              0x46 0x6C    
+   \              0x65 0x78    
+   \              0x4E 0x56    
+   \              0x4D 0x0A    
+   \              0x00         
+   \   00000017   0x00               DC8 0
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant "ERR!! Undefined FlexN...">`:
+   \   00000000   0x45 0x52          DC8 "ERR!! Undefined FlexNVM size\012"
+   \              0x52 0x21    
+   \              0x21 0x20    
+   \              0x55 0x6E    
+   \              0x64 0x65    
+   \              0x66 0x69    
+   \              0x6E 0x65    
+   \              0x64 0x20    
+   \              0x46 0x6C    
+   \              0x65 0x78    
+   \              0x4E 0x56    
+   \              0x4D 0x20    
+   \              0x73 0x69    
+   \              0x7A 0x65    
+   \              0x0A 0x00    
+   \   0000001E   0x00 0x00          DC8 0, 0
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant "32 kBytes of RAM\\n\\n">`:
+   \   00000000   0x33 0x32          DC8 "32 kBytes of RAM\012\012"
+   \              0x20 0x6B    
+   \              0x42 0x79    
+   \              0x74 0x65    
+   \              0x73 0x20    
+   \              0x6F 0x66    
+   \              0x20 0x52    
+   \              0x41 0x4D    
+   \              0x0A 0x0A    
+   \              0x00         
+   \   00000013   0x00               DC8 0
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant "64 kBytes of RAM\\n\\n">`:
+   \   00000000   0x36 0x34          DC8 "64 kBytes of RAM\012\012"
+   \              0x20 0x6B    
+   \              0x42 0x79    
+   \              0x74 0x65    
+   \              0x73 0x20    
+   \              0x6F 0x66    
+   \              0x20 0x52    
+   \              0x41 0x4D    
+   \              0x0A 0x0A    
+   \              0x00         
+   \   00000013   0x00               DC8 0
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant "96 kBytes of RAM\\n\\n">`:
+   \   00000000   0x39 0x36          DC8 "96 kBytes of RAM\012\012"
+   \              0x20 0x6B    
+   \              0x42 0x79    
+   \              0x74 0x65    
+   \              0x73 0x20    
+   \              0x6F 0x66    
+   \              0x20 0x52    
+   \              0x41 0x4D    
+   \              0x0A 0x0A    
+   \              0x00         
+   \   00000013   0x00               DC8 0
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant "128 kBytes of RAM\\n\\n">`:
+   \   00000000   0x31 0x32          DC8 "128 kBytes of RAM\012\012"
+   \              0x38 0x20    
+   \              0x6B 0x42    
+   \              0x79 0x74    
+   \              0x65 0x73    
+   \              0x20 0x6F    
+   \              0x66 0x20    
+   \              0x52 0x41    
+   \              0x4D 0x0A    
+   \              0x0A 0x00    
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant "ERR!! Undefined RAM s...">`:
+   \   00000000   0x45 0x52          DC8 "ERR!! Undefined RAM size\012\012"
+   \              0x52 0x21    
+   \              0x21 0x20    
+   \              0x55 0x6E    
+   \              0x64 0x65    
+   \              0x66 0x69    
+   \              0x6E 0x65    
+   \              0x64 0x20    
+   \              0x52 0x41    
+   \              0x4D 0x20    
+   \              0x73 0x69    
+   \              0x7A 0x65    
+   \              0x0A 0x0A    
+   \              0x00         
+   \   0000001B   0x00               DC8 0
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant "Flash parameter versi...">`:
+   \   00000000   0x46 0x6C          DC8 "Flash parameter version %d.%d.%d.%d\012"
+   \              0x61 0x73    
+   \              0x68 0x20    
+   \              0x70 0x61    
+   \              0x72 0x61    
+   \              0x6D 0x65    
+   \              0x74 0x65    
+   \              0x72 0x20    
+   \              0x76 0x65    
+   \              0x72 0x73    
+   \              0x69 0x6F    
+   \              0x6E 0x20    
+   \              0x25 0x64    
+   \              0x2E 0x25    
+   \              0x64 0x2E    
+   \              0x25 0x64    
+   \              0x2E 0x25    
+   \              0x64 0x0A    
+   \              0x00         
+   \   00000025   0x00 0x00          DC8 0, 0, 0
+   \              0x00         
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant "Flash version ID %d.%...">`:
+   \   00000000   0x46 0x6C          DC8 "Flash version ID %d.%d.%d.%d\012"
+   \              0x61 0x73    
+   \              0x68 0x20    
+   \              0x76 0x65    
+   \              0x72 0x73    
+   \              0x69 0x6F    
+   \              0x6E 0x20    
+   \              0x49 0x44    
+   \              0x20 0x25    
+   \              0x64 0x2E    
+   \              0x25 0x64    
+   \              0x2E 0x25    
+   \              0x64 0x2E    
+   \              0x25 0x64    
+   \              0x0A 0x00    
+   \   0000001E   0x00 0x00          DC8 0, 0
+    269          /********************************************************************/
+    270          
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+        8  cpu_identify
+             8 -> flash_identify
+             8 -> printf
+        8  flash_identify
+             8 -> printf
+        8  start
+             8 -> common_startup
+             8 -> main
+             8 -> sysinit
+             8 -> wdog_disable
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+      24  ?<Constant "0 kBytes of FlexNVM\n">
+      16  ?<Constant "100pin      ">
+      16  ?<Constant "104pin      ">
+      24  ?<Constant "128 kBytes of FlexNVM\n">
+      24  ?<Constant "128 kBytes of P-flash\t">
+      20  ?<Constant "128 kBytes of RAM\n\n">
+      16  ?<Constant "144pin      ">
+      16  ?<Constant "196pin      ">
+      24  ?<Constant "256 kBytes of FlexNVM\n">
+      24  ?<Constant "256 kBytes of P-flash\t">
+      16  ?<Constant "256pin      ">
+      20  ?<Constant "32 kBytes of RAM\n\n">
+      16  ?<Constant "32pin       ">
+      16  ?<Constant "48pin       ">
+      24  ?<Constant "512 kBytes of P-flash\t">
+      20  ?<Constant "64 kBytes of RAM\n\n">
+      16  ?<Constant "64pin       ">
+      16  ?<Constant "80pin       ">
+      16  ?<Constant "81pin       ">
+      20  ?<Constant "96 kBytes of RAM\n\n">
+      32  ?<Constant "ERR!! Undefined FlexN...">
+      32  ?<Constant "ERR!! Undefined P-fla...">
+      28  ?<Constant "ERR!! Undefined RAM s...">
+      40  ?<Constant "Flash parameter versi...">
+      32  ?<Constant "Flash version ID %d.%...">
+      16  ?<Constant "P-flash only\n">
+      24  ?<Constant "Silicon rev 1.0   \n ">
+      20  ?<Constant "Silicon rev 1.1  \n ">
+      20  ?<Constant "Silicon rev 1.2  \n ">
+       8  ?<Constant "\nK10-">
+       8  ?<Constant "\nK20-">
+       8  ?<Constant "\nK30-">
+       8  ?<Constant "\nK40-">
+       8  ?<Constant "\nK50-">
+       8  ?<Constant "\nK53-">
+       8  ?<Constant "\nK60-">
+       8  ?<Constant "\nK70-">
+      64  ?<Constant "\nThis version of soft...">
+      40  ?<Constant "\nUnrecognized Kinetis...">
+      44  ?<Constant "\nUnrecognized Kinetis...">_1
+       4  ??DataTable1
+       4  ??DataTable1_1
+       4  ??DataTable1_10
+       4  ??DataTable1_11
+       4  ??DataTable1_12
+       4  ??DataTable1_13
+       4  ??DataTable1_14
+       4  ??DataTable1_15
+       4  ??DataTable1_16
+       4  ??DataTable1_17
+       4  ??DataTable1_18
+       4  ??DataTable1_19
+       4  ??DataTable1_2
+       4  ??DataTable1_20
+       4  ??DataTable1_21
+       4  ??DataTable1_22
+       4  ??DataTable1_23
+       4  ??DataTable1_24
+       4  ??DataTable1_25
+       4  ??DataTable1_26
+       4  ??DataTable1_27
+       4  ??DataTable1_28
+       4  ??DataTable1_29
+       4  ??DataTable1_3
+       4  ??DataTable1_30
+       4  ??DataTable1_31
+       4  ??DataTable1_32
+       4  ??DataTable1_33
+       4  ??DataTable1_34
+       4  ??DataTable1_35
+       4  ??DataTable1_36
+       4  ??DataTable1_37
+       4  ??DataTable1_38
+       4  ??DataTable1_39
+       4  ??DataTable1_4
+       4  ??DataTable1_40
+       4  ??DataTable1_41
+       4  ??DataTable1_42
+       4  ??DataTable1_43
+       4  ??DataTable1_44
+       4  ??DataTable1_45
+       4  ??DataTable1_46
+       4  ??DataTable1_47
+       4  ??DataTable1_48
+       4  ??DataTable1_49
+       4  ??DataTable1_5
+       4  ??DataTable1_50
+       4  ??DataTable1_51
+       4  ??DataTable1_52
+       4  ??DataTable1_53
+       4  ??DataTable1_6
+       4  ??DataTable1_7
+       4  ??DataTable1_8
+       4  ??DataTable1_9
+     514  cpu_identify
+     162  flash_identify
+      20  start
+
+ 
+ 840 bytes in section .rodata
+ 912 bytes in section .text
+ 
+ 912 bytes of CODE  memory
+ 840 bytes of CONST memory
+
+Errors: none
+Warnings: 2

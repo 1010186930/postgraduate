@@ -1,0 +1,330 @@
+###############################################################################
+#                                                                             #
+# IAR ELF Linker V6.30.6.53336/W32 for ARM              03/Jan/2013  12:15:33 #
+# Copyright 2007-2012 IAR Systems AB.                                         #
+#                                                                             #
+#    Output file  =  C:\Users\me\Desktop\Kinetis_K60Àý³Ì\build\iar\hello_worl #
+#                    d\RAM_128KB\Exe\hello_world_k60_tower.out                #
+#    Map file     =  C:\Users\me\Desktop\Kinetis_K60Àý³Ì\build\iar\hello_worl #
+#                    d\RAM_128KB\List\hello_world_k60_tower.map               #
+#    Command line =  C:\Users\me\Desktop\Kinetis_K60Àý³Ì\build\iar\hello_worl #
+#                    d\RAM_128KB\Obj\adc16.o C:\Users\me\Desktop\Kinetis_K60À #
+#                    ý³Ì\build\iar\hello_world\RAM_128KB\Obj\alloc.o          #
+#                    C:\Users\me\Desktop\Kinetis_K60Àý³Ì\build\iar\hello_worl #
+#                    d\RAM_128KB\Obj\arm_cm4.o C:\Users\me\Desktop\Kinetis_K6 #
+#                    0Àý³Ì\build\iar\hello_world\RAM_128KB\Obj\assert.o       #
+#                    C:\Users\me\Desktop\Kinetis_K60Àý³Ì\build\iar\hello_worl #
+#                    d\RAM_128KB\Obj\crt0.o C:\Users\me\Desktop\Kinetis_K60Àý #
+#                    ³Ì\build\iar\hello_world\RAM_128KB\Obj\enet.o            #
+#                    C:\Users\me\Desktop\Kinetis_K60Àý³Ì\build\iar\hello_worl #
+#                    d\RAM_128KB\Obj\eth_phy.o C:\Users\me\Desktop\Kinetis_K6 #
+#                    0Àý³Ì\build\iar\hello_world\RAM_128KB\Obj\hello_world.o  #
+#                    C:\Users\me\Desktop\Kinetis_K60Àý³Ì\build\iar\hello_worl #
+#                    d\RAM_128KB\Obj\io.o C:\Users\me\Desktop\Kinetis_K60Àý³Ì #
+#                    \build\iar\hello_world\RAM_128KB\Obj\lptmr.o             #
+#                    C:\Users\me\Desktop\Kinetis_K60Àý³Ì\build\iar\hello_worl #
+#                    d\RAM_128KB\Obj\mcg.o C:\Users\me\Desktop\Kinetis_K60Àý³ #
+#                    Ì\build\iar\hello_world\RAM_128KB\Obj\memtest.o          #
+#                    C:\Users\me\Desktop\Kinetis_K60Àý³Ì\build\iar\hello_worl #
+#                    d\RAM_128KB\Obj\mii.o C:\Users\me\Desktop\Kinetis_K60Àý³ #
+#                    Ì\build\iar\hello_world\RAM_128KB\Obj\nbuf.o             #
+#                    C:\Users\me\Desktop\Kinetis_K60Àý³Ì\build\iar\hello_worl #
+#                    d\RAM_128KB\Obj\pmc.o C:\Users\me\Desktop\Kinetis_K60Àý³ #
+#                    Ì\build\iar\hello_world\RAM_128KB\Obj\printf.o           #
+#                    C:\Users\me\Desktop\Kinetis_K60Àý³Ì\build\iar\hello_worl #
+#                    d\RAM_128KB\Obj\queue.o C:\Users\me\Desktop\Kinetis_K60À #
+#                    ý³Ì\build\iar\hello_world\RAM_128KB\Obj\rtc.o            #
+#                    C:\Users\me\Desktop\Kinetis_K60Àý³Ì\build\iar\hello_worl #
+#                    d\RAM_128KB\Obj\start.o C:\Users\me\Desktop\Kinetis_K60À #
+#                    ý³Ì\build\iar\hello_world\RAM_128KB\Obj\startup.o        #
+#                    C:\Users\me\Desktop\Kinetis_K60Àý³Ì\build\iar\hello_worl #
+#                    d\RAM_128KB\Obj\stdlib.o C:\Users\me\Desktop\Kinetis_K60 #
+#                    Àý³Ì\build\iar\hello_world\RAM_128KB\Obj\sysinit.o       #
+#                    C:\Users\me\Desktop\Kinetis_K60Àý³Ì\build\iar\hello_worl #
+#                    d\RAM_128KB\Obj\uart.o C:\Users\me\Desktop\Kinetis_K60Àý #
+#                    ³Ì\build\iar\hello_world\RAM_128KB\Obj\uif.o             #
+#                    C:\Users\me\Desktop\Kinetis_K60Àý³Ì\build\iar\hello_worl #
+#                    d\RAM_128KB\Obj\vectors.o C:\Users\me\Desktop\Kinetis_K6 #
+#                    0Àý³Ì\build\iar\hello_world\RAM_128KB\Obj\wdog.o         #
+#                    --redirect _Printf=_PrintfFull --redirect                #
+#                    _Scanf=_ScanfFull -o C:\Users\me\Desktop\Kinetis_K60Àý³Ì #
+#                    \build\iar\hello_world\RAM_128KB\Exe\hello_world_k60_tow #
+#                    er.out --map C:\Users\me\Desktop\Kinetis_K60Àý³Ì\build\i #
+#                    ar\hello_world\RAM_128KB\List\hello_world_k60_tower.map  #
+#                    --config "C:\Users\me\Desktop\Kinetis_K60Àý³Ì\build\iar\ #
+#                    hello_world\..\config files\128KB_Ram.icf"               #
+#                    --semihosting --entry __iar_program_start --vfe          #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__SystemLibrary = DLib
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A1":  place at 0x1fff0000 { ro section .intvec };
+"A2":  place at 0x1fff0410 { ro section .noinit };
+"P1":  place in [from 0x1fff0000 to 0x20010000] { ro, block CodeRelocate };
+"P2":  place in [from 0x1fff0000 to 0x20010000] {
+          rw, block CodeRelocateRam, block CSTACK, block HEAP };
+
+  Section              Kind        Address    Size  Object
+  -------              ----        -------    ----  ------
+"A1":                                        0x410
+  .intvec              const    0x1fff0000   0x410  vectors.o [1]
+                              - 0x1fff0410   0x410
+
+"A2":                                         0x3c
+  .noinit              ro code  0x1fff0410    0x3c  crt0.o [1]
+                              - 0x1fff044c    0x3c
+
+"P1":                                       0x12a4
+  .text                ro code  0x1fff044c   0x4c4  printf.o [1]
+  .text                ro code  0x1fff0910    0x1a  stdlib.o [1]
+  .text                ro code  0x1fff092a    0x22  zero_init3.o [5]
+  .text                ro code  0x1fff094c   0x470  start.o [1]
+  .text                ro code  0x1fff0dbc    0x38  wdog.o [1]
+  .text                ro code  0x1fff0df4    0x9c  startup.o [1]
+  .text                ro code  0x1fff0e90    0xc4  sysinit.o [1]
+  .text                ro code  0x1fff0f54    0x18  hello_world.o [1]
+  .text                ro code  0x1fff0f6c     0xc  arm_cm4.o [1]
+  .text                ro code  0x1fff0f78   0x138  mcg.o [1]
+  .text                ro code  0x1fff10b0    0xfc  uart.o [1]
+  .text                ro code  0x1fff11ac    0x1c  io.o [1]
+  CodeRelocate                  0x1fff11c8    0x4c  <Block>
+    Initializer bytes  ro data  0x1fff11c8    0x4c  <for CodeRelocateRam-1>
+  .rodata              const    0x1fff1214    0x40  start.o [1]
+  .rodata              const    0x1fff1254    0x30  vectors.o [1]
+  .rodata              const    0x1fff1284    0x2c  start.o [1]
+  .text                ro code  0x1fff12b0    0x2c  data_init3.o [5]
+  .rodata              const    0x1fff12dc    0x28  start.o [1]
+  .rodata              const    0x1fff1304    0x28  start.o [1]
+  .iar.init_table      const    0x1fff132c    0x10  - Linker created -
+  .rodata              const    0x1fff133c    0x20  start.o [1]
+  .rodata              const    0x1fff135c    0x20  start.o [1]
+  .rodata              const    0x1fff137c    0x20  start.o [1]
+  .rodata              const    0x1fff139c    0x1c  start.o [1]
+  .rodata              const    0x1fff13b8    0x1c  start.o [1]
+  .rodata              const    0x1fff13d4    0x1c  start.o [1]
+  .rodata              const    0x1fff13f0    0x18  start.o [1]
+  .rodata              const    0x1fff1408    0x18  start.o [1]
+  .rodata              const    0x1fff1420    0x18  start.o [1]
+  .rodata              const    0x1fff1438    0x18  start.o [1]
+  .rodata              const    0x1fff1450    0x18  start.o [1]
+  .rodata              const    0x1fff1468    0x18  start.o [1]
+  .rodata              const    0x1fff1480    0x18  start.o [1]
+  .rodata              const    0x1fff1498    0x18  start.o [1]
+  .rodata              const    0x1fff14b0    0x18  start.o [1]
+  .text                ro code  0x1fff14c8    0x18  vectors.o [1]
+  .text                ro code  0x1fff14e0    0x16  cmain.o [5]
+  .text                ro code  0x1fff14f6     0x4  low_level_init.o [3]
+  .text                ro code  0x1fff14fa     0x4  exit.o [3]
+  .text                ro code  0x1fff1500     0xa  cexit.o [5]
+  .text                ro code  0x1fff150c    0x14  exit.o [6]
+  .rodata              const    0x1fff1520    0x14  start.o [1]
+  .rodata              const    0x1fff1534    0x14  start.o [1]
+  .rodata              const    0x1fff1548    0x14  start.o [1]
+  .rodata              const    0x1fff155c    0x14  start.o [1]
+  .rodata              const    0x1fff1570    0x14  start.o [1]
+  .rodata              const    0x1fff1584    0x14  start.o [1]
+  .rodata              const    0x1fff1598    0x14  start.o [1]
+  .rodata              const    0x1fff15ac    0x10  hello_world.o [1]
+  .rodata              const    0x1fff15bc    0x10  start.o [1]
+  .rodata              const    0x1fff15cc    0x10  start.o [1]
+  .rodata              const    0x1fff15dc    0x10  start.o [1]
+  .rodata              const    0x1fff15ec    0x10  start.o [1]
+  .rodata              const    0x1fff15fc    0x10  start.o [1]
+  .rodata              const    0x1fff160c    0x10  start.o [1]
+  .rodata              const    0x1fff161c    0x10  start.o [1]
+  .rodata              const    0x1fff162c    0x10  start.o [1]
+  .rodata              const    0x1fff163c    0x10  start.o [1]
+  .rodata              const    0x1fff164c    0x10  start.o [1]
+  .rodata              const    0x1fff165c    0x10  start.o [1]
+  .rodata              const    0x1fff166c    0x10  start.o [1]
+  .rodata              const    0x1fff167c    0x10  start.o [1]
+  .rodata              const    0x1fff168c     0xc  start.o [1]
+  .rodata              const    0x1fff1698     0xc  start.o [1]
+  .text                ro code  0x1fff16a4     0xc  cstartup_M.o [5]
+  .rodata              const    0x1fff16b0     0x8  start.o [1]
+  .rodata              const    0x1fff16b8     0x8  start.o [1]
+  .rodata              const    0x1fff16c0     0x8  start.o [1]
+  .rodata              const    0x1fff16c8     0x8  start.o [1]
+  .rodata              const    0x1fff16d0     0x8  start.o [1]
+  .rodata              const    0x1fff16d8     0x8  start.o [1]
+  .rodata              const    0x1fff16e0     0x8  start.o [1]
+  .rodata              const    0x1fff16e8     0x8  start.o [1]
+  .rodata              const    0x1fff16f0     0x0  bwt_init3c.o [5]
+                              - 0x1fff16f0  0x12a4
+
+"P2", part 1 of 2:                            0x4c
+  CodeRelocateRam               0x1fff16f0    0x4c  <Block>
+    CodeRelocateRam-1           0x1fff16f0    0x4c  <Init block>
+      .textrw          inited   0x1fff16f0    0x4c  mcg.o [1]
+                              - 0x1fff173c    0x4c
+
+"P2", part 2 of 2:                             0xc
+  .bss                          0x1fff173c     0xc  <Block>
+    .bss               zero     0x1fff173c     0x4  sysinit.o [1]
+    .bss               zero     0x1fff1740     0x4  sysinit.o [1]
+    .bss               zero     0x1fff1744     0x4  sysinit.o [1]
+                              - 0x1fff1748     0xc
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address     Size
+          -------     ----
+Zero (__iar_zero_init3)
+    1 destination range, total size 0xc:
+          0x1fff173c   0xc
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module            ro code  rw code  ro data  rw data
+    ------            -------  -------  -------  -------
+C:\Users\me\Desktop\Kinetis_K60Àý³Ì\build\iar\hello_world\RAM_128KB\Obj: [1]
+    arm_cm4.o              12
+    crt0.o                 60
+    hello_world.o          24                16
+    io.o                   28
+    mcg.o                 312       76       76
+    printf.o            1 220
+    start.o             1 136             1 020
+    startup.o             156
+    stdlib.o               26
+    sysinit.o             196                         12
+    uart.o                252
+    vectors.o              24             1 088
+    wdog.o                 56
+    ----------------------------------------------------
+    Total:              3 502       76    2 200       12
+
+command line: [2]
+    ----------------------------------------------------
+    Total:
+
+dl7M_tln.a: [3]
+    exit.o                  4
+    low_level_init.o        4
+    ----------------------------------------------------
+    Total:                  8
+
+m7M_tl.a: [4]
+    ----------------------------------------------------
+    Total:
+
+rt7M_tl.a: [5]
+    bwt_init3c.o
+    cexit.o                10
+    cmain.o                22
+    cstartup_M.o           12
+    data_init3.o           44
+    zero_init3.o           34
+    ----------------------------------------------------
+    Total:                122
+
+shb_l.a: [6]
+    exit.o                 20
+    ----------------------------------------------------
+    Total:                 20
+
+    Gaps                    4
+    Linker created                           16
+--------------------------------------------------------
+    Grand Total:        3 656       76    2 216       12
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                      Address   Size  Type      Object
+-----                      -------   ----  ----      ------
+.bss$$Base              0x1fff173c          --   Gb  - Linker created -
+.bss$$Limit             0x1fff1748          --   Gb  - Linker created -
+.data$$Base             0x00000000          --   Gb  - Linker created -
+.data_init$$Base        0x00000000          --   Gb  - Linker created -
+.data_init$$Limit       0x00000000          --   Gb  - Linker created -
+?main                   0x1fff14e1         Code  Gb  cmain.o [5]
+CodeRelocate$$Base      0x1fff11c8          --   Gb  - Linker created -
+CodeRelocate$$Limit     0x1fff1214          --   Gb  - Linker created -
+CodeRelocateRam$$Base   0x1fff16f0          --   Gb  - Linker created -
+CodeRelocateRam$$Limit  0x1fff173c          --   Gb  - Linker created -
+Region$$Table$$Base     0x1fff132c          --   Gb  - Linker created -
+Region$$Table$$Limit    0x1fff133c          --   Gb  - Linker created -
+__BOOT_STACK_ADDRESS {Abs}
+                        0x2000fff8          --   Gb  command line/config [2]
+__VECTOR_RAM {Abs}      0x1fff0000          --   Gb  command line/config [2]
+__VECTOR_TABLE {Abs}    0x1fff0000          --   Gb  command line/config [2]
+__cmain                 0x1fff14e1         Code  Gb  cmain.o [5]
+__exit                  0x1fff150d   0x14  Code  Gb  exit.o [6]
+__iar_SB                0x1fff16f0         Data  Gb  bwt_init3c.o [5]
+__iar_data_init3        0x1fff12b1   0x2c  Code  Gb  data_init3.o [5]
+__iar_program_start     0x1fff16a5         Code  Gb  cstartup_M.o [5]
+__iar_zero_init3        0x1fff092b   0x22  Code  Gb  zero_init3.o [5]
+__low_level_init        0x1fff14f7    0x4  Code  Gb  low_level_init.o [3]
+__startup               0x1fff0411         Code  Gb  crt0.o [1]
+__vector_table          0x1fff0000  0x410  Data  Gb  vectors.o [1]
+_call_main              0x1fff14ed         Code  Gb  cmain.o [5]
+_exit                   0x1fff1501         Code  Gb  cexit.o [5]
+_main                   0x1fff14f3         Code  Gb  cmain.o [5]
+common_startup          0x1fff0df5   0x9c  Code  Gb  startup.o [1]
+core_clk_khz            0x1fff173c    0x4  Data  Gb  sysinit.o [1]
+core_clk_mhz            0x1fff1740    0x4  Data  Gb  sysinit.o [1]
+cpu_identify            0x1fff0a11  0x204  Code  Gb  start.o [1]
+default_isr             0x1fff14c9   0x18  Code  Gb  vectors.o [1]
+exit                    0x1fff14fb    0x4  Code  Gb  exit.o [3]
+fb_clk_init             0x1fff0f0d   0x16  Code  Gb  sysinit.o [1]
+flash_identify          0x1fff0c15   0xa2  Code  Gb  start.o [1]
+in_char                 0x1fff11ad    0xa  Code  Gb  io.o [1]
+main                    0x1fff0f55   0x18  Code  Gb  hello_world.o [1]
+out_char                0x1fff11b7    0xe  Code  Gb  io.o [1]
+periph_clk_khz          0x1fff1744    0x4  Data  Gb  sysinit.o [1]
+pll_init                0x1fff0f79  0x11c  Code  Gb  mcg.o [1]
+printf                  0x1fff08ef   0x1e  Code  Gb  printf.o [1]
+printk                  0x1fff0525  0x3ca  Code  Gb  printf.o [1]
+printk_mknumstr         0x1fff0479   0x70  Code  Lc  printf.o [1]
+printk_pad_space        0x1fff0507   0x1e  Code  Lc  printf.o [1]
+printk_pad_zero         0x1fff04e9   0x1e  Code  Lc  printf.o [1]
+printk_putc             0x1fff044d   0x2c  Code  Lc  printf.o [1]
+set_sys_dividers        0x1fff16f1   0x4c  Code  Gb  mcg.o [1]
+start                   0x1fff094d   0xc0  Code  Gb  start.o [1]
+strlen                  0x1fff0911   0x1a  Code  Gb  stdlib.o [1]
+sysinit                 0x1fff0e91   0x66  Code  Gb  sysinit.o [1]
+trace_clk_init          0x1fff0ef7   0x16  Code  Gb  sysinit.o [1]
+uart_getchar            0x1fff1199    0xa  Code  Gb  uart.o [1]
+uart_init               0x1fff10b1   0xcc  Code  Gb  uart.o [1]
+uart_putchar            0x1fff11a3    0xa  Code  Gb  uart.o [1]
+wdog_disable            0x1fff0dbd   0x16  Code  Gb  wdog.o [1]
+wdog_unlock             0x1fff0dd5   0x16  Code  Gb  wdog.o [1]
+write_vtor              0x1fff0f6d    0x6  Code  Gb  arm_cm4.o [1]
+
+
+[1] = C:\Users\me\Desktop\Kinetis_K60Àý³Ì\build\iar\hello_world\RAM_128KB\Obj
+[2] = command line
+[3] = dl7M_tln.a
+[4] = m7M_tl.a
+[5] = rt7M_tl.a
+[6] = shb_l.a
+
+  3 656 bytes of readonly  code memory
+     76 bytes of readwrite code memory
+  2 216 bytes of readonly  data memory
+     12 bytes of readwrite data memory
+
+Errors: none
+Warnings: none

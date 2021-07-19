@@ -1,0 +1,169 @@
+###############################################################################
+#                                                                             #
+#                                                       16/Aug/2015  08:45:43 #
+# IAR ANSI C/C++ Compiler V6.30.6.23336/W32 EVALUATION for ARM                #
+# Copyright 1999-2012 IAR Systems AB.                                         #
+#                                                                             #
+#    Cpu mode     =  thumb                                                    #
+#    Endian       =  little                                                   #
+#    Source file  =  C:\Users\Ping\Desktop\K60_TFT144_SPI\src\common\assert.c #
+#    Command line =  C:\Users\Ping\Desktop\K60_TFT144_SPI\src\common\assert.c #
+#                     -D IAR -D TWR_K60N512 -lCN                              #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\RAM_128KB\List\ -lB C:\Users\Ping\Desktop\K60_TFT144_ #
+#                    SPI\build\iar\hello_world\RAM_128KB\List\ -o             #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\RAM_128KB\Obj\ --no_cse --no_unroll --no_inline       #
+#                    --no_code_motion --no_tbaa --no_clustering               #
+#                    --no_scheduling --debug --endian=little --cpu=Cortex-M4  #
+#                    -e --fpu=None --dlib_config "C:\Program Files (x86)\IAR  #
+#                    Systems\Embedded Workbench 6.0                           #
+#                    Evaluation\arm\INC\c\DLib_Config_Normal.h" -I            #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\projects\hello_world\ -I                 #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\common\ -I C:\Users\Ping\Desktop\K60_TFT #
+#                    144_SPI\build\iar\hello_world\..\..\..\src\cpu\ -I       #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\cpu\headers\ -I                          #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\drivers\adc16\ -I                        #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\drivers\enet\ -I                         #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\drivers\pmc\ -I                          #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\drivers\rtc\ -I                          #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\drivers\lptmr\ -I                        #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\drivers\uart\ -I                         #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\drivers\mcg\ -I                          #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\drivers\wdog\ -I                         #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\platforms\ -I                            #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\drivers\ftm\ -I                          #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\drivers\SPI\ -I                          #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\drivers\OLED\ -I                         #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\drivers\TFT\ -I                          #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\ -On --use_c++_inline                              #
+#    List file    =  C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\RAM_128KB\List\assert.lst                             #
+#    Object file  =  C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\RAM_128KB\Obj\assert.o                                #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+C:\Users\Ping\Desktop\K60_TFT144_SPI\src\common\assert.c
+      1          /*
+      2           * File:        assert.c
+      3           * Purpose:     Provide macro for software assertions
+      4           *
+      5           * Notes:       ASSERT macro defined in assert.h calls assert_failed()
+      6           */
+      7          
+      8          #include "common.h"
+      9          
+
+   \                                 In section .rodata, align 4
+     10          const char ASSERT_FAILED_STR[] = "Assertion failed in %s at line %d\n";
+   \                     ASSERT_FAILED_STR:
+   \   00000000   0x41 0x73          DC8 "Assertion failed in %s at line %d\012"
+   \              0x73 0x65    
+   \              0x72 0x74    
+   \              0x69 0x6F    
+   \              0x6E 0x20    
+   \              0x66 0x61    
+   \              0x69 0x6C    
+   \              0x65 0x64    
+   \              0x20 0x69    
+   \              0x6E 0x20    
+   \              0x25 0x73    
+   \              0x20 0x61    
+   \              0x74 0x20    
+   \              0x6C 0x69    
+   \              0x6E 0x65    
+   \              0x20 0x25    
+   \              0x64 0x0A    
+   \              0x00         
+   \   00000023   0x00               DC8 0
+     11          
+     12          /********************************************************************/
+
+   \                                 In section .text, align 4, keep-with-next
+     13          void
+     14          assert_failed(char *file, int line)
+     15          {
+   \                     assert_failed:
+   \   00000000   0xB570             PUSH     {R4-R6,LR}
+   \   00000002   0x0004             MOVS     R4,R0
+   \   00000004   0x000D             MOVS     R5,R1
+     16              int i;
+     17              
+     18              printf(ASSERT_FAILED_STR, file, line);
+   \   00000006   0x002A             MOVS     R2,R5
+   \   00000008   0x0021             MOVS     R1,R4
+   \   0000000A   0x4807             LDR.N    R0,??assert_failed_0
+   \   0000000C   0x.... 0x....      BL       printf
+     19          
+     20              while (1)
+     21              {
+     22          //        platform_led_display(0xFF);
+     23                  for (i = 100000; i; i--) ;
+   \                     ??assert_failed_1:
+   \   00000010   0x4806             LDR.N    R0,??assert_failed_0+0x4  ;; 0x186a0
+   \   00000012   0x0006             MOVS     R6,R0
+   \                     ??assert_failed_2:
+   \   00000014   0x2E00             CMP      R6,#+0
+   \   00000016   0xD001             BEQ.N    ??assert_failed_3
+   \   00000018   0x1E76             SUBS     R6,R6,#+1
+   \   0000001A   0xE7FB             B.N      ??assert_failed_2
+     24          //        platform_led_display(0x00);
+     25                  for (i = 100000; i; i--) ;
+   \                     ??assert_failed_3:
+   \   0000001C   0x4803             LDR.N    R0,??assert_failed_0+0x4  ;; 0x186a0
+   \   0000001E   0x0006             MOVS     R6,R0
+   \                     ??assert_failed_4:
+   \   00000020   0x2E00             CMP      R6,#+0
+   \   00000022   0xD0F5             BEQ.N    ??assert_failed_1
+   \   00000024   0x1E76             SUBS     R6,R6,#+1
+   \   00000026   0xE7FB             B.N      ??assert_failed_4
+   \                     ??assert_failed_0:
+   \   00000028   0x........         DC32     ASSERT_FAILED_STR
+   \   0000002C   0x000186A0         DC32     0x186a0
+     26              }
+     27          }
+     28          /********************************************************************/
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+       16  assert_failed
+             16 -> printf
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+      36  ASSERT_FAILED_STR
+      48  assert_failed
+
+ 
+ 36 bytes in section .rodata
+ 48 bytes in section .text
+ 
+ 48 bytes of CODE  memory
+ 36 bytes of CONST memory
+
+Errors: none
+Warnings: none

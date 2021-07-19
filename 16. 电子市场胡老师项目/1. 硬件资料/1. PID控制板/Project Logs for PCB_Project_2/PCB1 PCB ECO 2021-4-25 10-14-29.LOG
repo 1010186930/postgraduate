@@ -1,0 +1,12 @@
+Removed Pin From Net: NetName=+3.2V Pin=L2-2
+Change Component DesignItemId : Designator=L2 Old DesignItemId=100uH New DesignItemId=Inductor
+Change Component DesignItemId : Designator=L2 Old DesignItemId=Inductor New DesignItemId=100uH
+Change Component Comment : Designator=L2 Old Comment= New Comment=100uH
+Change Component Comment : Designator=L2 Old Comment=100uH New Comment=
+Change Component Description : Designator=L2 Old Description= New Description=Inductor
+Change Component Description : Designator=L2 Old Description=Inductor New Description=
+Change Component Library : Designator=L2 Old Library= New Library=Miscellaneous Devices.IntLib
+Change Component Library : Designator=L2 Old Library=Miscellaneous Devices.IntLib New Library=
+Added Pin To Net: NetName=+3.2V Pin=L2-2
+Added Member To Class: ClassName=Sheet1 Member=Component L2 
+Added Room: Name=Sheet1

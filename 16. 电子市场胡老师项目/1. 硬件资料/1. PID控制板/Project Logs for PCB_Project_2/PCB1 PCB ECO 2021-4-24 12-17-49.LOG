@@ -1,0 +1,21 @@
+Removed Pin From Net: NetName=+3.2V Pin=L2-2
+Added Pin To Net: NetName=+3.3V Pin=L2-1
+Added Pin To Net: NetName=+3.2V Pin=L2-2
+Added Pin To Net: NetName=KEY1 Pin=U8-10
+Added Pin To Net: NetName=KEY2 Pin=U8-11
+Added Pin To Net: NetName=PA4 Pin=U8-20
+Added Pin To Net: NetName=KEY3 Pin=U8-24
+Added Pin To Net: NetName=SCL Pin=U8-39
+Added Pin To Net: NetName=SDA Pin=U8-40
+Added Pin To Net: NetName=PA13 Pin=U8-46
+Added Pin To Net: NetName=PA14 Pin=U8-49
+Added Pin To Net: NetName=RST Pin=U8-51
+Added Pin To Net: NetName=PA2 Pin=U8-16
+Added Net: Name=PA2
+Added Pin To Net: NetName=PA3 Pin=U8-17
+Added Net: Name=PA3
+Added Pin To Net: NetName=PA6 Pin=U8-22
+Added Net: Name=PA6
+Added Pin To Net: NetName=PB5 Pin=U8-21
+Added Net: Name=PB5
+Added Room: Name=Sheet1

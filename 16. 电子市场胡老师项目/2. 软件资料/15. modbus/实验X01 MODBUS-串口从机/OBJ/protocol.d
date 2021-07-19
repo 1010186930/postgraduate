@@ -1,0 +1,10 @@
+..\obj\protocol.o: ..\MODBUS\protocol.c
+..\obj\protocol.o: ..\MODBUS\protocol.h
+..\obj\protocol.o: ..\SYSTEM\sys\sys.h
+..\obj\protocol.o: ..\SYSTEM\sys\stm32f10x.h
+..\obj\protocol.o: ..\SYSTEM\sys\core_cm3.h
+..\obj\protocol.o: D:\Keil5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\protocol.o: ..\SYSTEM\sys\system_stm32f10x.h
+..\obj\protocol.o: ..\MODBUS\mport.h
+..\obj\protocol.o: ..\MODBUS\mcheck.h
+..\obj\protocol.o: ..\MALLOC\malloc.h

@@ -1,0 +1,509 @@
+###############################################################################
+#                                                                             #
+#                                                       16/Aug/2015  08:45:41 #
+# IAR ANSI C/C++ Compiler V6.30.6.23336/W32 EVALUATION for ARM                #
+# Copyright 1999-2012 IAR Systems AB.                                         #
+#                                                                             #
+#    Cpu mode     =  thumb                                                    #
+#    Endian       =  little                                                   #
+#    Source file  =  C:\Users\Ping\Desktop\K60_TFT144_SPI\src\projects\hello_ #
+#                    world\hello_world.c                                      #
+#    Command line =  C:\Users\Ping\Desktop\K60_TFT144_SPI\src\projects\hello_ #
+#                    world\hello_world.c -D IAR -D TWR_K60N512 -lCN           #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\RAM_128KB\List\ -lB C:\Users\Ping\Desktop\K60_TFT144_ #
+#                    SPI\build\iar\hello_world\RAM_128KB\List\ -o             #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\RAM_128KB\Obj\ --no_cse --no_unroll --no_inline       #
+#                    --no_code_motion --no_tbaa --no_clustering               #
+#                    --no_scheduling --debug --endian=little --cpu=Cortex-M4  #
+#                    -e --fpu=None --dlib_config "C:\Program Files (x86)\IAR  #
+#                    Systems\Embedded Workbench 6.0                           #
+#                    Evaluation\arm\INC\c\DLib_Config_Normal.h" -I            #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\projects\hello_world\ -I                 #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\common\ -I C:\Users\Ping\Desktop\K60_TFT #
+#                    144_SPI\build\iar\hello_world\..\..\..\src\cpu\ -I       #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\cpu\headers\ -I                          #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\drivers\adc16\ -I                        #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\drivers\enet\ -I                         #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\drivers\pmc\ -I                          #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\drivers\rtc\ -I                          #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\drivers\lptmr\ -I                        #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\drivers\uart\ -I                         #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\drivers\mcg\ -I                          #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\drivers\wdog\ -I                         #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\platforms\ -I                            #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\drivers\ftm\ -I                          #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\drivers\SPI\ -I                          #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\drivers\OLED\ -I                         #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\drivers\TFT\ -I                          #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\ -On --use_c++_inline                              #
+#    List file    =  C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\RAM_128KB\List\hello_world.lst                        #
+#    Object file  =  C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\RAM_128KB\Obj\hello_world.o                           #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+C:\Users\Ping\Desktop\K60_TFT144_SPI\src\projects\hello_world\hello_world.c
+      1          /*
+      2           * File:		hello_world.c
+      3           * Purpose:		Main process
+      4           *
+      5           */
+      6          
+      7          #include "common.h"
+      8          #include"HAL_SPI.h"
+      9          #include "SPI_FLASH.H"
+     10          #include "uart.h"
+     11          #include "sysinit.h"
+     12          #include "start.h"
+     13          #include "lcd.h"
+
+   \                                 In section .bss, align 4
+     14          unsigned long Time;
+   \                     Time:
+   \   00000000                      DS8 4
+     15          /********************************************************************/
+
+   \                                 In section .text, align 4, keep-with-next
+     16          void main (void)
+     17          {
+   \                     main:
+   \   00000000   0xB5E0             PUSH     {R5-R7,LR}
+     18                  gpio_init  (PORTB,23,GPO,HIGH); //初始化LED1引脚
+   \   00000002   0x2301             MOVS     R3,#+1
+   \   00000004   0x2201             MOVS     R2,#+1
+   \   00000006   0x2117             MOVS     R1,#+23
+   \   00000008   0x2001             MOVS     R0,#+1
+   \   0000000A   0x.... 0x....      BL       gpio_init
+     19                
+     20                  gpio_init  (PORTB,22,GPO,HIGH); //初始化LED2/C引脚
+   \   0000000E   0x2301             MOVS     R3,#+1
+   \   00000010   0x2201             MOVS     R2,#+1
+   \   00000012   0x2116             MOVS     R1,#+22
+   \   00000014   0x2001             MOVS     R0,#+1
+   \   00000016   0x.... 0x....      BL       gpio_init
+     21                   
+     22                  SPI_Init(SPI0, SPI_SCK_DIV_512, 1); //选择SPI0 100Mhz /64 = 1.5Mhz
+   \   0000001A   0x2201             MOVS     R2,#+1
+   \   0000001C   0x2109             MOVS     R1,#+9
+   \   0000001E   0x2000             MOVS     R0,#+0
+   \   00000020   0x.... 0x....      BL       SPI_Init
+     23                  
+     24                  //OLED_Init();			//初始化OLED      
+     25            	//OLED_ShowString(1,0, "0.96' OLED TEST");  
+     26            	//OLED_ShowString(1,16,"mcudev.taobao");  
+     27            	//"欢迎光临");  
+     28                  //OLED_ShowCHinese(1,32,0);
+     29                  // OLED_ShowCHinese(16,32,0);
+     30                  //  OLED_ShowCHinese(32,32,1);
+     31                  //   OLED_ShowCHinese(48,32,2);
+     32                  //    OLED_ShowCHinese(64,32,3);
+     33                  //     OLED_ShowCHinese(80,32,4);
+     34                  //     OLED_ShowCHinese(96,32,0);
+     35                  //     OLED_ShowCHinese(112,32,0);
+     36                       
+     37                  
+     38                  
+     39                //  OLED_ShowString(1,48,"         2014-05");    
+     40          
+     41                  
+     42                  LCD_Init();	   //
+   \   00000024   0x.... 0x....      BL       LCD_Init
+     43          	LCD_Clear(BLACK); //
+   \   00000028   0x2000             MOVS     R0,#+0
+   \   0000002A   0x.... 0x....      BL       LCD_Clear
+     44          
+     45          	POINT_COLOR=WHITE; 
+   \   0000002E   0x486B             LDR.N    R0,??main_0+0x8
+   \   00000030   0xF64F 0x71FF      MOVW     R1,#+65535
+   \   00000034   0x8001             STRH     R1,[R0, #+0]
+     46          	
+     47          	LCD_DrawRectangle(0,0,128-1,128-1);	//
+   \   00000036   0x237F             MOVS     R3,#+127
+   \   00000038   0x227F             MOVS     R2,#+127
+   \   0000003A   0x2100             MOVS     R1,#+0
+   \   0000003C   0x2000             MOVS     R0,#+0
+   \   0000003E   0x.... 0x....      BL       LCD_DrawRectangle
+     48          
+     49          	Show_Str(32,5,BLUE,YELLOW,"?μí3?à??",16,0);
+   \   00000042   0x2000             MOVS     R0,#+0
+   \   00000044   0x9002             STR      R0,[SP, #+8]
+   \   00000046   0x2010             MOVS     R0,#+16
+   \   00000048   0x9001             STR      R0,[SP, #+4]
+   \   0000004A   0x4865             LDR.N    R0,??main_0+0xC
+   \   0000004C   0x9000             STR      R0,[SP, #+0]
+   \   0000004E   0xF64F 0x73E0      MOVW     R3,#+65504
+   \   00000052   0x221F             MOVS     R2,#+31
+   \   00000054   0x2105             MOVS     R1,#+5
+   \   00000056   0x2020             MOVS     R0,#+32
+   \   00000058   0x.... 0x....      BL       Show_Str
+     50          	
+     51          	Show_Str(5,25,RED,YELLOW,"???è     ??",24,1);
+   \   0000005C   0x2001             MOVS     R0,#+1
+   \   0000005E   0x9002             STR      R0,[SP, #+8]
+   \   00000060   0x2018             MOVS     R0,#+24
+   \   00000062   0x9001             STR      R0,[SP, #+4]
+   \   00000064   0x485F             LDR.N    R0,??main_0+0x10
+   \   00000066   0x9000             STR      R0,[SP, #+0]
+   \   00000068   0xF64F 0x73E0      MOVW     R3,#+65504
+   \   0000006C   0xF44F 0x4278      MOV      R2,#+63488
+   \   00000070   0x2119             MOVS     R1,#+25
+   \   00000072   0x2005             MOVS     R0,#+5
+   \   00000074   0x.... 0x....      BL       Show_Str
+     52          	
+     53          	LCD_ShowNum2412(5+48,25,RED,YELLOW,":32",24,1);
+   \   00000078   0x2001             MOVS     R0,#+1
+   \   0000007A   0x9002             STR      R0,[SP, #+8]
+   \   0000007C   0x2018             MOVS     R0,#+24
+   \   0000007E   0x9001             STR      R0,[SP, #+4]
+   \   00000080   0xA054             ADR.N    R0,??main_0      ;; ":32"
+   \   00000082   0x9000             STR      R0,[SP, #+0]
+   \   00000084   0xF64F 0x73E0      MOVW     R3,#+65504
+   \   00000088   0xF44F 0x4278      MOV      R2,#+63488
+   \   0000008C   0x2119             MOVS     R1,#+25
+   \   0000008E   0x2035             MOVS     R0,#+53
+   \   00000090   0x.... 0x....      BL       LCD_ShowNum2412
+     54          
+     55          	Show_Str(5,50,YELLOW,YELLOW,"êa?è     ￡￥",24,1);
+   \   00000094   0x2001             MOVS     R0,#+1
+   \   00000096   0x9002             STR      R0,[SP, #+8]
+   \   00000098   0x2018             MOVS     R0,#+24
+   \   0000009A   0x9001             STR      R0,[SP, #+4]
+   \   0000009C   0x4852             LDR.N    R0,??main_0+0x14
+   \   0000009E   0x9000             STR      R0,[SP, #+0]
+   \   000000A0   0xF64F 0x73E0      MOVW     R3,#+65504
+   \   000000A4   0xF64F 0x72E0      MOVW     R2,#+65504
+   \   000000A8   0x2132             MOVS     R1,#+50
+   \   000000AA   0x2005             MOVS     R0,#+5
+   \   000000AC   0x.... 0x....      BL       Show_Str
+     56          	LCD_ShowNum2412(5+48,50,YELLOW,YELLOW,":20",24,1);
+   \   000000B0   0x2001             MOVS     R0,#+1
+   \   000000B2   0x9002             STR      R0,[SP, #+8]
+   \   000000B4   0x2018             MOVS     R0,#+24
+   \   000000B6   0x9001             STR      R0,[SP, #+4]
+   \   000000B8   0xA047             ADR.N    R0,??main_0+0x4  ;; ":20"
+   \   000000BA   0x9000             STR      R0,[SP, #+0]
+   \   000000BC   0xF64F 0x73E0      MOVW     R3,#+65504
+   \   000000C0   0xF64F 0x72E0      MOVW     R2,#+65504
+   \   000000C4   0x2132             MOVS     R1,#+50
+   \   000000C6   0x2035             MOVS     R0,#+53
+   \   000000C8   0x.... 0x....      BL       LCD_ShowNum2412
+     57          
+     58          	Show_Str(5,75,WHITE,YELLOW,"μ??1      ￡?",24,1);
+   \   000000CC   0x2001             MOVS     R0,#+1
+   \   000000CE   0x9002             STR      R0,[SP, #+8]
+   \   000000D0   0x2018             MOVS     R0,#+24
+   \   000000D2   0x9001             STR      R0,[SP, #+4]
+   \   000000D4   0x4845             LDR.N    R0,??main_0+0x18
+   \   000000D6   0x9000             STR      R0,[SP, #+0]
+   \   000000D8   0xF64F 0x73E0      MOVW     R3,#+65504
+   \   000000DC   0xF64F 0x72FF      MOVW     R2,#+65535
+   \   000000E0   0x214B             MOVS     R1,#+75
+   \   000000E2   0x2005             MOVS     R0,#+5
+   \   000000E4   0x.... 0x....      BL       Show_Str
+     59          	LCD_ShowNum2412(5+48,75,WHITE,YELLOW,":3.2",24,1);
+   \   000000E8   0x2001             MOVS     R0,#+1
+   \   000000EA   0x9002             STR      R0,[SP, #+8]
+   \   000000EC   0x2018             MOVS     R0,#+24
+   \   000000EE   0x9001             STR      R0,[SP, #+4]
+   \   000000F0   0x483F             LDR.N    R0,??main_0+0x1C
+   \   000000F2   0x9000             STR      R0,[SP, #+0]
+   \   000000F4   0xF64F 0x73E0      MOVW     R3,#+65504
+   \   000000F8   0xF64F 0x72FF      MOVW     R2,#+65535
+   \   000000FC   0x214B             MOVS     R1,#+75
+   \   000000FE   0x2035             MOVS     R0,#+53
+   \   00000100   0x.... 0x....      BL       LCD_ShowNum2412
+     60          
+     61          	Show_Str(5,100,GREEN,YELLOW,"μ?á÷      ￡á",24,1);
+   \   00000104   0x2001             MOVS     R0,#+1
+   \   00000106   0x9002             STR      R0,[SP, #+8]
+   \   00000108   0x2018             MOVS     R0,#+24
+   \   0000010A   0x9001             STR      R0,[SP, #+4]
+   \   0000010C   0x4839             LDR.N    R0,??main_0+0x20
+   \   0000010E   0x9000             STR      R0,[SP, #+0]
+   \   00000110   0xF64F 0x73E0      MOVW     R3,#+65504
+   \   00000114   0xF44F 0x62FC      MOV      R2,#+2016
+   \   00000118   0x2164             MOVS     R1,#+100
+   \   0000011A   0x2005             MOVS     R0,#+5
+   \   0000011C   0x.... 0x....      BL       Show_Str
+     62          	LCD_ShowNum2412(5+48,100,GREEN,YELLOW,":0.2",24,1);	  
+   \   00000120   0x2001             MOVS     R0,#+1
+   \   00000122   0x9002             STR      R0,[SP, #+8]
+   \   00000124   0x2018             MOVS     R0,#+24
+   \   00000126   0x9001             STR      R0,[SP, #+4]
+   \   00000128   0x4833             LDR.N    R0,??main_0+0x24
+   \   0000012A   0x9000             STR      R0,[SP, #+0]
+   \   0000012C   0xF64F 0x73E0      MOVW     R3,#+65504
+   \   00000130   0xF44F 0x62FC      MOV      R2,#+2016
+   \   00000134   0x2164             MOVS     R1,#+100
+   \   00000136   0x2035             MOVS     R0,#+53
+   \   00000138   0x.... 0x....      BL       LCD_ShowNum2412
+     63                  
+     64          	while(1)
+     65          	{
+     66          	
+     67                    GPIO_SET(PORTB,23,0);//LED灯
+   \                     ??main_1:
+   \   0000013C   0x482F             LDR.N    R0,??main_0+0x28
+   \   0000013E   0x6840             LDR      R0,[R0, #+4]
+   \   00000140   0x6800             LDR      R0,[R0, #+0]
+   \   00000142   0xF430 0x0000      BICS     R0,R0,#0x800000
+   \   00000146   0x492D             LDR.N    R1,??main_0+0x28
+   \   00000148   0x6849             LDR      R1,[R1, #+4]
+   \   0000014A   0x6008             STR      R0,[R1, #+0]
+     68                    
+     69                   for(Time=0;Time<0xfffff;Time++);//延时
+   \   0000014C   0x482C             LDR.N    R0,??main_0+0x2C
+   \   0000014E   0x2100             MOVS     R1,#+0
+   \   00000150   0x6001             STR      R1,[R0, #+0]
+   \                     ??main_2:
+   \   00000152   0x482B             LDR.N    R0,??main_0+0x2C
+   \   00000154   0x6800             LDR      R0,[R0, #+0]
+   \   00000156   0x492B             LDR.N    R1,??main_0+0x30  ;; 0xfffff
+   \   00000158   0x4288             CMP      R0,R1
+   \   0000015A   0xD205             BCS.N    ??main_3
+   \   0000015C   0x4828             LDR.N    R0,??main_0+0x2C
+   \   0000015E   0x6800             LDR      R0,[R0, #+0]
+   \   00000160   0x1C40             ADDS     R0,R0,#+1
+   \   00000162   0x4927             LDR.N    R1,??main_0+0x2C
+   \   00000164   0x6008             STR      R0,[R1, #+0]
+   \   00000166   0xE7F4             B.N      ??main_2
+     70                    
+     71                    GPIO_SET(PORTB,23,1);
+   \                     ??main_3:
+   \   00000168   0x4824             LDR.N    R0,??main_0+0x28
+   \   0000016A   0x6840             LDR      R0,[R0, #+4]
+   \   0000016C   0x6800             LDR      R0,[R0, #+0]
+   \   0000016E   0xF450 0x0000      ORRS     R0,R0,#0x800000
+   \   00000172   0x4922             LDR.N    R1,??main_0+0x28
+   \   00000174   0x6849             LDR      R1,[R1, #+4]
+   \   00000176   0x6008             STR      R0,[R1, #+0]
+     72                    
+     73                   for(Time=0;Time<0xfffff;Time++);//延时
+   \   00000178   0x4821             LDR.N    R0,??main_0+0x2C
+   \   0000017A   0x2100             MOVS     R1,#+0
+   \   0000017C   0x6001             STR      R1,[R0, #+0]
+   \                     ??main_4:
+   \   0000017E   0x4820             LDR.N    R0,??main_0+0x2C
+   \   00000180   0x6800             LDR      R0,[R0, #+0]
+   \   00000182   0x4920             LDR.N    R1,??main_0+0x30  ;; 0xfffff
+   \   00000184   0x4288             CMP      R0,R1
+   \   00000186   0xD205             BCS.N    ??main_5
+   \   00000188   0x481D             LDR.N    R0,??main_0+0x2C
+   \   0000018A   0x6800             LDR      R0,[R0, #+0]
+   \   0000018C   0x1C40             ADDS     R0,R0,#+1
+   \   0000018E   0x491C             LDR.N    R1,??main_0+0x2C
+   \   00000190   0x6008             STR      R0,[R1, #+0]
+   \   00000192   0xE7F4             B.N      ??main_4
+     74                     
+     75                    GPIO_SET(PORTB,22,0);//LED灯
+   \                     ??main_5:
+   \   00000194   0x4819             LDR.N    R0,??main_0+0x28
+   \   00000196   0x6840             LDR      R0,[R0, #+4]
+   \   00000198   0x6800             LDR      R0,[R0, #+0]
+   \   0000019A   0xF430 0x0080      BICS     R0,R0,#0x400000
+   \   0000019E   0x4917             LDR.N    R1,??main_0+0x28
+   \   000001A0   0x6849             LDR      R1,[R1, #+4]
+   \   000001A2   0x6008             STR      R0,[R1, #+0]
+     76                    
+     77                  for(Time=0;Time<0xfffff;Time++);//延时
+   \   000001A4   0x4816             LDR.N    R0,??main_0+0x2C
+   \   000001A6   0x2100             MOVS     R1,#+0
+   \   000001A8   0x6001             STR      R1,[R0, #+0]
+   \                     ??main_6:
+   \   000001AA   0x4815             LDR.N    R0,??main_0+0x2C
+   \   000001AC   0x6800             LDR      R0,[R0, #+0]
+   \   000001AE   0x4915             LDR.N    R1,??main_0+0x30  ;; 0xfffff
+   \   000001B0   0x4288             CMP      R0,R1
+   \   000001B2   0xD205             BCS.N    ??main_7
+   \   000001B4   0x4812             LDR.N    R0,??main_0+0x2C
+   \   000001B6   0x6800             LDR      R0,[R0, #+0]
+   \   000001B8   0x1C40             ADDS     R0,R0,#+1
+   \   000001BA   0x4911             LDR.N    R1,??main_0+0x2C
+   \   000001BC   0x6008             STR      R0,[R1, #+0]
+   \   000001BE   0xE7F4             B.N      ??main_6
+     78              
+     79                    GPIO_SET(PORTB,22,1);
+   \                     ??main_7:
+   \   000001C0   0x480E             LDR.N    R0,??main_0+0x28
+   \   000001C2   0x6840             LDR      R0,[R0, #+4]
+   \   000001C4   0x6800             LDR      R0,[R0, #+0]
+   \   000001C6   0xF450 0x0080      ORRS     R0,R0,#0x400000
+   \   000001CA   0x490C             LDR.N    R1,??main_0+0x28
+   \   000001CC   0x6849             LDR      R1,[R1, #+4]
+   \   000001CE   0x6008             STR      R0,[R1, #+0]
+   \   000001D0   0xE7B4             B.N      ??main_1
+   \   000001D2   0xBF00             Nop      
+   \                     ??main_0:
+   \   000001D4   0x3A 0x33          DC8      ":32"
+   \              0x32 0x00    
+   \   000001D8   0x3A 0x32          DC8      ":20"
+   \              0x30 0x00    
+   \   000001DC   0x........         DC32     POINT_COLOR
+   \   000001E0   0x........         DC32     `?<Constant "?\\246\\314\\250\\2523?\\250\\244??">`
+   \   000001E4   0x........         DC32     `?<Constant "???\\250\\250     ??">`
+   \   000001E8   0x........         DC32     `?<Constant "\\250\\272a?\\250\\250     \\241\\352\\24`
+   \   000001EC   0x........         DC32     `?<Constant "\\246\\314??1      \\241\\352?">`
+   \   000001F0   0x........         DC32     `?<Constant ":3.2">`
+   \   000001F4   0x........         DC32     `?<Constant "\\246\\314?\\250\\242\\241\\302      \\24`
+   \   000001F8   0x........         DC32     `?<Constant ":0.2">`
+   \   000001FC   0x........         DC32     GPIOx
+   \   00000200   0x........         DC32     Time
+   \   00000204   0x000FFFFF         DC32     0xfffff
+     80                   
+     81                    
+     82                    
+     83          	} 
+     84          }
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant "?\\246\\314\\250\\2523?\\250\\244??">`:
+   \   00000000   0x3F 0xA6          DC8 "?\246\314\250\2523?\250\244??"
+   \              0xCC 0xA8    
+   \              0xAA 0x33    
+   \              0x3F 0xA8    
+   \              0xA4 0x3F    
+   \              0x3F 0x00    
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant "???\\250\\250     ??">`:
+   \   00000000   0x3F 0x3F          DC8 "???\250\250     ??"
+   \              0x3F 0xA8    
+   \              0xA8 0x20    
+   \              0x20 0x20    
+   \              0x20 0x20    
+   \              0x3F 0x3F    
+   \              0x00         
+   \   0000000D   0x00 0x00          DC8 0, 0, 0
+   \              0x00         
+
+   \                                 In section .rodata, align 4
+   \   00000000   0x3A 0x33          DC8 ":32"
+   \              0x32 0x00    
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant "\\250\\272a?\\250\\250     \\241\\352\\24`:
+   \   00000000   0xA8 0xBA          DC8 "\250\272a?\250\250     \241\352\243\244"
+   \              0x61 0x3F    
+   \              0xA8 0xA8    
+   \              0x20 0x20    
+   \              0x20 0x20    
+   \              0x20 0xA1    
+   \              0xEA 0xA3    
+   \              0xA4 0x00    
+
+   \                                 In section .rodata, align 4
+   \   00000000   0x3A 0x32          DC8 ":20"
+   \              0x30 0x00    
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant "\\246\\314??1      \\241\\352?">`:
+   \   00000000   0xA6 0xCC          DC8 "\246\314??1      \241\352?"
+   \              0x3F 0x3F    
+   \              0x31 0x20    
+   \              0x20 0x20    
+   \              0x20 0x20    
+   \              0x20 0xA1    
+   \              0xEA 0x3F    
+   \              0x00         
+   \   0000000F   0x00               DC8 0
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant ":3.2">`:
+   \   00000000   0x3A 0x33          DC8 ":3.2"
+   \              0x2E 0x32    
+   \              0x00         
+   \   00000005   0x00 0x00          DC8 0, 0, 0
+   \              0x00         
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant "\\246\\314?\\250\\242\\241\\302      \\24`:
+   \   00000000   0xA6 0xCC          DC8 "\246\314?\250\242\241\302      \241\352\250\242"
+   \              0x3F 0xA8    
+   \              0xA2 0xA1    
+   \              0xC2 0x20    
+   \              0x20 0x20    
+   \              0x20 0x20    
+   \              0x20 0xA1    
+   \              0xEA 0xA8    
+   \              0xA2 0x00    
+   \   00000012   0x00 0x00          DC8 0, 0
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant ":0.2">`:
+   \   00000000   0x3A 0x30          DC8 ":0.2"
+   \              0x2E 0x32    
+   \              0x00         
+   \   00000005   0x00 0x00          DC8 0, 0, 0
+   \              0x00         
+     85          
+     86          
+     87          
+     88          
+     89          
+     90          
+     91          
+     92          
+     93          /********************************************************************/
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+       16  main
+             16 -> LCD_Clear
+             16 -> LCD_DrawRectangle
+             16 -> LCD_Init
+             16 -> LCD_ShowNum2412
+             16 -> SPI_Init
+             16 -> Show_Str
+             16 -> gpio_init
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       8  ?<Constant ":0.2">
+       4  ?<Constant ":20">
+       8  ?<Constant ":3.2">
+       4  ?<Constant ":32">
+      16  ?<Constant "???\250\250     ??">
+      12  ?<Constant "?\246\314\250\2523?\250\244??">
+      16  ?<Constant "\246\314??1      \241\352?">
+      20  ?<Constant "\246\314?\250\242\241\302      \24
+      16  ?<Constant "\250\272a?\250\250     \241\352\24
+       4  Time
+     520  main
+
+ 
+   4 bytes in section .bss
+ 104 bytes in section .rodata
+ 520 bytes in section .text
+ 
+ 520 bytes of CODE  memory
+ 104 bytes of CONST memory
+   4 bytes of DATA  memory
+
+Errors: none
+Warnings: 2

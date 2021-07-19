@@ -1,0 +1,19 @@
+D:\VC\VC worksplace\WindowsFormsComTest\WindowsFormsComTest\bin\Debug\WindowsFormsComTest.exe.config
+D:\VC\VC worksplace\WindowsFormsComTest\WindowsFormsComTest\bin\Debug\WindowsFormsComTest.exe
+D:\VC\VC worksplace\WindowsFormsComTest\WindowsFormsComTest\bin\Debug\WindowsFormsComTest.pdb
+D:\VC\VC worksplace\WindowsFormsComTest\WindowsFormsComTest\obj\Debug\WindowsFormsComTest.csprojAssemblyReference.cache
+D:\VC\VC worksplace\WindowsFormsComTest\WindowsFormsComTest\obj\Debug\WindowsFormsComTest.Form1.resources
+D:\VC\VC worksplace\WindowsFormsComTest\WindowsFormsComTest\obj\Debug\WindowsFormsComTest.Properties.Resources.resources
+D:\VC\VC worksplace\WindowsFormsComTest\WindowsFormsComTest\obj\Debug\WindowsFormsComTest.csproj.GenerateResource.cache
+D:\VC\VC worksplace\WindowsFormsComTest\WindowsFormsComTest\obj\Debug\WindowsFormsComTest.csproj.CoreCompileInputs.cache
+D:\VC\VC worksplace\WindowsFormsComTest\WindowsFormsComTest\obj\Debug\WindowsFormsComTest.exe
+D:\VC\VC worksplace\WindowsFormsComTest\WindowsFormsComTest\obj\Debug\WindowsFormsComTest.pdb
+D:\实验室\16. 电子市场胡老师项目\2. 软件资料\WindowsFormsComTest\WindowsFormsComTest\bin\Debug\WindowsFormsComTest.exe.config
+D:\实验室\16. 电子市场胡老师项目\2. 软件资料\WindowsFormsComTest\WindowsFormsComTest\bin\Debug\WindowsFormsComTest.exe
+D:\实验室\16. 电子市场胡老师项目\2. 软件资料\WindowsFormsComTest\WindowsFormsComTest\bin\Debug\WindowsFormsComTest.pdb
+D:\实验室\16. 电子市场胡老师项目\2. 软件资料\WindowsFormsComTest\WindowsFormsComTest\obj\Debug\WindowsFormsComTest.csprojAssemblyReference.cache
+D:\实验室\16. 电子市场胡老师项目\2. 软件资料\WindowsFormsComTest\WindowsFormsComTest\obj\Debug\WindowsFormsComTest.Form1.resources
+D:\实验室\16. 电子市场胡老师项目\2. 软件资料\WindowsFormsComTest\WindowsFormsComTest\obj\Debug\WindowsFormsComTest.Properties.Resources.resources
+D:\实验室\16. 电子市场胡老师项目\2. 软件资料\WindowsFormsComTest\WindowsFormsComTest\obj\Debug\WindowsFormsComTest.csproj.GenerateResource.cache
+D:\实验室\16. 电子市场胡老师项目\2. 软件资料\WindowsFormsComTest\WindowsFormsComTest\obj\Debug\WindowsFormsComTest.exe
+D:\实验室\16. 电子市场胡老师项目\2. 软件资料\WindowsFormsComTest\WindowsFormsComTest\obj\Debug\WindowsFormsComTest.pdb

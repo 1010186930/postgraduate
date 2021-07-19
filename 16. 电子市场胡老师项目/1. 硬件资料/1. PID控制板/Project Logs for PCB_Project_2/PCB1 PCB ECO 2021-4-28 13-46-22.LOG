@@ -1,0 +1,13 @@
+Added Component: Designator=KEY1(SW/2/SMT)
+Added Component: Designator=KEY2(SW/2/SMT)
+Added Component: Designator=KEY3(SW/2/SMT)
+Added Pin To Net: NetName=GND Pin=KEY1-1
+Added Pin To Net: NetName=KEY1 Pin=KEY1-2
+Added Pin To Net: NetName=GND Pin=KEY2-1
+Added Pin To Net: NetName=KEY2 Pin=KEY2-2
+Added Pin To Net: NetName=GND Pin=KEY3-1
+Added Pin To Net: NetName=KEY3 Pin=KEY3-2
+Added Member To Class: ClassName=Sheet1 Member=Component KEY1 +
+Added Member To Class: ClassName=Sheet1 Member=Component KEY2 ¹¦ÄÜÑ¡Ôñ
+Added Member To Class: ClassName=Sheet1 Member=Component KEY3 -
+Added Room: Name=Sheet1

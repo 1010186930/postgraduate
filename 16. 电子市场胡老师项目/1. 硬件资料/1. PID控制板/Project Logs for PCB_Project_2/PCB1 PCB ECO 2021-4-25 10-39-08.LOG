@@ -1,0 +1,19 @@
+Removed Pin From Net: NetName=+6V Pin=L2-1
+Change Component DesignItemId : Designator=U5 Old DesignItemId=AMS1117-3.3_C165482 New DesignItemId=LM1117_3.3
+Change Component DesignItemId : Designator=L2 Old DesignItemId=Inductor New DesignItemId=100uH
+Change Component DesignItemId : Designator=U2 Old DesignItemId=LM7812S/TR New DesignItemId=LM7805-263
+Change Component Footprint: Designator=U5 Old Footprint=SOT223-117 New Footprint=SOT-89A
+Change Component Comment : Designator=L2 Old Comment= New Comment=100uH
+Change Component Comment : Designator=U5 Old Comment=AMS1117-3.3_C165482 New Comment=LM1117_3.3
+Change Component Description : Designator=L2 Old Description=Inductor New Description=
+Change Component Library : Designator=U2 Old Library= New Library=HZH-IC集成电路.SchLib
+Change Component Library : Designator=L2 Old Library=Miscellaneous Devices.IntLib New Library=
+Added Component: Designator=L2(L1270)
+Added Component: Designator=P1(CON-2-2.0)
+Added Pin To Net: NetName=+3.3V Pin=L2-1
+Added Pin To Net: NetName=+6V Pin=L2-1
+Added Pin To Net: NetName=+3.2V Pin=L2-2
+Added Pin To Net: NetName=GND Pin=P1-1
+Added Pin To Net: NetName=NetD2_2 Pin=P1-2
+Added Member To Class: ClassName=Sheet1 Member=Component P1 +24V
+Added Room: Name=Sheet1

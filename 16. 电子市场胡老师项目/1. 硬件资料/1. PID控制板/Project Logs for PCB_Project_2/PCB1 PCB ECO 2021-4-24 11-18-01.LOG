@@ -1,0 +1,33 @@
+Removed Pin From Net: NetName=NetC4_1 Pin=D2-1
+Added Component: Designator=U8(LQFP64-1)
+Added Pin To Net: NetName=GND Pin=D2-1
+Added Pin To Net: NetName=NetC4_1 Pin=D2-1
+Added Pin To Net: NetName=+3.3V Pin=L2-1
+Added Pin To Net: NetName=+3.2V Pin=L2-2
+Added Pin To Net: NetName=NetC28_1 Pin=U8-5
+Added Pin To Net: NetName=NetC29_1 Pin=U8-6
+Added Pin To Net: NetName=NRST Pin=U8-7
+Added Pin To Net: NetName=KEY1 Pin=U8-10
+Added Pin To Net: NetName=KEY2 Pin=U8-11
+Added Pin To Net: NetName=PA2 Pin=U8-16
+Added Pin To Net: NetName=PA3 Pin=U8-17
+Added Pin To Net: NetName=PA4 Pin=U8-20
+Added Pin To Net: NetName=PB5 Pin=U8-21
+Added Pin To Net: NetName=PA6 Pin=U8-22
+Added Pin To Net: NetName=KEY3 Pin=U8-24
+Added Pin To Net: NetName=DO Pin=U8-27
+Added Pin To Net: NetName=BL Pin=U8-33
+Added Pin To Net: NetName=SCL Pin=U8-39
+Added Pin To Net: NetName=SDA Pin=U8-40
+Added Pin To Net: NetName=PA8 Pin=U8-41
+Added Pin To Net: NetName=PA9 Pin=U8-42
+Added Pin To Net: NetName=PA10 Pin=U8-43
+Added Pin To Net: NetName=PA13 Pin=U8-46
+Added Pin To Net: NetName=PA14 Pin=U8-49
+Added Pin To Net: NetName=RST Pin=U8-51
+Added Pin To Net: NetName=GND Pin=U8-60
+Added Pin To Net: NetName=CS Pin=U8-61
+Added Pin To Net: NetName=1-5V S Pin=U8-62
+Change Net Name : Old Net Name=6V New Net Name=+6V
+Added Member To Class: ClassName=Sheet1 Member=Component U8 STM32F103RBT6
+Added Room: Name=Sheet1

@@ -1,0 +1,3 @@
+Remove Pin=KEY1-2 From Net=KEY1
+Remove Pin=KEY2-2 From Net=KEY2
+Remove Pin=KEY3-2 From Net=KEY3

@@ -1,0 +1,12 @@
+% plot(cnt,pidincre,'b-');
+% hold on;
+% plot(cnt,pidpos,'r-');
+% hold on;
+% plot(cnt,pid_separate,'g-');
+% hold on;
+% plot(cnt,pid_antiwindup,'b-');
+% hold on;
+plot(VarName7,'r--');
+hold on;
+xlabel('times/n');
+ylabel('voltage/V');

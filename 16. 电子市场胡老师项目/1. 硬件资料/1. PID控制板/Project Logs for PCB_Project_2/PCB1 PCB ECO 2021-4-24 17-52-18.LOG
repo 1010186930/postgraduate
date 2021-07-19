@@ -1,0 +1,7 @@
+Removed Pin From Net: NetName=+3.3V Pin=L2-1
+Removed Pin From Net: NetName=+3.2V Pin=L2-2
+Change Component Footprint: Designator=U8 Old Footprint=LQFP64-1 New Footprint=LQFP64
+Added Pin To Net: NetName=+3.3V Pin=L2-1
+Added Pin To Net: NetName=+6V Pin=L2-1
+Added Pin To Net: NetName=+3.2V Pin=L2-2
+Added Room: Name=Sheet1

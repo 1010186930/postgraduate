@@ -1,0 +1,18 @@
+Change Component DesignItemId : Designator=L2 Old DesignItemId=100uH New DesignItemId=Inductor
+Change Component DesignItemId : Designator=L2 Old DesignItemId=Inductor New DesignItemId=100uH
+Change Component Comment : Designator=L2 Old Comment= New Comment=100uH
+Change Component Comment : Designator=L2 Old Comment=100uH New Comment=
+Change Component Designator: OldDesignator=D2 NewDesignator=D8
+Change Component Designator: OldDesignator=L2 NewDesignator=L6
+Change Component Description : Designator=L6 Old Description= New Description=Inductor
+Change Component Description : Designator=L2 Old Description=Inductor New Description=
+Change Component Library : Designator=L6 Old Library= New Library=Miscellaneous Devices.IntLib
+Change Component Library : Designator=L2 Old Library=Miscellaneous Devices.IntLib New Library=
+Added Pin To Net: NetName=NetD8_2 Pin=D8-2
+Added Pin To Net: NetName=NetD8_2 Pin=L6-2
+Added Pin To Net: NetName=NetD8_2 Pin=U11-2
+Added Net: Name=NetD8_2
+Added Member To Class: ClassName=Sheet1 Member=Component D8 
+Added Member To Class: ClassName=Sheet1 Member=Component L2 100uH
+Added Member To Class: ClassName=Sheet1 Member=Component L6 
+Added Room: Name=Sheet1

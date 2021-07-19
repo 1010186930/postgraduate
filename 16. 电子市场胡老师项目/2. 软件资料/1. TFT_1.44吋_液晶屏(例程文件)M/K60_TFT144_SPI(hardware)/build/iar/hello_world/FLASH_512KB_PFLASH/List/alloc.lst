@@ -1,0 +1,372 @@
+###############################################################################
+#                                                                             #
+#                                                       16/Aug/2015  09:08:41 #
+# IAR ANSI C/C++ Compiler V6.30.6.23336/W32 EVALUATION for ARM                #
+# Copyright 1999-2012 IAR Systems AB.                                         #
+#                                                                             #
+#    Cpu mode     =  thumb                                                    #
+#    Endian       =  little                                                   #
+#    Source file  =  C:\Users\Ping\Desktop\K60_TFT144_SPI(hardware)\src\commo #
+#                    n\alloc.c                                                #
+#    Command line =  "C:\Users\Ping\Desktop\K60_TFT144_SPI(hardware)\src\comm #
+#                    on\alloc.c" -D IAR -D TWR_K60N512 -lCN                   #
+#                    "C:\Users\Ping\Desktop\K60_TFT144_SPI(hardware)\build\ia #
+#                    r\hello_world\FLASH_512KB_PFLASH\List\" -lB              #
+#                    "C:\Users\Ping\Desktop\K60_TFT144_SPI(hardware)\build\ia #
+#                    r\hello_world\FLASH_512KB_PFLASH\List\" -o               #
+#                    "C:\Users\Ping\Desktop\K60_TFT144_SPI(hardware)\build\ia #
+#                    r\hello_world\FLASH_512KB_PFLASH\Obj\" --no_cse          #
+#                    --no_unroll --no_inline --no_code_motion --no_tbaa       #
+#                    --no_clustering --no_scheduling --debug --endian=little  #
+#                    --cpu=Cortex-M4 -e --fpu=None --dlib_config "C:\Program  #
+#                    Files (x86)\IAR Systems\Embedded Workbench 6.0           #
+#                    Evaluation\arm\INC\c\DLib_Config_Normal.h" -I            #
+#                    "C:\Users\Ping\Desktop\K60_TFT144_SPI(hardware)\build\ia #
+#                    r\hello_world\..\..\..\src\projects\hello_world\" -I     #
+#                    "C:\Users\Ping\Desktop\K60_TFT144_SPI(hardware)\build\ia #
+#                    r\hello_world\..\..\..\src\common\" -I                   #
+#                    "C:\Users\Ping\Desktop\K60_TFT144_SPI(hardware)\build\ia #
+#                    r\hello_world\..\..\..\src\cpu\" -I                      #
+#                    "C:\Users\Ping\Desktop\K60_TFT144_SPI(hardware)\build\ia #
+#                    r\hello_world\..\..\..\src\cpu\headers\" -I              #
+#                    "C:\Users\Ping\Desktop\K60_TFT144_SPI(hardware)\build\ia #
+#                    r\hello_world\..\..\..\src\drivers\adc16\" -I            #
+#                    "C:\Users\Ping\Desktop\K60_TFT144_SPI(hardware)\build\ia #
+#                    r\hello_world\..\..\..\src\drivers\enet\" -I             #
+#                    "C:\Users\Ping\Desktop\K60_TFT144_SPI(hardware)\build\ia #
+#                    r\hello_world\..\..\..\src\drivers\pmc\" -I              #
+#                    "C:\Users\Ping\Desktop\K60_TFT144_SPI(hardware)\build\ia #
+#                    r\hello_world\..\..\..\src\drivers\rtc\" -I              #
+#                    "C:\Users\Ping\Desktop\K60_TFT144_SPI(hardware)\build\ia #
+#                    r\hello_world\..\..\..\src\drivers\lptmr\" -I            #
+#                    "C:\Users\Ping\Desktop\K60_TFT144_SPI(hardware)\build\ia #
+#                    r\hello_world\..\..\..\src\drivers\uart\" -I             #
+#                    "C:\Users\Ping\Desktop\K60_TFT144_SPI(hardware)\build\ia #
+#                    r\hello_world\..\..\..\src\drivers\mcg\" -I              #
+#                    "C:\Users\Ping\Desktop\K60_TFT144_SPI(hardware)\build\ia #
+#                    r\hello_world\..\..\..\src\drivers\wdog\" -I             #
+#                    "C:\Users\Ping\Desktop\K60_TFT144_SPI(hardware)\build\ia #
+#                    r\hello_world\..\..\..\src\platforms\" -I                #
+#                    "C:\Users\Ping\Desktop\K60_TFT144_SPI(hardware)\build\ia #
+#                    r\hello_world\..\..\..\src\drivers\ftm\" -I              #
+#                    "C:\Users\Ping\Desktop\K60_TFT144_SPI(hardware)\build\ia #
+#                    r\hello_world\..\..\..\src\drivers\SPI\" -I              #
+#                    "C:\Users\Ping\Desktop\K60_TFT144_SPI(hardware)\build\ia #
+#                    r\hello_world\..\..\..\src\drivers\OLED\" -I             #
+#                    "C:\Users\Ping\Desktop\K60_TFT144_SPI(hardware)\build\ia #
+#                    r\hello_world\..\..\..\src\drivers\TFT\" -I              #
+#                    "C:\Users\Ping\Desktop\K60_TFT144_SPI(hardware)\build\ia #
+#                    r\hello_world\..\" -Ol --use_c++_inline                  #
+#    List file    =  C:\Users\Ping\Desktop\K60_TFT144_SPI(hardware)\build\iar #
+#                    \hello_world\FLASH_512KB_PFLASH\List\alloc.lst           #
+#    Object file  =  C:\Users\Ping\Desktop\K60_TFT144_SPI(hardware)\build\iar #
+#                    \hello_world\FLASH_512KB_PFLASH\Obj\alloc.o              #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+C:\Users\Ping\Desktop\K60_TFT144_SPI(hardware)\src\common\alloc.c
+      1          /*
+      2           * File:        alloc.c
+      3           * Purpose:     generic malloc() and free() engine
+      4           *
+      5           * Notes:       99% of this code stolen/borrowed from the K&R C
+      6           *              examples.
+      7           *
+      8           */
+      9          
+     10          #include "common.h"
+     11          #include "stdlib.h"
+     12          
+     13          #pragma section = "HEAP"
+     14          
+     15          /********************************************************************/
+     16          
+     17          /*
+     18           * This struct forms the minimum block size which is allocated, and
+     19           * also forms the linked list for the memory space used with alloc()
+     20           * and free().  It is padded so that on a 32-bit machine, all malloc'ed
+     21           * pointers are 16-byte aligned.
+     22           */
+     23          typedef struct ALLOC_HDR
+     24          {
+     25              struct
+     26              {
+     27                  struct ALLOC_HDR     *ptr;
+     28                  unsigned int size;
+     29              } s;
+     30              unsigned int align;
+     31              unsigned int pad;
+     32          } ALLOC_HDR;
+     33          
+
+   \                                 In section .bss, align 4
+     34          static ALLOC_HDR base;
+   \                     base:
+   \   00000000                      DS8 16
+
+   \                                 In section .bss, align 4
+     35          static ALLOC_HDR *freep = NULL;
+   \                     freep:
+   \   00000000                      DS8 4
+     36          
+     37          /********************************************************************/
+
+   \                                 In section .text, align 2, keep-with-next
+     38          void
+     39          free (void *ap)
+     40          {
+     41              ALLOC_HDR *bp, *p;
+     42          
+     43              bp = (ALLOC_HDR *)ap - 1;   /* point to block header */
+   \                     free:
+   \   00000000   0x3810             SUBS     R0,R0,#+16
+     44              for (p = freep; !((bp > p) && (bp < p->s.ptr)) ; p = p->s.ptr)
+   \   00000002   0x....             LDR.N    R1,??DataTable1
+   \   00000004   0x6809             LDR      R1,[R1, #+0]
+   \   00000006   0xE000             B.N      ??free_0
+   \                     ??free_1:
+   \   00000008   0x6809             LDR      R1,[R1, #+0]
+   \                     ??free_0:
+   \   0000000A   0x4281             CMP      R1,R0
+   \   0000000C   0xD202             BCS.N    ??free_2
+   \   0000000E   0x680A             LDR      R2,[R1, #+0]
+   \   00000010   0x4290             CMP      R0,R2
+   \   00000012   0xD307             BCC.N    ??free_3
+     45              {
+     46                  if ((p >= p->s.ptr) && ((bp > p) || (bp < p->s.ptr)))
+   \                     ??free_2:
+   \   00000014   0x680A             LDR      R2,[R1, #+0]
+   \   00000016   0x4291             CMP      R1,R2
+   \   00000018   0xD3F6             BCC.N    ??free_1
+   \   0000001A   0x4281             CMP      R1,R0
+   \   0000001C   0xD302             BCC.N    ??free_4
+   \   0000001E   0x680A             LDR      R2,[R1, #+0]
+   \   00000020   0x4290             CMP      R0,R2
+   \   00000022   0xD2F1             BCS.N    ??free_1
+     47                  {
+     48                      break; /* freed block at start or end of arena */
+     49                  }
+     50              }
+     51          
+     52              if ((bp + bp->s.size) == p->s.ptr)
+   \                     ??free_4:
+   \                     ??free_3:
+   \   00000024   0x6842             LDR      R2,[R0, #+4]
+   \   00000026   0xEB10 0x1202      ADDS     R2,R0,R2, LSL #+4
+   \   0000002A   0x680B             LDR      R3,[R1, #+0]
+   \   0000002C   0x429A             CMP      R2,R3
+   \   0000002E   0xD108             BNE.N    ??free_5
+     53              {
+     54                  bp->s.size += p->s.ptr->s.size;
+   \   00000030   0x6842             LDR      R2,[R0, #+4]
+   \   00000032   0x680B             LDR      R3,[R1, #+0]
+   \   00000034   0x685B             LDR      R3,[R3, #+4]
+   \   00000036   0x189A             ADDS     R2,R3,R2
+   \   00000038   0x6042             STR      R2,[R0, #+4]
+     55                  bp->s.ptr = p->s.ptr->s.ptr;
+   \   0000003A   0x680A             LDR      R2,[R1, #+0]
+   \   0000003C   0x6812             LDR      R2,[R2, #+0]
+   \   0000003E   0x6002             STR      R2,[R0, #+0]
+   \   00000040   0xE001             B.N      ??free_6
+     56              }
+     57              else
+     58              {
+     59                  bp->s.ptr = p->s.ptr;
+   \                     ??free_5:
+   \   00000042   0x680A             LDR      R2,[R1, #+0]
+   \   00000044   0x6002             STR      R2,[R0, #+0]
+     60              }
+     61          
+     62              if ((p + p->s.size) == bp)
+   \                     ??free_6:
+   \   00000046   0x684A             LDR      R2,[R1, #+4]
+   \   00000048   0xEB11 0x1202      ADDS     R2,R1,R2, LSL #+4
+   \   0000004C   0x4282             CMP      R2,R0
+   \   0000004E   0xD106             BNE.N    ??free_7
+     63              {
+     64                  p->s.size += bp->s.size;
+   \   00000050   0x684A             LDR      R2,[R1, #+4]
+   \   00000052   0x6843             LDR      R3,[R0, #+4]
+   \   00000054   0x189A             ADDS     R2,R3,R2
+   \   00000056   0x604A             STR      R2,[R1, #+4]
+     65                  p->s.ptr = bp->s.ptr;
+   \   00000058   0x6800             LDR      R0,[R0, #+0]
+   \   0000005A   0x6008             STR      R0,[R1, #+0]
+   \   0000005C   0xE000             B.N      ??free_8
+     66              }
+     67              else
+     68              {
+     69                  p->s.ptr = bp;
+   \                     ??free_7:
+   \   0000005E   0x6008             STR      R0,[R1, #+0]
+     70              }
+     71          
+     72              freep = p;
+   \                     ??free_8:
+   \   00000060   0x....             LDR.N    R0,??DataTable1
+   \   00000062   0x6001             STR      R1,[R0, #+0]
+     73          }
+   \   00000064   0x4770             BX       LR               ;; return
+     74          
+     75          /********************************************************************/
+
+   \                                 In section .text, align 2, keep-with-next
+     76          void *
+     77          malloc (unsigned nbytes)
+     78          {
+     79              /* Get addresses for the HEAP start and end */
+     80          	#if (defined(CW))	
+     81                extern char __HEAP_START;
+     82                extern char __HEAP_END[];
+     83              #elif (defined(IAR))
+     84                char* __HEAP_START = __section_begin("HEAP");
+   \                     malloc:
+   \   00000000   0x....             LDR.N    R1,??DataTable1_1
+     85                char* __HEAP_END = __section_end("HEAP");
+   \   00000002   0x....             LDR.N    R2,??DataTable1_2
+     86              #endif
+     87             
+     88              ALLOC_HDR *p, *prevp;
+     89              unsigned nunits;
+     90          
+     91              nunits = ((nbytes+sizeof(ALLOC_HDR)-1) / sizeof(ALLOC_HDR)) + 1;
+   \   00000004   0x300F             ADDS     R0,R0,#+15
+   \   00000006   0x0900             LSRS     R0,R0,#+4
+   \   00000008   0x1C40             ADDS     R0,R0,#+1
+     92          
+     93              if ((prevp = freep) == NULL)
+   \   0000000A   0x....             LDR.N    R3,??DataTable1
+   \   0000000C   0x681B             LDR      R3,[R3, #+0]
+   \   0000000E   0x2B00             CMP      R3,#+0
+   \   00000010   0xD10C             BNE.N    ??malloc_0
+     94              {
+     95                  p = (ALLOC_HDR *)__HEAP_START;
+     96                  p->s.size = ( ((uint32)__HEAP_END - (uint32)__HEAP_START)
+     97                      / sizeof(ALLOC_HDR) );
+   \   00000012   0x1A52             SUBS     R2,R2,R1
+   \   00000014   0x0912             LSRS     R2,R2,#+4
+   \   00000016   0x604A             STR      R2,[R1, #+4]
+     98                  p->s.ptr = &base;
+   \   00000018   0x....             LDR.N    R2,??DataTable1_3
+   \   0000001A   0x600A             STR      R2,[R1, #+0]
+     99                  base.s.ptr = p;
+   \   0000001C   0x....             LDR.N    R2,??DataTable1_3
+   \   0000001E   0x6011             STR      R1,[R2, #+0]
+    100                  base.s.size = 0;
+   \   00000020   0x....             LDR.N    R1,??DataTable1_3
+   \   00000022   0x2200             MOVS     R2,#+0
+   \   00000024   0x604A             STR      R2,[R1, #+4]
+    101                  prevp = freep = &base;
+   \   00000026   0x....             LDR.N    R3,??DataTable1_3
+   \   00000028   0x....             LDR.N    R1,??DataTable1
+   \   0000002A   0x600B             STR      R3,[R1, #+0]
+    102              }
+    103          
+    104              for (p = prevp->s.ptr; ; prevp = p, p = p->s.ptr)
+   \                     ??malloc_0:
+   \   0000002C   0x6819             LDR      R1,[R3, #+0]
+   \   0000002E   0xE001             B.N      ??malloc_1
+   \                     ??malloc_2:
+   \   00000030   0x000B             MOVS     R3,R1
+   \   00000032   0x6809             LDR      R1,[R1, #+0]
+    105              {
+    106                  if (p->s.size >= nunits)
+   \                     ??malloc_1:
+   \   00000034   0x684A             LDR      R2,[R1, #+4]
+   \   00000036   0x4282             CMP      R2,R0
+   \   00000038   0xD311             BCC.N    ??malloc_3
+    107                  {
+    108                      if (p->s.size == nunits)
+   \   0000003A   0x684A             LDR      R2,[R1, #+4]
+   \   0000003C   0x4282             CMP      R2,R0
+   \   0000003E   0xD102             BNE.N    ??malloc_4
+    109                      {
+    110                          prevp->s.ptr = p->s.ptr;
+   \   00000040   0x6808             LDR      R0,[R1, #+0]
+   \   00000042   0x6018             STR      R0,[R3, #+0]
+   \   00000044   0xE006             B.N      ??malloc_5
+    111                      }
+    112                      else
+    113                      {
+    114                          p->s.size -= nunits;
+   \                     ??malloc_4:
+   \   00000046   0x684A             LDR      R2,[R1, #+4]
+   \   00000048   0x1A12             SUBS     R2,R2,R0
+   \   0000004A   0x604A             STR      R2,[R1, #+4]
+    115                          p += p->s.size;
+   \   0000004C   0x684A             LDR      R2,[R1, #+4]
+   \   0000004E   0xEB11 0x1102      ADDS     R1,R1,R2, LSL #+4
+    116                          p->s.size = nunits;
+   \   00000052   0x6048             STR      R0,[R1, #+4]
+    117                      }
+    118                      freep = prevp;
+   \                     ??malloc_5:
+   \   00000054   0x....             LDR.N    R0,??DataTable1
+   \   00000056   0x6003             STR      R3,[R0, #+0]
+    119                      return (void *)(p + 1);
+   \   00000058   0xF111 0x0010      ADDS     R0,R1,#+16
+   \   0000005C   0xE004             B.N      ??malloc_6
+    120                  }
+    121          
+    122                  if (p == freep)
+   \                     ??malloc_3:
+   \   0000005E   0x....             LDR.N    R2,??DataTable1
+   \   00000060   0x6812             LDR      R2,[R2, #+0]
+   \   00000062   0x4291             CMP      R1,R2
+   \   00000064   0xD1E4             BNE.N    ??malloc_2
+    123                      return NULL;
+   \   00000066   0x2000             MOVS     R0,#+0
+   \                     ??malloc_6:
+   \   00000068   0x4770             BX       LR               ;; return
+    124              }
+    125          }
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1:
+   \   00000000   0x........         DC32     freep
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_1:
+   \   00000000   0x........         DC32     SFB(HEAP)
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_2:
+   \   00000000   0x........         DC32     SFE(HEAP)
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_3:
+   \   00000000   0x........         DC32     base
+    126          
+    127          /********************************************************************/
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+        0  free
+        0  malloc
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       4  ??DataTable1
+       4  ??DataTable1_1
+       4  ??DataTable1_2
+       4  ??DataTable1_3
+      16  base
+     102  free
+       4  freep
+     106  malloc
+
+ 
+  20 bytes in section .bss
+ 224 bytes in section .text
+ 
+ 224 bytes of CODE memory
+  20 bytes of DATA memory
+
+Errors: none
+Warnings: none

@@ -1,0 +1,20 @@
+Removed Pin From Net: NetName=+3.2V Pin=L2-2
+Added Component: Designator=KEY1(BNC-KWE)
+Added Component: Designator=KEY2(BNC-KWE)
+Added Component: Designator=KEY3(BNC-KWE)
+Added Pin To Net: NetName=GND Pin=KEY1-1
+Added Pin To Net: NetName=GND Pin=KEY2-1
+Added Pin To Net: NetName=GND Pin=KEY3-1
+Added Pin To Net: NetName=+3.3V Pin=L2-1
+Added Pin To Net: NetName=+3.2V Pin=L2-2
+Added Pin To Net: NetName=PA4 Pin=U8-20
+Added Pin To Net: NetName=PA2 Pin=U8-16
+Added Net: Name=PA2
+Added Pin To Net: NetName=PA6 Pin=U8-22
+Added Net: Name=PA6
+Added Pin To Net: NetName=PB5 Pin=U8-21
+Added Net: Name=PB5
+Added Member To Class: ClassName=Sheet1 Member=Component KEY1 +
+Added Member To Class: ClassName=Sheet1 Member=Component KEY2 ¹¦ÄÜÑ¡Ôñ
+Added Member To Class: ClassName=Sheet1 Member=Component KEY3 -
+Added Room: Name=Sheet1

@@ -1,0 +1,16 @@
+Removed Pin From Net: NetName=+6V Pin=L2-1
+Change Component Footprint: Designator=U11 Old Footprint=TO-263 New Footprint=TO-263-5
+Added Component: Designator=L2(L1270)
+Added Component: Designator=U2(TO-263-3)
+Added Component: Designator=U5(SOT223-117)
+Added Pin To Net: NetName=+3.3V Pin=L2-1
+Added Pin To Net: NetName=+6V Pin=L2-1
+Added Pin To Net: NetName=NetC4_1 Pin=U2-1
+Added Pin To Net: NetName=GND Pin=U2-2
+Added Pin To Net: NetName=+12V Pin=U2-3
+Added Pin To Net: NetName=GND Pin=U5-1
+Added Pin To Net: NetName=+3.3V Pin=U5-2
+Added Pin To Net: NetName=NetC1_2 Pin=U5-3
+Added Member To Class: ClassName=Sheet1 Member=Component U2 LM7812S/TR
+Added Member To Class: ClassName=Sheet1 Member=Component U5 AMS1117-3.3_C165482
+Added Room: Name=Sheet1

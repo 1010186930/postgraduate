@@ -1,0 +1,55 @@
+#include "delay.h"
+#include "sys.h"
+#include "lcd.h"
+#include "adc.h"
+#include "GUI.h"
+#include "rs485.h"
+#include "time.h"
+#include "stdio.h"
+int set_flowvalue=0;
+int main(void)
+{
+    u16 adcx;
+    u8 rs485buf[5];
+    char display_setflowvalue[6]="";
+    u8 key=0;
+    float voltage_adc;
+    delay_init();	    	 //延时函数初始化
+    NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);
+    LCD_Init();
+    Adc_Init();	  		//ADC初始化
+    TIM4_Init(200-1,7200-1);
+    RS485_Init(9600);
+    BACK_COLOR=BLUE;
+    POINT_COLOR=YELLOW;//设置字体为黄色
+    LCD_Clear(WHITE);
+    LCD_ShowString(0,10,12,"ADC_CH1_VAL:",1);
+    LCD_ShowString(0,30,12,"ADC_CH1_VOL:0.000V",1);
+    LCD_ShowString(0,50,12,"SET VALUE:",1);
+    while(1)
+    {
+        K_UP_sacnf_func();
+				
+        sprintf(display_setflowvalue,"%d",set_flowvalue);
+        LCD_Fill(0,70,60,90,WHITE);
+        Show_Str(0,70,POINT_COLOR,BACK_COLOR,(u8*)display_setflowvalue,12,1);
+
+        RS485_Receive_Data(rs485buf,&key);
+        if(key)//接收到有数据
+        {
+            LCD_Fill(0,70,60,90,WHITE);
+            Show_Str(0,70,POINT_COLOR,BACK_COLOR,rs485buf,12,1);
+            set_flowvalue=atoi((const char*)rs485buf);
+						sprintf(display_setflowvalue,"%d",set_flowvalue);
+						LCD_Fill(0,70,60,90,WHITE);
+						Show_Str(0,70,POINT_COLOR,BACK_COLOR,(u8*)display_setflowvalue,12,1);
+            key=0;
+            /*I2C Output set_value*/
+        }
+
+        adcx=Get_Adc_Average(ADC_Channel_1,10);
+        Show_Adc_Average(0,10,adcx,&voltage_adc,12);
+        /*PID Control Change output value*/
+        /*I2C Output set_value*/
+    }
+}

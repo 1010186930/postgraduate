@@ -1,0 +1,57 @@
+[Stack]
+FillEnabled=0
+OverflowWarningsEnabled=1
+WarningThreshold=90
+SpWarningsEnabled=1
+WarnLogOnly=1
+UseTrigger=1
+TriggerName=main
+LimitSize=0
+ByteLimit=50
+[Breakpoints]
+Count=0
+[DebugChecksum]
+Checksum=-333449301
+[Exceptions]
+StopOnUncaught=_ 0
+StopOnThrow=_ 0
+[CallStack]
+ShowArgs=0
+[Disassembly]
+MixedMode=1
+[JLinkDriver]
+TraceBufferSize=0x00010000
+TraceStallIfFIFOFull=0x00000000
+TracePortSize=0x00000004
+[Log file]
+LoggingEnabled=_ 0
+LogFile=_ ""
+Category=_ 0
+[TermIOLog]
+LoggingEnabled=_ 0
+LogFile=_ ""
+[Trace1]
+Enabled=0
+ShowSource=1
+[CallStackLog]
+Enabled=0
+[DriverProfiling]
+Enabled=0
+Mode=1
+Graph=0
+Symbiont=0
+Exclusions=
+[Disassemble mode]
+mode=0
+[Breakpoints2]
+Count=0
+[Aliases]
+A0=_ "C:\Documents and Settings\Administrator\桌面\Kinetis_K60的FLASH读写例程\Kinetis_K60的FLASH读写例程\src\common\printf.c" ""
+A1=_ "C:\Documents and Settings\Administrator\桌面\Kinetis_K60的OLED驱动\Kinetis_K60的OLED\Kinetis_K60的FLASH读写例程\src\projects\hello_world\hello_world.c" ""
+A2=_ "C:\Users\me\Desktop\Kinetis_K60的FLASH读写例程\src\common\printf.c" ""
+A3=_ "C:\Users\me\Desktop\Kinetis_K60的FLASH读写例程\src\cpu\crt0.s" ""
+A4=_ "C:\Users\me\Desktop\OLED客户资料\KinetisK60_Demo_OLED\src\drivers\mcg\mcg.c" ""
+A5=_ "C:\Users\me\Desktop\OLED客户资料\程序例程\KinetisK60_Demo_OLED\src\projects\hello_world\hello_world.c" ""
+A6=_ "C:\Users\me\Desktop\OLED资料 (1)\OLED资料\KinetisK60_Demo_OLED\src\drivers\mcg\mcg.c" ""
+Count=7
+SuppressDialog=1

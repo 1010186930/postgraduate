@@ -1,0 +1,4 @@
+Added Component: Designator=U10(TO-263-3)
+Added Pin To Net: NetName=+12V Pin=U10-1
+Added Pin To Net: NetName=+6V Pin=U10-2
+Added Member To Class: ClassName=Sheet1 Member=Component U10 LM7806-263

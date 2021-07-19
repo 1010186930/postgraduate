@@ -1,0 +1,468 @@
+###############################################################################
+#                                                                             #
+#                                                       16/Aug/2015  08:45:42 #
+# IAR ANSI C/C++ Compiler V6.30.6.23336/W32 EVALUATION for ARM                #
+# Copyright 1999-2012 IAR Systems AB.                                         #
+#                                                                             #
+#    Cpu mode     =  thumb                                                    #
+#    Endian       =  little                                                   #
+#    Source file  =  C:\Users\Ping\Desktop\K60_TFT144_SPI\src\drivers\rtc\rtc #
+#                    .c                                                       #
+#    Command line =  C:\Users\Ping\Desktop\K60_TFT144_SPI\src\drivers\rtc\rtc #
+#                    .c -D IAR -D TWR_K60N512 -lCN                            #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\RAM_128KB\List\ -lB C:\Users\Ping\Desktop\K60_TFT144_ #
+#                    SPI\build\iar\hello_world\RAM_128KB\List\ -o             #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\RAM_128KB\Obj\ --no_cse --no_unroll --no_inline       #
+#                    --no_code_motion --no_tbaa --no_clustering               #
+#                    --no_scheduling --debug --endian=little --cpu=Cortex-M4  #
+#                    -e --fpu=None --dlib_config "C:\Program Files (x86)\IAR  #
+#                    Systems\Embedded Workbench 6.0                           #
+#                    Evaluation\arm\INC\c\DLib_Config_Normal.h" -I            #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\projects\hello_world\ -I                 #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\common\ -I C:\Users\Ping\Desktop\K60_TFT #
+#                    144_SPI\build\iar\hello_world\..\..\..\src\cpu\ -I       #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\cpu\headers\ -I                          #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\drivers\adc16\ -I                        #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\drivers\enet\ -I                         #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\drivers\pmc\ -I                          #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\drivers\rtc\ -I                          #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\drivers\lptmr\ -I                        #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\drivers\uart\ -I                         #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\drivers\mcg\ -I                          #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\drivers\wdog\ -I                         #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\platforms\ -I                            #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\drivers\ftm\ -I                          #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\drivers\SPI\ -I                          #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\drivers\OLED\ -I                         #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\drivers\TFT\ -I                          #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\ -On --use_c++_inline                              #
+#    List file    =  C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\RAM_128KB\List\rtc.lst                                #
+#    Object file  =  C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\RAM_128KB\Obj\rtc.o                                   #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+C:\Users\Ping\Desktop\K60_TFT144_SPI\src\drivers\rtc\rtc.c
+      1          /*
+      2           * File:        rtc.c
+      3           * Purpose:     Provide common RTC routines
+      4           *
+      5           * Notes:       
+      6           *              
+      7           */
+      8          
+      9          
+     10          #include "common.h"
+     11          #include "rtc.h"
+     12          #include "arm_cm4.h"
+     13          
+     14          /********************************************************************/
+     15          /*
+     16           * Initialize the RTC
+     17           *
+     18           *
+     19           * Parameters:
+     20           *  seconds         Start value of seconds register
+     21           *  alarm           Time in seconds of first alarm. Set to 0xFFFFFFFF to effectively disable alarm
+     22           *  c_interval      Interval at which to apply time compensation can range from 1 second (0x0) to 256 (0xFF)
+     23           *  c_value         Compensation value ranges from -127 32kHz cycles to +128 32 kHz cycles
+     24           *                  80h Time prescaler register overflows every 32896 clock cycles.
+     25           *                  FFh Time prescaler register overflows every 32769 clock cycles.
+     26           *                  00h Time prescaler register overflows every 32768 clock cycles.
+     27           *                  01h Time prescaler register overflows every 32767 clock cycles.
+     28           *                  7Fh Time prescaler register overflows every 32641 clock cycles.
+     29           *  interrupt       TRUE or FALSE
+     30           */
+     31          
+
+   \                                 In section .text, align 2, keep-with-next
+     32          void rtc_init(uint32 seconds, uint32 alarm, uint8 c_interval, uint8 c_value, uint8 interrupt) 
+     33          {
+   \                     rtc_init:
+   \   00000000   0xE92D 0x43F8      PUSH     {R3-R9,LR}
+   \   00000004   0x0005             MOVS     R5,R0
+   \   00000006   0x000E             MOVS     R6,R1
+   \   00000008   0x0017             MOVS     R7,R2
+   \   0000000A   0x4698             MOV      R8,R3
+   \   0000000C   0x9C08             LDR      R4,[SP, #+32]
+     34            int i;
+     35            
+     36            /*enable the clock to SRTC module register space*/
+     37            SIM_SCGC6 |= SIM_SCGC6_RTC_MASK;
+   \   0000000E   0x....             LDR.N    R0,??DataTable1  ;; 0x4004803c
+   \   00000010   0x6800             LDR      R0,[R0, #+0]
+   \   00000012   0xF050 0x5000      ORRS     R0,R0,#0x20000000
+   \   00000016   0x....             LDR.N    R1,??DataTable1  ;; 0x4004803c
+   \   00000018   0x6008             STR      R0,[R1, #+0]
+     38            
+     39            /*Only VBAT_POR has an effect on the SRTC, RESET to the part does not, so you must manually reset the SRTC to make sure everything is in a known state*/
+     40            /*clear the software reset bit*/
+     41            RTC_CR  = RTC_CR_SWR_MASK;
+   \   0000001A   0x....             LDR.N    R0,??DataTable1_1  ;; 0x4003d010
+   \   0000001C   0x2101             MOVS     R1,#+1
+   \   0000001E   0x6001             STR      R1,[R0, #+0]
+     42            RTC_CR  &= ~RTC_CR_SWR_MASK;  
+   \   00000020   0x....             LDR.N    R0,??DataTable1_1  ;; 0x4003d010
+   \   00000022   0x6800             LDR      R0,[R0, #+0]
+   \   00000024   0x0840             LSRS     R0,R0,#+1
+   \   00000026   0x0040             LSLS     R0,R0,#+1
+   \   00000028   0x....             LDR.N    R1,??DataTable1_1  ;; 0x4003d010
+   \   0000002A   0x6008             STR      R0,[R1, #+0]
+     43            
+     44            /*Enable the interrupt*/
+     45            if(interrupt)
+   \   0000002C   0xB2E4             UXTB     R4,R4            ;; ZeroExt  R4,R4,#+24,#+24
+   \   0000002E   0x2C00             CMP      R4,#+0
+   \   00000030   0xD002             BEQ.N    ??rtc_init_0
+     46              enable_irq(66);
+   \   00000032   0x2042             MOVS     R0,#+66
+   \   00000034   0x.... 0x....      BL       enable_irq
+     47            
+     48            /*Enable the oscillator*/
+     49            RTC_CR |= RTC_CR_OSCE_MASK;
+   \                     ??rtc_init_0:
+   \   00000038   0x....             LDR.N    R0,??DataTable1_1  ;; 0x4003d010
+   \   0000003A   0x6800             LDR      R0,[R0, #+0]
+   \   0000003C   0xF44F 0x7180      MOV      R1,#+256
+   \   00000040   0x4308             ORRS     R0,R1,R0
+   \   00000042   0x....             LDR.N    R1,??DataTable1_1  ;; 0x4003d010
+   \   00000044   0x6008             STR      R0,[R1, #+0]
+     50            
+     51            /*Wait to all the 32 kHz to stabilize, refer to the crystal startup time in the crystal datasheet*/
+     52            for(i=0;i<0x600000;i++);
+   \   00000046   0x2000             MOVS     R0,#+0
+   \   00000048   0x4681             MOV      R9,R0
+   \                     ??rtc_init_1:
+   \   0000004A   0xF5B9 0x0FC0      CMP      R9,#+6291456
+   \   0000004E   0xDA02             BGE.N    ??rtc_init_2
+   \   00000050   0xF119 0x0901      ADDS     R9,R9,#+1
+   \   00000054   0xE7F9             B.N      ??rtc_init_1
+     53            
+     54            /*Set time compensation parameters*/
+     55            RTC_TCR = RTC_TCR_CIR(c_interval) | RTC_TCR_TCR(c_value);
+   \                     ??rtc_init_2:
+   \   00000056   0xB2FF             UXTB     R7,R7            ;; ZeroExt  R7,R7,#+24,#+24
+   \   00000058   0xFA5F 0xF888      UXTB     R8,R8            ;; ZeroExt  R8,R8,#+24,#+24
+   \   0000005C   0xEA58 0x2007      ORRS     R0,R8,R7, LSL #+8
+   \   00000060   0x....             LDR.N    R1,??DataTable1_2  ;; 0x4003d00c
+   \   00000062   0x6008             STR      R0,[R1, #+0]
+     56            
+     57            /*Configure the timer seconds and alarm registers*/
+     58            RTC_TSR = seconds;
+   \   00000064   0x....             LDR.N    R0,??DataTable1_3  ;; 0x4003d000
+   \   00000066   0x6005             STR      R5,[R0, #+0]
+     59            RTC_TAR = alarm;
+   \   00000068   0x....             LDR.N    R0,??DataTable1_4  ;; 0x4003d008
+   \   0000006A   0x6006             STR      R6,[R0, #+0]
+     60            
+     61            /*Enable the counter*/
+     62            RTC_SR |= RTC_SR_TCE_MASK;
+   \   0000006C   0x....             LDR.N    R0,??DataTable1_5  ;; 0x4003d014
+   \   0000006E   0x6800             LDR      R0,[R0, #+0]
+   \   00000070   0xF050 0x0010      ORRS     R0,R0,#0x10
+   \   00000074   0x....             LDR.N    R1,??DataTable1_5  ;; 0x4003d014
+   \   00000076   0x6008             STR      R0,[R1, #+0]
+     63            
+     64          }
+   \   00000078   0xE8BD 0x83F1      POP      {R0,R4-R9,PC}    ;; return
+     65          
+
+   \                                 In section .text, align 2, keep-with-next
+     66          void rtc_isr(void) 
+     67          {
+   \                     rtc_isr:
+   \   00000000   0xB580             PUSH     {R7,LR}
+     68             
+     69             if((RTC_SR & RTC_SR_TIF_MASK)== 0x01)
+   \   00000002   0x....             LDR.N    R0,??DataTable1_5  ;; 0x4003d014
+   \   00000004   0x6800             LDR      R0,[R0, #+0]
+   \   00000006   0x07C0             LSLS     R0,R0,#+31
+   \   00000008   0xD50C             BPL.N    ??rtc_isr_0
+     70               {
+     71                 printf("SRTC time invalid interrupt entered...\r\n");
+   \   0000000A   0x....             LDR.N    R0,??DataTable1_6
+   \   0000000C   0x.... 0x....      BL       printf
+     72             	   RTC_SR &= 0x07;  //clear TCE, or RTC_TSR can  not be written
+   \   00000010   0x....             LDR.N    R0,??DataTable1_5  ;; 0x4003d014
+   \   00000012   0x6800             LDR      R0,[R0, #+0]
+   \   00000014   0xF010 0x0007      ANDS     R0,R0,#0x7
+   \   00000018   0x....             LDR.N    R1,??DataTable1_5  ;; 0x4003d014
+   \   0000001A   0x6008             STR      R0,[R1, #+0]
+     73             	   RTC_TSR = 0x00000000;  //clear TIF 
+   \   0000001C   0x....             LDR.N    R0,??DataTable1_3  ;; 0x4003d000
+   \   0000001E   0x2100             MOVS     R1,#+0
+   \   00000020   0x6001             STR      R1,[R0, #+0]
+   \   00000022   0xE025             B.N      ??rtc_isr_1
+     74               }	
+     75             else if((RTC_SR & RTC_SR_TOF_MASK) == 0x02)
+   \                     ??rtc_isr_0:
+   \   00000024   0x....             LDR.N    R0,??DataTable1_5  ;; 0x4003d014
+   \   00000026   0x6800             LDR      R0,[R0, #+0]
+   \   00000028   0x0780             LSLS     R0,R0,#+30
+   \   0000002A   0xD50C             BPL.N    ??rtc_isr_2
+     76             {
+     77             	   printf("SRTC time overflow interrupt entered...\r\n");
+   \   0000002C   0x....             LDR.N    R0,??DataTable1_7
+   \   0000002E   0x.... 0x....      BL       printf
+     78             	   RTC_SR &= 0x07;  //clear TCE, or RTC_TSR can  not be written
+   \   00000032   0x....             LDR.N    R0,??DataTable1_5  ;; 0x4003d014
+   \   00000034   0x6800             LDR      R0,[R0, #+0]
+   \   00000036   0xF010 0x0007      ANDS     R0,R0,#0x7
+   \   0000003A   0x....             LDR.N    R1,??DataTable1_5  ;; 0x4003d014
+   \   0000003C   0x6008             STR      R0,[R1, #+0]
+     79             	   RTC_TSR = 0x00000000;  //clear TOF
+   \   0000003E   0x....             LDR.N    R0,??DataTable1_3  ;; 0x4003d000
+   \   00000040   0x2100             MOVS     R1,#+0
+   \   00000042   0x6001             STR      R1,[R0, #+0]
+   \   00000044   0xE014             B.N      ??rtc_isr_1
+     80             }	 	
+     81             else if((RTC_SR & RTC_SR_TAF_MASK) == 0x04)
+   \                     ??rtc_isr_2:
+   \   00000046   0x....             LDR.N    R0,??DataTable1_5  ;; 0x4003d014
+   \   00000048   0x6800             LDR      R0,[R0, #+0]
+   \   0000004A   0x0740             LSLS     R0,R0,#+29
+   \   0000004C   0xD50D             BPL.N    ??rtc_isr_3
+     82             {
+     83             	   printf("SRTC alarm interrupt entered...\r\n");
+   \   0000004E   0x....             LDR.N    R0,??DataTable1_8
+   \   00000050   0x.... 0x....      BL       printf
+     84                     printf("Time Seconds Register value is: %i\n", RTC_TSR);
+   \   00000054   0x....             LDR.N    R0,??DataTable1_3  ;; 0x4003d000
+   \   00000056   0x6801             LDR      R1,[R0, #+0]
+   \   00000058   0x....             LDR.N    R0,??DataTable1_9
+   \   0000005A   0x.... 0x....      BL       printf
+     85             	   RTC_TAR += 1;// Write new alarm value, to generate an alarm every second add 1
+   \   0000005E   0x....             LDR.N    R0,??DataTable1_4  ;; 0x4003d008
+   \   00000060   0x6800             LDR      R0,[R0, #+0]
+   \   00000062   0x1C40             ADDS     R0,R0,#+1
+   \   00000064   0x....             LDR.N    R1,??DataTable1_4  ;; 0x4003d008
+   \   00000066   0x6008             STR      R0,[R1, #+0]
+   \   00000068   0xE002             B.N      ??rtc_isr_1
+     86             }	
+     87             else
+     88             {
+     89                     printf("No valid Flag was set!\n");
+   \                     ??rtc_isr_3:
+   \   0000006A   0x....             LDR.N    R0,??DataTable1_10
+   \   0000006C   0x.... 0x....      BL       printf
+     90             }
+     91             return;
+   \                     ??rtc_isr_1:
+   \   00000070   0xBD01             POP      {R0,PC}          ;; return
+     92          }
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1:
+   \   00000000   0x4004803C         DC32     0x4004803c
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_1:
+   \   00000000   0x4003D010         DC32     0x4003d010
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_2:
+   \   00000000   0x4003D00C         DC32     0x4003d00c
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_3:
+   \   00000000   0x4003D000         DC32     0x4003d000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_4:
+   \   00000000   0x4003D008         DC32     0x4003d008
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_5:
+   \   00000000   0x4003D014         DC32     0x4003d014
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_6:
+   \   00000000   0x........         DC32     `?<Constant "SRTC time invalid int...">`
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_7:
+   \   00000000   0x........         DC32     `?<Constant "SRTC time overflow in...">`
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_8:
+   \   00000000   0x........         DC32     `?<Constant "SRTC alarm interrupt ...">`
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_9:
+   \   00000000   0x........         DC32     `?<Constant "Time Seconds Register...">`
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_10:
+   \   00000000   0x........         DC32     `?<Constant "No valid Flag was set!\\n">`
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant "SRTC time invalid int...">`:
+   \   00000000   0x53 0x52          DC8 "SRTC time invalid interrupt entered...\015\012"
+   \              0x54 0x43    
+   \              0x20 0x74    
+   \              0x69 0x6D    
+   \              0x65 0x20    
+   \              0x69 0x6E    
+   \              0x76 0x61    
+   \              0x6C 0x69    
+   \              0x64 0x20    
+   \              0x69 0x6E    
+   \              0x74 0x65    
+   \              0x72 0x72    
+   \              0x75 0x70    
+   \              0x74 0x20    
+   \              0x65 0x6E    
+   \              0x74 0x65    
+   \              0x72 0x65    
+   \              0x64 0x2E    
+   \              0x2E 0x2E    
+   \              0x0D 0x0A    
+   \              0x00         
+   \   00000029   0x00 0x00          DC8 0, 0, 0
+   \              0x00         
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant "SRTC time overflow in...">`:
+   \   00000000   0x53 0x52          DC8 "SRTC time overflow interrupt entered...\015\012"
+   \              0x54 0x43    
+   \              0x20 0x74    
+   \              0x69 0x6D    
+   \              0x65 0x20    
+   \              0x6F 0x76    
+   \              0x65 0x72    
+   \              0x66 0x6C    
+   \              0x6F 0x77    
+   \              0x20 0x69    
+   \              0x6E 0x74    
+   \              0x65 0x72    
+   \              0x72 0x75    
+   \              0x70 0x74    
+   \              0x20 0x65    
+   \              0x6E 0x74    
+   \              0x65 0x72    
+   \              0x65 0x64    
+   \              0x2E 0x2E    
+   \              0x2E 0x0D    
+   \              0x0A 0x00    
+   \   0000002A   0x00 0x00          DC8 0, 0
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant "SRTC alarm interrupt ...">`:
+   \   00000000   0x53 0x52          DC8 "SRTC alarm interrupt entered...\015\012"
+   \              0x54 0x43    
+   \              0x20 0x61    
+   \              0x6C 0x61    
+   \              0x72 0x6D    
+   \              0x20 0x69    
+   \              0x6E 0x74    
+   \              0x65 0x72    
+   \              0x72 0x75    
+   \              0x70 0x74    
+   \              0x20 0x65    
+   \              0x6E 0x74    
+   \              0x65 0x72    
+   \              0x65 0x64    
+   \              0x2E 0x2E    
+   \              0x2E 0x0D    
+   \              0x0A 0x00    
+   \   00000022   0x00 0x00          DC8 0, 0
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant "Time Seconds Register...">`:
+   \   00000000   0x54 0x69          DC8 "Time Seconds Register value is: %i\012"
+   \              0x6D 0x65    
+   \              0x20 0x53    
+   \              0x65 0x63    
+   \              0x6F 0x6E    
+   \              0x64 0x73    
+   \              0x20 0x52    
+   \              0x65 0x67    
+   \              0x69 0x73    
+   \              0x74 0x65    
+   \              0x72 0x20    
+   \              0x76 0x61    
+   \              0x6C 0x75    
+   \              0x65 0x20    
+   \              0x69 0x73    
+   \              0x3A 0x20    
+   \              0x25 0x69    
+   \              0x0A 0x00    
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant "No valid Flag was set!\\n">`:
+   \   00000000   0x4E 0x6F          DC8 "No valid Flag was set!\012"
+   \              0x20 0x76    
+   \              0x61 0x6C    
+   \              0x69 0x64    
+   \              0x20 0x46    
+   \              0x6C 0x61    
+   \              0x67 0x20    
+   \              0x77 0x61    
+   \              0x73 0x20    
+   \              0x73 0x65    
+   \              0x74 0x21    
+   \              0x0A 0x00    
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+       32  rtc_init
+             32 -> enable_irq
+        8  rtc_isr
+              8 -> printf
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+      24  ?<Constant "No valid Flag was set!\n">
+      36  ?<Constant "SRTC alarm interrupt ...">
+      44  ?<Constant "SRTC time invalid int...">
+      44  ?<Constant "SRTC time overflow in...">
+      36  ?<Constant "Time Seconds Register...">
+       4  ??DataTable1
+       4  ??DataTable1_1
+       4  ??DataTable1_10
+       4  ??DataTable1_2
+       4  ??DataTable1_3
+       4  ??DataTable1_4
+       4  ??DataTable1_5
+       4  ??DataTable1_6
+       4  ??DataTable1_7
+       4  ??DataTable1_8
+       4  ??DataTable1_9
+     124  rtc_init
+     114  rtc_isr
+
+ 
+ 184 bytes in section .rodata
+ 282 bytes in section .text
+ 
+ 282 bytes of CODE  memory
+ 184 bytes of CONST memory
+
+Errors: none
+Warnings: none

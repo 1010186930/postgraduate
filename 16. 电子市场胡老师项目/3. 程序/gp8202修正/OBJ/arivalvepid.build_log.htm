@@ -1,0 +1,75 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: μVision V5.33.0.0
+Copyright (C) 2020 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: 1 1010186930@qq.com, 1, LIC=MPPLD-8E560-X7KRZ-JMAZ4-F38T7-06MRV
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Plus  Version: 5.33.0.0
+Toolchain Path:  D:\Keil5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 7 (build 960)
+Assembler:       Armasm.exe V5.06 update 7 (build 960)
+Linker/Locator:  ArmLink.exe V5.06 update 7 (build 960)
+Library Manager: ArmAr.exe V5.06 update 7 (build 960)
+Hex Converter:   FromElf.exe V5.06 update 7 (build 960)
+CPU DLL:         SARMCM3.DLL V5.33.0.0
+Dialog DLL:      DARMSTM.DLL V1.68.0.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.8.0
+Dialog DLL:      TARMSTM.DLL V1.66.0.0
+ 
+<h2>Project:</h2>
+D:\实验室\16. 电子市场胡老师项目\3. 程序\gp8202修正\USER\airvalvepid.uvprojx
+Project File Date:  06/03/2021
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 7 (build 960)', folder: 'D:\Keil5\ARM\ARMCC\Bin'
+Build target 'Target 1'
+compiling main.c...
+main.c(64): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "u8 *"
+             RS485_Send_Data(display_setflowvalue,strlen(display_setflowvalue));
+main.c(69): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "u8 *"
+  			 RS485_Send_Data(display_setflowvalue,strlen(display_setflowvalue));
+main.c(27): warning:  #177-D: variable "adcx"  was declared but never referenced
+      u16 adcx=0;
+main.c(28): warning:  #177-D: variable "voltage_pid"  was declared but never referenced
+  	float voltage_pid=0;
+main.c(34): warning:  #177-D: variable "voltage_adc"  was declared but never referenced
+      float voltage_adc=0;
+main.c(15): warning:  #177-D: variable "thousand"  was declared but never referenced
+  static u8 thousand=0;
+main.c(16): warning:  #177-D: variable "hundred"  was declared but never referenced
+  static u8 hundred=0;
+main.c(17): warning:  #177-D: variable "ten"  was declared but never referenced
+  static u8 ten=0;
+main.c(18): warning:  #177-D: variable "unit"  was declared but never referenced
+  static u8 unit=0;
+main.c(19): warning:  #177-D: variable "tenths"  was declared but never referenced
+  static u8 tenths=0;
+main.c(20): warning:  #177-D: variable "percentile"  was declared but never referenced
+  static u8 percentile=0;
+main.c(21): warning:  #177-D: variable "thousandth"  was declared but never referenced
+  static u8 thousandth=0;
+main.c: 12 warnings, 0 errors
+linking...
+Program Size: Code=32504 RO-data=5456 RW-data=496 ZI-data=1960  
+FromELF: creating hex file...
+"..\OBJ\arivalvepid.axf" - 0 Error(s), 12 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: Keil
+                http://www.keil.com/pack/Keil.STM32F1xx_DFP.2.3.0.pack
+                Keil.STM32F1xx_DFP.2.3.0
+                STMicroelectronics STM32F1 Series Device Support, Drivers and Examples
+
+<h2>Collection of Component include folders:</h2>
+  D:\Keil5\Keil\STM32F1xx_DFP\2.3.0\Device\Include
+
+<h2>Collection of Component Files used:</h2>
+Build Time Elapsed:  00:00:01
+</pre>
+</body>
+</html>

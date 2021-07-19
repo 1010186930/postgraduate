@@ -1,0 +1,360 @@
+###############################################################################
+#                                                                             #
+# IAR ELF Linker V6.30.6.53336/W32 for ARM              16/Aug/2015  08:45:43 #
+# Copyright 2007-2012 IAR Systems AB.                                         #
+#                                                                             #
+#    Output file  =  C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\RAM_128KB\Exe\hello_world_K60.out                     #
+#    Map file     =  C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\RAM_128KB\List\hello_world_K60.map                    #
+#    Command line =  C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\RAM_128KB\Obj\CRC.o C:\Users\Ping\Desktop\K60_TFT144_ #
+#                    SPI\build\iar\hello_world\RAM_128KB\Obj\GUI.o            #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\RAM_128KB\Obj\HAL_SPI.o C:\Users\Ping\Desktop\K60_TFT #
+#                    144_SPI\build\iar\hello_world\RAM_128KB\Obj\SPI_FLASH.o  #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\RAM_128KB\Obj\adc16.o C:\Users\Ping\Desktop\K60_TFT14 #
+#                    4_SPI\build\iar\hello_world\RAM_128KB\Obj\alloc.o        #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\RAM_128KB\Obj\arm_cm4.o C:\Users\Ping\Desktop\K60_TFT #
+#                    144_SPI\build\iar\hello_world\RAM_128KB\Obj\assert.o     #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\RAM_128KB\Obj\crt0.o C:\Users\Ping\Desktop\K60_TFT144 #
+#                    _SPI\build\iar\hello_world\RAM_128KB\Obj\enet.o          #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\RAM_128KB\Obj\eth_phy.o C:\Users\Ping\Desktop\K60_TFT #
+#                    144_SPI\build\iar\hello_world\RAM_128KB\Obj\hello_world. #
+#                    o C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_w #
+#                    orld\RAM_128KB\Obj\io.o C:\Users\Ping\Desktop\K60_TFT144 #
+#                    _SPI\build\iar\hello_world\RAM_128KB\Obj\lcd.o           #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\RAM_128KB\Obj\lptmr.o C:\Users\Ping\Desktop\K60_TFT14 #
+#                    4_SPI\build\iar\hello_world\RAM_128KB\Obj\mcg.o          #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\RAM_128KB\Obj\memtest.o C:\Users\Ping\Desktop\K60_TFT #
+#                    144_SPI\build\iar\hello_world\RAM_128KB\Obj\mii.o        #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\RAM_128KB\Obj\nbuf.o C:\Users\Ping\Desktop\K60_TFT144 #
+#                    _SPI\build\iar\hello_world\RAM_128KB\Obj\pmc.o           #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\RAM_128KB\Obj\printf.o C:\Users\Ping\Desktop\K60_TFT1 #
+#                    44_SPI\build\iar\hello_world\RAM_128KB\Obj\queue.o       #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\RAM_128KB\Obj\rtc.o C:\Users\Ping\Desktop\K60_TFT144_ #
+#                    SPI\build\iar\hello_world\RAM_128KB\Obj\start.o          #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\RAM_128KB\Obj\startup.o C:\Users\Ping\Desktop\K60_TFT #
+#                    144_SPI\build\iar\hello_world\RAM_128KB\Obj\stdlib.o     #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\RAM_128KB\Obj\sysinit.o C:\Users\Ping\Desktop\K60_TFT #
+#                    144_SPI\build\iar\hello_world\RAM_128KB\Obj\uart.o       #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\RAM_128KB\Obj\uif.o C:\Users\Ping\Desktop\K60_TFT144_ #
+#                    SPI\build\iar\hello_world\RAM_128KB\Obj\vectors.o        #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\RAM_128KB\Obj\wdog.o --redirect _Printf=_PrintfFull   #
+#                    --redirect _Scanf=_ScanfFull -o                          #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\RAM_128KB\Exe\hello_world_K60.out --map               #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\RAM_128KB\List\hello_world_K60.map --config           #
+#                    "C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wo #
+#                    rld\..\config files\128KB_Ram.icf" --semihosting         #
+#                    --entry __iar_program_start --vfe                        #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__SystemLibrary = DLib
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A1":  place at 0x1fff0000 { ro section .intvec };
+"A2":  place at 0x1fff0410 { ro section .noinit };
+"P1":  place in [from 0x1fff0000 to 0x20010000] { ro, block CodeRelocate };
+"P2":  place in [from 0x1fff0000 to 0x20010000] {
+          rw, block CodeRelocateRam, block CSTACK, block HEAP };
+
+  Section              Kind        Address    Size  Object
+  -------              ----        -------    ----  ------
+"A1":                                        0x410
+  .intvec              const    0x1fff0000   0x410  vectors.o [1]
+                              - 0x1fff0410   0x410
+
+"A2":                                         0x3c
+  .noinit              ro code  0x1fff0410    0x3c  crt0.o [1]
+                              - 0x1fff044c    0x3c
+
+"P1":                                       0x2d38
+  .text                ro code  0x1fff044c   0x8d0  GUI.o [1]
+  .text                ro code  0x1fff0d1c   0x47c  lcd.o [1]
+  .text                ro code  0x1fff1198    0xe0  HAL_SPI.o [1]
+  .text                ro code  0x1fff1278     0x8  SPI_FLASH.o [1]
+  .text                ro code  0x1fff1280    0xd8  io.o [1]
+  .text                ro code  0x1fff1358    0x30  assert.o [1]
+  .text                ro code  0x1fff1388    0x38  uart.o [1]
+  .text                ro code  0x1fff13c0   0x55c  printf.o [1]
+  .text                ro code  0x1fff191c    0x20  stdlib.o [1]
+  .rodata              const    0x1fff193c   0x5f0  GUI.o [1]
+  .rodata              const    0x1fff1f2c   0x474  GUI.o [1]
+  .rodata              const    0x1fff23a0   0x330  GUI.o [1]
+  .rodata              const    0x1fff26d0   0x240  GUI.o [1]
+  .text                ro code  0x1fff2910   0x208  hello_world.o [1]
+  .text                ro code  0x1fff2b18   0x144  mcg.o [1]
+  .text                ro code  0x1fff2c5c    0xc0  startup.o [1]
+  .text                ro code  0x1fff2d1c     0xc  arm_cm4.o [1]
+  .rodata              const    0x1fff2d28    0xac  GUI.o [1]
+  .text                ro code  0x1fff2dd4    0x98  sysinit.o [1]
+  .rodata              const    0x1fff2e6c    0x84  GUI.o [1]
+  CodeRelocate                  0x1fff2ef0    0x50  <Block>
+    Initializer bytes  ro data  0x1fff2ef0    0x50  <for CodeRelocateRam-1>
+  .rodata              const    0x1fff2f40    0x38  io.o [1]
+  .text                ro code  0x1fff2f78    0x38  wdog.o [1]
+  .data_init                    0x1fff2fb0    0x34  <Block>
+    Initializer bytes  ro data  0x1fff2fb0    0x34  <for .data-1>
+  .rodata              const    0x1fff2fe4    0x30  vectors.o [1]
+  .text                ro code  0x1fff3014    0x2c  data_init3.o [5]
+  .rodata              const    0x1fff3040    0x24  assert.o [1]
+  .text                ro code  0x1fff3064    0x22  zero_init3.o [5]
+  .iar.init_table      const    0x1fff3088    0x10  - Linker created -
+  .text                ro code  0x1fff3098    0x18  vectors.o [1]
+  .text                ro code  0x1fff30b0    0x16  cmain.o [5]
+  .text                ro code  0x1fff30c6     0x4  low_level_init.o [3]
+  .text                ro code  0x1fff30ca     0x4  exit.o [3]
+  .text                ro code  0x1fff30d0     0xa  cexit.o [5]
+  .text                ro code  0x1fff30dc    0x14  exit.o [6]
+  .rodata              const    0x1fff30f0    0x14  hello_world.o [1]
+  .rodata              const    0x1fff3104    0x14  uart.o [1]
+  .text                ro code  0x1fff3118    0x14  start.o [1]
+  .rodata              const    0x1fff312c    0x10  hello_world.o [1]
+  .rodata              const    0x1fff313c    0x10  hello_world.o [1]
+  .rodata              const    0x1fff314c    0x10  hello_world.o [1]
+  .rodata              const    0x1fff315c     0xc  hello_world.o [1]
+  .text                ro code  0x1fff3168     0xc  cstartup_M.o [5]
+  .rodata              const    0x1fff3174     0x8  hello_world.o [1]
+  .rodata              const    0x1fff317c     0x8  hello_world.o [1]
+  .rodata              const    0x1fff3184     0x0  bwt_init3c.o [5]
+                              - 0x1fff3184  0x2d38
+
+"P2", part 1 of 2:                            0x84
+  CodeRelocateRam               0x1fff3184    0x50  <Block>
+    CodeRelocateRam-1           0x1fff3184    0x50  <Init block>
+      .textrw          inited   0x1fff3184    0x50  mcg.o [1]
+  .data                         0x1fff31d4    0x34  <Block>
+    .data-1                     0x1fff31d4    0x34  <Init block>
+      .data            inited   0x1fff31d4     0xc  HAL_SPI.o [1]
+      .data            inited   0x1fff31e0    0x14  io.o [1]
+      .data            inited   0x1fff31f4    0x14  io.o [1]
+                              - 0x1fff3208    0x84
+
+"P2", part 2 of 2:                            0x22
+  .bss                          0x1fff3208    0x22  <Block>
+    .bss               zero     0x1fff3208     0x4  hello_world.o [1]
+    .bss               zero     0x1fff320c    0x10  lcd.o [1]
+    .bss               zero     0x1fff321c     0x4  sysinit.o [1]
+    .bss               zero     0x1fff3220     0x4  sysinit.o [1]
+    .bss               zero     0x1fff3224     0x4  sysinit.o [1]
+    .bss               zero     0x1fff3228     0x2  lcd.o [1]
+                              - 0x1fff322a    0x22
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address     Size
+          -------     ----
+Zero (__iar_zero_init3)
+    1 destination range, total size 0x22:
+          0x1fff3208  0x22
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module            ro code  rw code  ro data  rw data
+    ------            -------  -------  -------  -------
+C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_world\RAM_128KB\Obj: [1]
+    GUI.o               2 256             4 356
+    HAL_SPI.o             224                12       12
+    SPI_FLASH.o             8
+    arm_cm4.o              12
+    assert.o               48                36
+    crt0.o                 60
+    hello_world.o         520                96        4
+    io.o                  216                96       40
+    lcd.o               1 148                         18
+    mcg.o                 324       80       80
+    printf.o            1 372
+    start.o                20
+    startup.o             192
+    stdlib.o               32
+    sysinit.o             152                         12
+    uart.o                 56                20
+    vectors.o              24             1 088
+    wdog.o                 56
+    ----------------------------------------------------
+    Total:              6 720       80    5 784       86
+
+command line: [2]
+    ----------------------------------------------------
+    Total:
+
+dl7M_tln.a: [3]
+    exit.o                  4
+    low_level_init.o        4
+    ----------------------------------------------------
+    Total:                  8
+
+m7M_tl.a: [4]
+    ----------------------------------------------------
+    Total:
+
+rt7M_tl.a: [5]
+    bwt_init3c.o
+    cexit.o                10
+    cmain.o                22
+    cstartup_M.o           12
+    data_init3.o           44
+    zero_init3.o           34
+    ----------------------------------------------------
+    Total:                122
+
+shb_l.a: [6]
+    exit.o                 20
+    ----------------------------------------------------
+    Total:                 20
+
+    Gaps                    4                 2
+    Linker created                           16
+--------------------------------------------------------
+    Grand Total:        6 874       80    5 802       86
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                      Address   Size  Type      Object
+-----                      -------   ----  ----      ------
+.bss$$Base              0x1fff3208          --   Gb  - Linker created -
+.bss$$Limit             0x1fff322a          --   Gb  - Linker created -
+.data$$Base             0x1fff31d4          --   Gb  - Linker created -
+.data$$Limit            0x1fff3208          --   Gb  - Linker created -
+.data_init$$Base        0x1fff2fb0          --   Gb  - Linker created -
+.data_init$$Limit       0x1fff2fe4          --   Gb  - Linker created -
+?main                   0x1fff30b1         Code  Gb  cmain.o [5]
+ASSERT_FAILED_STR       0x1fff3040   0x24  Data  Gb  assert.o [1]
+CodeRelocate$$Base      0x1fff2ef0          --   Gb  - Linker created -
+CodeRelocate$$Limit     0x1fff2f40          --   Gb  - Linker created -
+CodeRelocateRam$$Base   0x1fff3184          --   Gb  - Linker created -
+CodeRelocateRam$$Limit  0x1fff31d4          --   Gb  - Linker created -
+GPIOx                   0x1fff31e0   0x14  Data  Gb  io.o [1]
+GUI_DrawFont16          0x1fff07e9  0x13a  Code  Gb  GUI.o [1]
+GUI_DrawFont24          0x1fff0923  0x138  Code  Gb  GUI.o [1]
+GUI_DrawFont32          0x1fff0a5b  0x12c  Code  Gb  GUI.o [1]
+LCD_Clear               0x1fff108d   0x4a  Code  Gb  lcd.o [1]
+LCD_DrawLine            0x1fff044d   0xbc  Code  Gb  GUI.o [1]
+LCD_DrawPoint           0x1fff0e3f   0x1c  Code  Gb  lcd.o [1]
+LCD_DrawRectangle       0x1fff0509   0x5c  Code  Gb  GUI.o [1]
+LCD_Init                0x1fff0e6b  0x222  Code  Gb  lcd.o [1]
+LCD_RESET               0x1fff0e5b   0x10  Code  Gb  lcd.o [1]
+LCD_SetCursor           0x1fff113f   0x1c  Code  Gb  lcd.o [1]
+LCD_SetParam            0x1fff115b   0x30  Code  Gb  lcd.o [1]
+LCD_SetWindows          0x1fff10d7   0x68  Code  Gb  lcd.o [1]
+LCD_ShowChar            0x1fff0565  0x178  Code  Gb  GUI.o [1]
+LCD_ShowNum2412         0x1fff06dd  0x10c  Code  Gb  GUI.o [1]
+LCD_WR_DATA             0x1fff0d6f   0x52  Code  Gb  lcd.o [1]
+LCD_WR_DATA_16Bit       0x1fff0dc1   0x5a  Code  Gb  lcd.o [1]
+LCD_WR_REG              0x1fff0d1d   0x52  Code  Gb  lcd.o [1]
+LCD_WriteRAM_Prepare    0x1fff0e33    0xc  Code  Gb  lcd.o [1]
+LCD_WriteReg            0x1fff0e1b   0x18  Code  Gb  lcd.o [1]
+POINT_COLOR             0x1fff3228    0x2  Data  Gb  lcd.o [1]
+PORTX                   0x1fff31f4   0x14  Data  Gb  io.o [1]
+Region$$Table$$Base     0x1fff3088          --   Gb  - Linker created -
+Region$$Table$$Limit    0x1fff3098          --   Gb  - Linker created -
+SPI_Init                0x1fff1199   0x7e  Code  Gb  HAL_SPI.o [1]
+SPI_Master_WriteRead    0x1fff1217   0x46  Code  Gb  HAL_SPI.o [1]
+SPIx_Ptr                0x1fff31d4    0xc  Data  Gb  HAL_SPI.o [1]
+Show_Str                0x1fff0b87  0x176  Code  Gb  GUI.o [1]
+Time                    0x1fff3208    0x4  Data  Gb  hello_world.o [1]
+USART3_IRQHandler       0x1fff139d   0x1c  Code  Gb  uart.o [1]
+__BOOT_STACK_ADDRESS {Abs}
+                        0x2000fff8          --   Gb  command line/config [2]
+__VECTOR_RAM {Abs}      0x1fff0000          --   Gb  command line/config [2]
+__VECTOR_TABLE {Abs}    0x1fff0000          --   Gb  command line/config [2]
+__cmain                 0x1fff30b1         Code  Gb  cmain.o [5]
+__exit                  0x1fff30dd   0x14  Code  Gb  exit.o [6]
+__iar_SB                0x1fff3184         Data  Gb  bwt_init3c.o [5]
+__iar_data_init3        0x1fff3015   0x2c  Code  Gb  data_init3.o [5]
+__iar_program_start     0x1fff3169         Code  Gb  cstartup_M.o [5]
+__iar_zero_init3        0x1fff3065   0x22  Code  Gb  zero_init3.o [5]
+__low_level_init        0x1fff30c7    0x4  Code  Gb  low_level_init.o [3]
+__startup               0x1fff0411         Code  Gb  crt0.o [1]
+__vector_table          0x1fff0000  0x410  Data  Gb  vectors.o [1]
+_call_main              0x1fff30bd         Code  Gb  cmain.o [5]
+_exit                   0x1fff30d1         Code  Gb  cexit.o [5]
+_main                   0x1fff30c3         Code  Gb  cmain.o [5]
+asc2_1206               0x1fff1f2c  0x474  Data  Gb  GUI.o [1]
+asc2_1608               0x1fff193c  0x5f0  Data  Gb  GUI.o [1]
+asc2_2412               0x1fff26d0  0x240  Data  Gb  GUI.o [1]
+assert_failed           0x1fff1359   0x30  Code  Gb  assert.o [1]
+common_startup          0x1fff2c5d   0xc0  Code  Gb  startup.o [1]
+core_clk_khz            0x1fff321c    0x4  Data  Gb  sysinit.o [1]
+core_clk_mhz            0x1fff3220    0x4  Data  Gb  sysinit.o [1]
+default_isr             0x1fff3099   0x18  Code  Gb  vectors.o [1]
+delay_ms                0x1fff1279    0x8  Code  Gb  SPI_FLASH.o [1]
+exit                    0x1fff30cb    0x4  Code  Gb  exit.o [3]
+fb_clk_init             0x1fff2e33   0x16  Code  Gb  sysinit.o [1]
+gpio_init               0x1fff1281   0xb8  Code  Gb  io.o [1]
+lcddev                  0x1fff320c   0x10  Data  Gb  lcd.o [1]
+main                    0x1fff2911  0x208  Code  Gb  hello_world.o [1]
+out_char                0x1fff1339   0x10  Code  Gb  io.o [1]
+periph_clk_khz          0x1fff3224    0x4  Data  Gb  sysinit.o [1]
+pll_init                0x1fff2b19  0x126  Code  Gb  mcg.o [1]
+printf                  0x1fff18f3   0x26  Code  Gb  printf.o [1]
+printk                  0x1fff14e9  0x40a  Code  Gb  printf.o [1]
+printk_mknumstr         0x1fff13f3   0xaa  Code  Lc  printf.o [1]
+printk_pad_space        0x1fff14c3   0x26  Code  Lc  printf.o [1]
+printk_pad_zero         0x1fff149d   0x26  Code  Lc  printf.o [1]
+printk_putc             0x1fff13c1   0x32  Code  Lc  printf.o [1]
+set_sys_dividers        0x1fff3185   0x50  Code  Gb  mcg.o [1]
+start                   0x1fff3119   0x14  Code  Gb  start.o [1]
+strlen                  0x1fff191d   0x20  Code  Gb  stdlib.o [1]
+sysinit                 0x1fff2dd5   0x48  Code  Gb  sysinit.o [1]
+tfont16                 0x1fff2d28   0xac  Data  Gb  GUI.o [1]
+tfont24                 0x1fff23a0  0x330  Data  Gb  GUI.o [1]
+tfont32                 0x1fff2e6c   0x84  Data  Gb  GUI.o [1]
+trace_clk_init          0x1fff2e1d   0x16  Code  Gb  sysinit.o [1]
+uart_getchar            0x1fff1389    0xa  Code  Gb  uart.o [1]
+uart_putchar            0x1fff1393    0xa  Code  Gb  uart.o [1]
+wdog_disable            0x1fff2f79   0x16  Code  Gb  wdog.o [1]
+wdog_unlock             0x1fff2f91   0x16  Code  Gb  wdog.o [1]
+write_vtor              0x1fff2d1d    0x6  Code  Gb  arm_cm4.o [1]
+
+
+[1] = C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_world\RAM_128KB\Obj
+[2] = command line
+[3] = dl7M_tln.a
+[4] = m7M_tl.a
+[5] = rt7M_tl.a
+[6] = shb_l.a
+
+  6 874 bytes of readonly  code memory
+     80 bytes of readwrite code memory
+  5 802 bytes of readonly  data memory
+     86 bytes of readwrite data memory
+
+Errors: none
+Warnings: none

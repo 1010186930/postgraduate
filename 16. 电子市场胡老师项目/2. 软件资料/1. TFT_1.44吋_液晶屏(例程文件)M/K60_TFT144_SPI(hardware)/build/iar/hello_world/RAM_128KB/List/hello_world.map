@@ -1,0 +1,376 @@
+###############################################################################
+#                                                                             #
+# IAR ELF Linker V6.30.6.53336/W32 for ARM              17/Mar/2013  11:09:04 #
+# Copyright 2007-2012 IAR Systems AB.                                         #
+#                                                                             #
+#    Output file  =  C:\Users\me\Desktop\K60资料整理\Kinetis_K60（客户资料）\ #
+#                    Kinetis_K60例程\Kinetis_K60例程(适用本核心板)\build\iar\ #
+#                    hello_world\RAM_128KB\Exe\hello_world.out                #
+#    Map file     =  C:\Users\me\Desktop\K60资料整理\Kinetis_K60（客户资料）\ #
+#                    Kinetis_K60例程\Kinetis_K60例程(适用本核心板)\build\iar\ #
+#                    hello_world\RAM_128KB\List\hello_world.map               #
+#    Command line =  "C:\Users\me\Desktop\K60资料整理\Kinetis_K60（客户资料） #
+#                    \Kinetis_K60例程\Kinetis_K60例程(适用本核心板)\build\iar #
+#                    \hello_world\RAM_128KB\Obj\adc16.o"                      #
+#                    "C:\Users\me\Desktop\K60资料整理\Kinetis_K60（客户资料） #
+#                    \Kinetis_K60例程\Kinetis_K60例程(适用本核心板)\build\iar #
+#                    \hello_world\RAM_128KB\Obj\alloc.o"                      #
+#                    "C:\Users\me\Desktop\K60资料整理\Kinetis_K60（客户资料） #
+#                    \Kinetis_K60例程\Kinetis_K60例程(适用本核心板)\build\iar #
+#                    \hello_world\RAM_128KB\Obj\arm_cm4.o"                    #
+#                    "C:\Users\me\Desktop\K60资料整理\Kinetis_K60（客户资料） #
+#                    \Kinetis_K60例程\Kinetis_K60例程(适用本核心板)\build\iar #
+#                    \hello_world\RAM_128KB\Obj\assert.o"                     #
+#                    "C:\Users\me\Desktop\K60资料整理\Kinetis_K60（客户资料） #
+#                    \Kinetis_K60例程\Kinetis_K60例程(适用本核心板)\build\iar #
+#                    \hello_world\RAM_128KB\Obj\crt0.o"                       #
+#                    "C:\Users\me\Desktop\K60资料整理\Kinetis_K60（客户资料） #
+#                    \Kinetis_K60例程\Kinetis_K60例程(适用本核心板)\build\iar #
+#                    \hello_world\RAM_128KB\Obj\enet.o"                       #
+#                    "C:\Users\me\Desktop\K60资料整理\Kinetis_K60（客户资料） #
+#                    \Kinetis_K60例程\Kinetis_K60例程(适用本核心板)\build\iar #
+#                    \hello_world\RAM_128KB\Obj\eth_phy.o"                    #
+#                    "C:\Users\me\Desktop\K60资料整理\Kinetis_K60（客户资料） #
+#                    \Kinetis_K60例程\Kinetis_K60例程(适用本核心板)\build\iar #
+#                    \hello_world\RAM_128KB\Obj\hello_world.o"                #
+#                    "C:\Users\me\Desktop\K60资料整理\Kinetis_K60（客户资料） #
+#                    \Kinetis_K60例程\Kinetis_K60例程(适用本核心板)\build\iar #
+#                    \hello_world\RAM_128KB\Obj\io.o"                         #
+#                    "C:\Users\me\Desktop\K60资料整理\Kinetis_K60（客户资料） #
+#                    \Kinetis_K60例程\Kinetis_K60例程(适用本核心板)\build\iar #
+#                    \hello_world\RAM_128KB\Obj\lptmr.o"                      #
+#                    "C:\Users\me\Desktop\K60资料整理\Kinetis_K60（客户资料） #
+#                    \Kinetis_K60例程\Kinetis_K60例程(适用本核心板)\build\iar #
+#                    \hello_world\RAM_128KB\Obj\mcg.o"                        #
+#                    "C:\Users\me\Desktop\K60资料整理\Kinetis_K60（客户资料） #
+#                    \Kinetis_K60例程\Kinetis_K60例程(适用本核心板)\build\iar #
+#                    \hello_world\RAM_128KB\Obj\memtest.o"                    #
+#                    "C:\Users\me\Desktop\K60资料整理\Kinetis_K60（客户资料） #
+#                    \Kinetis_K60例程\Kinetis_K60例程(适用本核心板)\build\iar #
+#                    \hello_world\RAM_128KB\Obj\mii.o"                        #
+#                    "C:\Users\me\Desktop\K60资料整理\Kinetis_K60（客户资料） #
+#                    \Kinetis_K60例程\Kinetis_K60例程(适用本核心板)\build\iar #
+#                    \hello_world\RAM_128KB\Obj\nbuf.o"                       #
+#                    "C:\Users\me\Desktop\K60资料整理\Kinetis_K60（客户资料） #
+#                    \Kinetis_K60例程\Kinetis_K60例程(适用本核心板)\build\iar #
+#                    \hello_world\RAM_128KB\Obj\pmc.o"                        #
+#                    "C:\Users\me\Desktop\K60资料整理\Kinetis_K60（客户资料） #
+#                    \Kinetis_K60例程\Kinetis_K60例程(适用本核心板)\build\iar #
+#                    \hello_world\RAM_128KB\Obj\printf.o"                     #
+#                    "C:\Users\me\Desktop\K60资料整理\Kinetis_K60（客户资料） #
+#                    \Kinetis_K60例程\Kinetis_K60例程(适用本核心板)\build\iar #
+#                    \hello_world\RAM_128KB\Obj\queue.o"                      #
+#                    "C:\Users\me\Desktop\K60资料整理\Kinetis_K60（客户资料） #
+#                    \Kinetis_K60例程\Kinetis_K60例程(适用本核心板)\build\iar #
+#                    \hello_world\RAM_128KB\Obj\rtc.o"                        #
+#                    "C:\Users\me\Desktop\K60资料整理\Kinetis_K60（客户资料） #
+#                    \Kinetis_K60例程\Kinetis_K60例程(适用本核心板)\build\iar #
+#                    \hello_world\RAM_128KB\Obj\start.o"                      #
+#                    "C:\Users\me\Desktop\K60资料整理\Kinetis_K60（客户资料） #
+#                    \Kinetis_K60例程\Kinetis_K60例程(适用本核心板)\build\iar #
+#                    \hello_world\RAM_128KB\Obj\startup.o"                    #
+#                    "C:\Users\me\Desktop\K60资料整理\Kinetis_K60（客户资料） #
+#                    \Kinetis_K60例程\Kinetis_K60例程(适用本核心板)\build\iar #
+#                    \hello_world\RAM_128KB\Obj\stdlib.o"                     #
+#                    "C:\Users\me\Desktop\K60资料整理\Kinetis_K60（客户资料） #
+#                    \Kinetis_K60例程\Kinetis_K60例程(适用本核心板)\build\iar #
+#                    \hello_world\RAM_128KB\Obj\sysinit.o"                    #
+#                    "C:\Users\me\Desktop\K60资料整理\Kinetis_K60（客户资料） #
+#                    \Kinetis_K60例程\Kinetis_K60例程(适用本核心板)\build\iar #
+#                    \hello_world\RAM_128KB\Obj\uart.o"                       #
+#                    "C:\Users\me\Desktop\K60资料整理\Kinetis_K60（客户资料） #
+#                    \Kinetis_K60例程\Kinetis_K60例程(适用本核心板)\build\iar #
+#                    \hello_world\RAM_128KB\Obj\uif.o"                        #
+#                    "C:\Users\me\Desktop\K60资料整理\Kinetis_K60（客户资料） #
+#                    \Kinetis_K60例程\Kinetis_K60例程(适用本核心板)\build\iar #
+#                    \hello_world\RAM_128KB\Obj\vectors.o"                    #
+#                    "C:\Users\me\Desktop\K60资料整理\Kinetis_K60（客户资料） #
+#                    \Kinetis_K60例程\Kinetis_K60例程(适用本核心板)\build\iar #
+#                    \hello_world\RAM_128KB\Obj\wdog.o" --redirect            #
+#                    _Printf=_PrintfFull --redirect _Scanf=_ScanfFull -o      #
+#                    "C:\Users\me\Desktop\K60资料整理\Kinetis_K60（客户资料） #
+#                    \Kinetis_K60例程\Kinetis_K60例程(适用本核心板)\build\iar #
+#                    \hello_world\RAM_128KB\Exe\hello_world.out" --map        #
+#                    "C:\Users\me\Desktop\K60资料整理\Kinetis_K60（客户资料） #
+#                    \Kinetis_K60例程\Kinetis_K60例程(适用本核心板)\build\iar #
+#                    \hello_world\RAM_128KB\List\hello_world.map" --config    #
+#                    "C:\Users\me\Desktop\K60资料整理\Kinetis_K60（客户资料） #
+#                    \Kinetis_K60例程\Kinetis_K60例程(适用本核心板)\build\iar #
+#                    \hello_world\..\config files\128KB_Ram.icf"              #
+#                    --semihosting --entry __iar_program_start --vfe          #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__SystemLibrary = DLib
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A1":  place at 0x1fff0000 { ro section .intvec };
+"A2":  place at 0x1fff0410 { ro section .noinit };
+"P1":  place in [from 0x1fff0000 to 0x20010000] { ro, block CodeRelocate };
+"P2":  place in [from 0x1fff0000 to 0x20010000] {
+          rw, block CodeRelocateRam, block CSTACK, block HEAP };
+
+  Section              Kind        Address    Size  Object
+  -------              ----        -------    ----  ------
+"A1":                                        0x410
+  .intvec              const    0x1fff0000   0x410  vectors.o [1]
+                              - 0x1fff0410   0x410
+
+"A2":                                         0x3c
+  .noinit              ro code  0x1fff0410    0x3c  crt0.o [1]
+                              - 0x1fff044c    0x3c
+
+"P1":                                       0x12e0
+  .text                ro code  0x1fff044c   0x4c4  printf.o [1]
+  .text                ro code  0x1fff0910    0x1a  stdlib.o [1]
+  .text                ro code  0x1fff092a    0x22  zero_init3.o [5]
+  .text                ro code  0x1fff094c   0x488  start.o [1]
+  .text                ro code  0x1fff0dd4    0x38  wdog.o [1]
+  .text                ro code  0x1fff0e0c    0x9c  startup.o [1]
+  .text                ro code  0x1fff0ea8    0xc4  sysinit.o [1]
+  .text                ro code  0x1fff0f6c    0x18  hello_world.o [1]
+  .text                ro code  0x1fff0f84     0xc  arm_cm4.o [1]
+  .text                ro code  0x1fff0f90   0x138  mcg.o [1]
+  .text                ro code  0x1fff10c8    0xfc  uart.o [1]
+  .text                ro code  0x1fff11c4    0x1c  io.o [1]
+  CodeRelocate                  0x1fff11e0    0x4c  <Block>
+    Initializer bytes  ro data  0x1fff11e0    0x4c  <for CodeRelocateRam-1>
+  .rodata              const    0x1fff122c    0x40  start.o [1]
+  .rodata              const    0x1fff126c    0x30  vectors.o [1]
+  .rodata              const    0x1fff129c    0x2c  start.o [1]
+  .text                ro code  0x1fff12c8    0x2c  data_init3.o [5]
+  .rodata              const    0x1fff12f4    0x28  start.o [1]
+  .rodata              const    0x1fff131c    0x28  start.o [1]
+  .iar.init_table      const    0x1fff1344    0x10  - Linker created -
+  .rodata              const    0x1fff1354    0x20  start.o [1]
+  .rodata              const    0x1fff1374    0x20  start.o [1]
+  .rodata              const    0x1fff1394    0x20  start.o [1]
+  .rodata              const    0x1fff13b4    0x1c  start.o [1]
+  .rodata              const    0x1fff13d0    0x1c  start.o [1]
+  .rodata              const    0x1fff13ec    0x1c  start.o [1]
+  .rodata              const    0x1fff1408    0x18  start.o [1]
+  .rodata              const    0x1fff1420    0x18  start.o [1]
+  .rodata              const    0x1fff1438    0x18  start.o [1]
+  .rodata              const    0x1fff1450    0x18  start.o [1]
+  .rodata              const    0x1fff1468    0x18  start.o [1]
+  .rodata              const    0x1fff1480    0x18  start.o [1]
+  .rodata              const    0x1fff1498    0x18  start.o [1]
+  .rodata              const    0x1fff14b0    0x18  start.o [1]
+  .rodata              const    0x1fff14c8    0x18  start.o [1]
+  .rodata              const    0x1fff14e0    0x18  start.o [1]
+  .text                ro code  0x1fff14f8    0x18  vectors.o [1]
+  .text                ro code  0x1fff1510    0x16  cmain.o [5]
+  .text                ro code  0x1fff1526     0x4  low_level_init.o [3]
+  .text                ro code  0x1fff152a     0x4  exit.o [3]
+  .text                ro code  0x1fff1530     0xa  cexit.o [5]
+  .text                ro code  0x1fff153c    0x14  exit.o [6]
+  .rodata              const    0x1fff1550    0x14  start.o [1]
+  .rodata              const    0x1fff1564    0x14  start.o [1]
+  .rodata              const    0x1fff1578    0x14  start.o [1]
+  .rodata              const    0x1fff158c    0x14  start.o [1]
+  .rodata              const    0x1fff15a0    0x14  start.o [1]
+  .rodata              const    0x1fff15b4    0x14  start.o [1]
+  .rodata              const    0x1fff15c8    0x14  start.o [1]
+  .rodata              const    0x1fff15dc    0x10  hello_world.o [1]
+  .rodata              const    0x1fff15ec    0x10  start.o [1]
+  .rodata              const    0x1fff15fc    0x10  start.o [1]
+  .rodata              const    0x1fff160c    0x10  start.o [1]
+  .rodata              const    0x1fff161c    0x10  start.o [1]
+  .rodata              const    0x1fff162c    0x10  start.o [1]
+  .rodata              const    0x1fff163c    0x10  start.o [1]
+  .rodata              const    0x1fff164c    0x10  start.o [1]
+  .rodata              const    0x1fff165c    0x10  start.o [1]
+  .rodata              const    0x1fff166c    0x10  start.o [1]
+  .rodata              const    0x1fff167c    0x10  start.o [1]
+  .rodata              const    0x1fff168c    0x10  start.o [1]
+  .rodata              const    0x1fff169c    0x10  start.o [1]
+  .rodata              const    0x1fff16ac    0x10  start.o [1]
+  .rodata              const    0x1fff16bc     0xc  start.o [1]
+  .rodata              const    0x1fff16c8     0xc  start.o [1]
+  .rodata              const    0x1fff16d4     0xc  start.o [1]
+  .text                ro code  0x1fff16e0     0xc  cstartup_M.o [5]
+  .rodata              const    0x1fff16ec     0x8  start.o [1]
+  .rodata              const    0x1fff16f4     0x8  start.o [1]
+  .rodata              const    0x1fff16fc     0x8  start.o [1]
+  .rodata              const    0x1fff1704     0x8  start.o [1]
+  .rodata              const    0x1fff170c     0x8  start.o [1]
+  .rodata              const    0x1fff1714     0x8  start.o [1]
+  .rodata              const    0x1fff171c     0x8  start.o [1]
+  .rodata              const    0x1fff1724     0x8  start.o [1]
+  .rodata              const    0x1fff172c     0x0  bwt_init3c.o [5]
+                              - 0x1fff172c  0x12e0
+
+"P2", part 1 of 2:                            0x4c
+  CodeRelocateRam               0x1fff172c    0x4c  <Block>
+    CodeRelocateRam-1           0x1fff172c    0x4c  <Init block>
+      .textrw          inited   0x1fff172c    0x4c  mcg.o [1]
+                              - 0x1fff1778    0x4c
+
+"P2", part 2 of 2:                             0xc
+  .bss                          0x1fff1778     0xc  <Block>
+    .bss               zero     0x1fff1778     0x4  sysinit.o [1]
+    .bss               zero     0x1fff177c     0x4  sysinit.o [1]
+    .bss               zero     0x1fff1780     0x4  sysinit.o [1]
+                              - 0x1fff1784     0xc
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address     Size
+          -------     ----
+Zero (__iar_zero_init3)
+    1 destination range, total size 0xc:
+          0x1fff1778   0xc
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module            ro code  rw code  ro data  rw data
+    ------            -------  -------  -------  -------
+C:\Users\me\Desktop\K60资料整理\Kinetis_K60（客户资料）\Kinetis_K60例程\Kinetis_K60例程(适用本核心板)\build\iar\hello_world\RAM_128KB\Obj: [1]
+    arm_cm4.o              12
+    crt0.o                 60
+    hello_world.o          24                16
+    io.o                   28
+    mcg.o                 312       76       76
+    printf.o            1 220
+    start.o             1 160             1 056
+    startup.o             156
+    stdlib.o               26
+    sysinit.o             196                         12
+    uart.o                252
+    vectors.o              24             1 088
+    wdog.o                 56
+    ----------------------------------------------------
+    Total:              3 526       76    2 236       12
+
+command line: [2]
+    ----------------------------------------------------
+    Total:
+
+dl7M_tln.a: [3]
+    exit.o                  4
+    low_level_init.o        4
+    ----------------------------------------------------
+    Total:                  8
+
+m7M_tl.a: [4]
+    ----------------------------------------------------
+    Total:
+
+rt7M_tl.a: [5]
+    bwt_init3c.o
+    cexit.o                10
+    cmain.o                22
+    cstartup_M.o           12
+    data_init3.o           44
+    zero_init3.o           34
+    ----------------------------------------------------
+    Total:                122
+
+shb_l.a: [6]
+    exit.o                 20
+    ----------------------------------------------------
+    Total:                 20
+
+    Gaps                    4
+    Linker created                           16
+--------------------------------------------------------
+    Grand Total:        3 680       76    2 252       12
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                      Address   Size  Type      Object
+-----                      -------   ----  ----      ------
+.bss$$Base              0x1fff1778          --   Gb  - Linker created -
+.bss$$Limit             0x1fff1784          --   Gb  - Linker created -
+.data$$Base             0x00000000          --   Gb  - Linker created -
+.data_init$$Base        0x00000000          --   Gb  - Linker created -
+.data_init$$Limit       0x00000000          --   Gb  - Linker created -
+?main                   0x1fff1511         Code  Gb  cmain.o [5]
+CodeRelocate$$Base      0x1fff11e0          --   Gb  - Linker created -
+CodeRelocate$$Limit     0x1fff122c          --   Gb  - Linker created -
+CodeRelocateRam$$Base   0x1fff172c          --   Gb  - Linker created -
+CodeRelocateRam$$Limit  0x1fff1778          --   Gb  - Linker created -
+Region$$Table$$Base     0x1fff1344          --   Gb  - Linker created -
+Region$$Table$$Limit    0x1fff1354          --   Gb  - Linker created -
+__BOOT_STACK_ADDRESS {Abs}
+                        0x2000fff8          --   Gb  command line/config [2]
+__VECTOR_RAM {Abs}      0x1fff0000          --   Gb  command line/config [2]
+__VECTOR_TABLE {Abs}    0x1fff0000          --   Gb  command line/config [2]
+__cmain                 0x1fff1511         Code  Gb  cmain.o [5]
+__exit                  0x1fff153d   0x14  Code  Gb  exit.o [6]
+__iar_SB                0x1fff172c         Data  Gb  bwt_init3c.o [5]
+__iar_data_init3        0x1fff12c9   0x2c  Code  Gb  data_init3.o [5]
+__iar_program_start     0x1fff16e1         Code  Gb  cstartup_M.o [5]
+__iar_zero_init3        0x1fff092b   0x22  Code  Gb  zero_init3.o [5]
+__low_level_init        0x1fff1527    0x4  Code  Gb  low_level_init.o [3]
+__startup               0x1fff0411         Code  Gb  crt0.o [1]
+__vector_table          0x1fff0000  0x410  Data  Gb  vectors.o [1]
+_call_main              0x1fff151d         Code  Gb  cmain.o [5]
+_exit                   0x1fff1531         Code  Gb  cexit.o [5]
+_main                   0x1fff1523         Code  Gb  cmain.o [5]
+common_startup          0x1fff0e0d   0x9c  Code  Gb  startup.o [1]
+core_clk_khz            0x1fff1778    0x4  Data  Gb  sysinit.o [1]
+core_clk_mhz            0x1fff177c    0x4  Data  Gb  sysinit.o [1]
+cpu_identify            0x1fff0a21  0x204  Code  Gb  start.o [1]
+default_isr             0x1fff14f9   0x18  Code  Gb  vectors.o [1]
+exit                    0x1fff152b    0x4  Code  Gb  exit.o [3]
+fb_clk_init             0x1fff0f25   0x16  Code  Gb  sysinit.o [1]
+flash_identify          0x1fff0c25   0xa2  Code  Gb  start.o [1]
+in_char                 0x1fff11c5    0xa  Code  Gb  io.o [1]
+main                    0x1fff0f6d   0x18  Code  Gb  hello_world.o [1]
+out_char                0x1fff11cf    0xe  Code  Gb  io.o [1]
+periph_clk_khz          0x1fff1780    0x4  Data  Gb  sysinit.o [1]
+pll_init                0x1fff0f91  0x11c  Code  Gb  mcg.o [1]
+printf                  0x1fff08ef   0x1e  Code  Gb  printf.o [1]
+printk                  0x1fff0525  0x3ca  Code  Gb  printf.o [1]
+printk_mknumstr         0x1fff0479   0x70  Code  Lc  printf.o [1]
+printk_pad_space        0x1fff0507   0x1e  Code  Lc  printf.o [1]
+printk_pad_zero         0x1fff04e9   0x1e  Code  Lc  printf.o [1]
+printk_putc             0x1fff044d   0x2c  Code  Lc  printf.o [1]
+set_sys_dividers        0x1fff172d   0x4c  Code  Gb  mcg.o [1]
+start                   0x1fff094d   0xd0  Code  Gb  start.o [1]
+strlen                  0x1fff0911   0x1a  Code  Gb  stdlib.o [1]
+sysinit                 0x1fff0ea9   0x66  Code  Gb  sysinit.o [1]
+trace_clk_init          0x1fff0f0f   0x16  Code  Gb  sysinit.o [1]
+uart_getchar            0x1fff11b1    0xa  Code  Gb  uart.o [1]
+uart_init               0x1fff10c9   0xcc  Code  Gb  uart.o [1]
+uart_putchar            0x1fff11bb    0xa  Code  Gb  uart.o [1]
+wdog_disable            0x1fff0dd5   0x16  Code  Gb  wdog.o [1]
+wdog_unlock             0x1fff0ded   0x16  Code  Gb  wdog.o [1]
+write_vtor              0x1fff0f85    0x6  Code  Gb  arm_cm4.o [1]
+
+
+[1] = C:\Users\me\Desktop\K60资料整理\Kinetis_K60（客户资料）\Kinetis_K60例程\Kinetis_K60例程(适用本核心板)\build\iar\hello_world\RAM_128KB\Obj
+[2] = command line
+[3] = dl7M_tln.a
+[4] = m7M_tl.a
+[5] = rt7M_tl.a
+[6] = shb_l.a
+
+  3 680 bytes of readonly  code memory
+     76 bytes of readwrite code memory
+  2 252 bytes of readonly  data memory
+     12 bytes of readwrite data memory
+
+Errors: none
+Warnings: none

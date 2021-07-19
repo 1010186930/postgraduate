@@ -1,0 +1,13 @@
+﻿  pid.cpp
+C:\Users\10101\Documents\WeChat Files\hehejinnian\FileStorage\File\2021-06\pid.cpp(63,17): warning C4305: “=”: 从“double”到“float”截断
+C:\Users\10101\Documents\WeChat Files\hehejinnian\FileStorage\File\2021-06\pid.cpp(64,18): warning C4305: “=”: 从“double”到“float”截断
+C:\Users\10101\Documents\WeChat Files\hehejinnian\FileStorage\File\2021-06\pid.cpp(65,17): warning C4305: “=”: 从“double”到“float”截断
+C:\Users\10101\Documents\WeChat Files\hehejinnian\FileStorage\File\2021-06\pid.cpp(75,30): warning C4244: “return”: 从“double”转换到“float”，可能丢失数据
+C:\Users\10101\Documents\WeChat Files\hehejinnian\FileStorage\File\2021-06\pid.cpp(79,26): warning C4244: “return”: 从“double”转换到“float”，可能丢失数据
+C:\Users\10101\Documents\WeChat Files\hehejinnian\FileStorage\File\2021-06\pid.cpp(137,11): warning C4101: “voltage”: 未引用的局部变量
+C:\Users\10101\Documents\WeChat Files\hehejinnian\FileStorage\File\2021-06\pid.cpp(324,33): warning C4267: “初始化”: 从“size_t”转换到“u8”，可能丢失数据
+C:\Users\10101\Documents\WeChat Files\hehejinnian\FileStorage\File\2021-06\pid.cpp(326,1): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\Windows Kits\10\Include\10.0.18362.0\ucrt\string.h(338): message : 参见“strncpy”的声明
+C:\Users\10101\Documents\WeChat Files\hehejinnian\FileStorage\File\2021-06\pid.cpp(318,12): warning C4101: “i”: 未引用的局部变量
+C:\Users\10101\Documents\WeChat Files\hehejinnian\FileStorage\File\2021-06\pid.cpp(224): warning C4715: “BinarySearch”: 不是所有的控件路径都返回值
+  pid_test.vcxproj -> C:\Users\10101\Desktop\pid_test\Debug\pid_test.exe

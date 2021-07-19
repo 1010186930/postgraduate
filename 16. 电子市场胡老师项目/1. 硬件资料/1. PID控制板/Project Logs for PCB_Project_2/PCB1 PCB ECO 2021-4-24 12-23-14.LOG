@@ -1,0 +1,11 @@
+Removed Pin From Net: NetName=+3.3V Pin=L2-1
+Removed Pin From Net: NetName=+3.2V Pin=L2-2
+Removed Pin From Net: NetName=PA4 Pin=U8-20
+Added Component: Designator=X1(X5032)
+Added Pin To Net: NetName=+3.3V Pin=L2-1
+Added Pin To Net: NetName=+6V Pin=L2-1
+Added Pin To Net: NetName=+3.2V Pin=L2-2
+Added Pin To Net: NetName=NetC29_1 Pin=X1-1
+Added Pin To Net: NetName=NetC28_1 Pin=X1-2
+Added Member To Class: ClassName=Sheet1 Member=Component X1 12MHz
+Added Room: Name=Sheet1

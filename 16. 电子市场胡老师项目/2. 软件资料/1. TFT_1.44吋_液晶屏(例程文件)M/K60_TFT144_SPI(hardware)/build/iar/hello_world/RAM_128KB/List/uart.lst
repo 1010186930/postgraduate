@@ -1,0 +1,576 @@
+###############################################################################
+#                                                                             #
+#                                                       16/Aug/2015  08:45:43 #
+# IAR ANSI C/C++ Compiler V6.30.6.23336/W32 EVALUATION for ARM                #
+# Copyright 1999-2012 IAR Systems AB.                                         #
+#                                                                             #
+#    Cpu mode     =  thumb                                                    #
+#    Endian       =  little                                                   #
+#    Source file  =  C:\Users\Ping\Desktop\K60_TFT144_SPI\src\drivers\uart\ua #
+#                    rt.c                                                     #
+#    Command line =  C:\Users\Ping\Desktop\K60_TFT144_SPI\src\drivers\uart\ua #
+#                    rt.c -D IAR -D TWR_K60N512 -lCN                          #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\RAM_128KB\List\ -lB C:\Users\Ping\Desktop\K60_TFT144_ #
+#                    SPI\build\iar\hello_world\RAM_128KB\List\ -o             #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\RAM_128KB\Obj\ --no_cse --no_unroll --no_inline       #
+#                    --no_code_motion --no_tbaa --no_clustering               #
+#                    --no_scheduling --debug --endian=little --cpu=Cortex-M4  #
+#                    -e --fpu=None --dlib_config "C:\Program Files (x86)\IAR  #
+#                    Systems\Embedded Workbench 6.0                           #
+#                    Evaluation\arm\INC\c\DLib_Config_Normal.h" -I            #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\projects\hello_world\ -I                 #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\common\ -I C:\Users\Ping\Desktop\K60_TFT #
+#                    144_SPI\build\iar\hello_world\..\..\..\src\cpu\ -I       #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\cpu\headers\ -I                          #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\drivers\adc16\ -I                        #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\drivers\enet\ -I                         #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\drivers\pmc\ -I                          #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\drivers\rtc\ -I                          #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\drivers\lptmr\ -I                        #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\drivers\uart\ -I                         #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\drivers\mcg\ -I                          #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\drivers\wdog\ -I                         #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\platforms\ -I                            #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\drivers\ftm\ -I                          #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\drivers\SPI\ -I                          #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\drivers\OLED\ -I                         #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\drivers\TFT\ -I                          #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\ -On --use_c++_inline                              #
+#    List file    =  C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\RAM_128KB\List\uart.lst                               #
+#    Object file  =  C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\RAM_128KB\Obj\uart.o                                  #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+C:\Users\Ping\Desktop\K60_TFT144_SPI\src\drivers\uart\uart.c
+      1          /*
+      2           * File:        uart.c
+      3           * Purpose:     Provide common UART routines for serial IO
+      4           *
+      5           * Notes:       
+      6           *              
+      7           */
+      8          
+      9          #include "common.h"
+     10          #include "uart.h"
+     11          
+     12          
+     13          
+     14          
+     15          //volatile struct UART_MemMap *UARTx[6]={UART0_BASE_PTR,UART1_BASE_PTR,UART2_BASE_PTR,UART3_BASE_PTR,UART4_BASE_PTR,UART5_BASE_PTR}; //定义五个指针数组保存 UARTx 的地址
+     16          
+     17          
+     18          /********************************************************************/
+     19          /*
+     20           * Initialize the UART for 8N1 operation, interrupts disabled, and
+     21           * no hardware flow-control
+     22           *
+     23           * NOTE: Since the UARTs are pinned out in multiple locations on most
+     24           *       Kinetis devices, this driver does not enable UART pin functions.
+     25           *       The desired pins should be enabled before calling this init function.
+     26           *
+     27           * Parameters:
+     28           *  uartch      UART channel to initialize
+     29           *  sysclk      UART module Clock in kHz(used to calculate baud)
+     30           *  baud        UART baud rate
+     31           */
+
+   \                                 In section .text, align 2, keep-with-next
+     32          void uart_init (UART_MemMapPtr uartch, int sysclk, int baud)
+     33          {
+   \                     uart_init:
+   \   00000000   0xB4F0             PUSH     {R4-R7}
+     34              register uint16 sbr, brfa;
+     35              uint8 temp;
+     36              
+     37          	/* Enable the clock to the selected UART */    
+     38              if(uartch == UART0_BASE_PTR)
+   \   00000002   0x....             LDR.N    R6,??DataTable1  ;; 0x4006a000
+   \   00000004   0x42B0             CMP      R0,R6
+   \   00000006   0xD106             BNE.N    ??uart_init_0
+     39          		SIM_SCGC4 |= SIM_SCGC4_UART0_MASK;
+   \   00000008   0x....             LDR.N    R6,??DataTable1_1  ;; 0x40048034
+   \   0000000A   0x6836             LDR      R6,[R6, #+0]
+   \   0000000C   0xF456 0x6680      ORRS     R6,R6,#0x400
+   \   00000010   0x....             LDR.N    R7,??DataTable1_1  ;; 0x40048034
+   \   00000012   0x603E             STR      R6,[R7, #+0]
+   \   00000014   0xE02D             B.N      ??uart_init_1
+     40              else
+     41              	if (uartch == UART1_BASE_PTR)
+   \                     ??uart_init_0:
+   \   00000016   0x....             LDR.N    R6,??DataTable1_2  ;; 0x4006b000
+   \   00000018   0x42B0             CMP      R0,R6
+   \   0000001A   0xD106             BNE.N    ??uart_init_2
+     42          			SIM_SCGC4 |= SIM_SCGC4_UART1_MASK;
+   \   0000001C   0x....             LDR.N    R6,??DataTable1_1  ;; 0x40048034
+   \   0000001E   0x6836             LDR      R6,[R6, #+0]
+   \   00000020   0xF456 0x6600      ORRS     R6,R6,#0x800
+   \   00000024   0x....             LDR.N    R7,??DataTable1_1  ;; 0x40048034
+   \   00000026   0x603E             STR      R6,[R7, #+0]
+   \   00000028   0xE023             B.N      ??uart_init_1
+     43              	else
+     44              		if (uartch == UART2_BASE_PTR)
+   \                     ??uart_init_2:
+   \   0000002A   0x....             LDR.N    R6,??DataTable1_3  ;; 0x4006c000
+   \   0000002C   0x42B0             CMP      R0,R6
+   \   0000002E   0xD106             BNE.N    ??uart_init_3
+     45              			SIM_SCGC4 |= SIM_SCGC4_UART2_MASK;
+   \   00000030   0x....             LDR.N    R6,??DataTable1_1  ;; 0x40048034
+   \   00000032   0x6836             LDR      R6,[R6, #+0]
+   \   00000034   0xF456 0x5680      ORRS     R6,R6,#0x1000
+   \   00000038   0x....             LDR.N    R7,??DataTable1_1  ;; 0x40048034
+   \   0000003A   0x603E             STR      R6,[R7, #+0]
+   \   0000003C   0xE019             B.N      ??uart_init_1
+     46              		else
+     47              			if(uartch == UART3_BASE_PTR)
+   \                     ??uart_init_3:
+   \   0000003E   0x....             LDR.N    R6,??DataTable1_4  ;; 0x4006d000
+   \   00000040   0x42B0             CMP      R0,R6
+   \   00000042   0xD106             BNE.N    ??uart_init_4
+     48              				SIM_SCGC4 |= SIM_SCGC4_UART3_MASK;
+   \   00000044   0x....             LDR.N    R6,??DataTable1_1  ;; 0x40048034
+   \   00000046   0x6836             LDR      R6,[R6, #+0]
+   \   00000048   0xF456 0x5600      ORRS     R6,R6,#0x2000
+   \   0000004C   0x....             LDR.N    R7,??DataTable1_1  ;; 0x40048034
+   \   0000004E   0x603E             STR      R6,[R7, #+0]
+   \   00000050   0xE00F             B.N      ??uart_init_1
+     49              			else
+     50              				if(uartch == UART4_BASE_PTR)
+   \                     ??uart_init_4:
+   \   00000052   0x....             LDR.N    R6,??DataTable1_5  ;; 0x400ea000
+   \   00000054   0x42B0             CMP      R0,R6
+   \   00000056   0xD106             BNE.N    ??uart_init_5
+     51              					SIM_SCGC1 |= SIM_SCGC1_UART4_MASK;
+   \   00000058   0x....             LDR.N    R6,??DataTable1_6  ;; 0x40048028
+   \   0000005A   0x6836             LDR      R6,[R6, #+0]
+   \   0000005C   0xF456 0x6680      ORRS     R6,R6,#0x400
+   \   00000060   0x....             LDR.N    R7,??DataTable1_6  ;; 0x40048028
+   \   00000062   0x603E             STR      R6,[R7, #+0]
+   \   00000064   0xE005             B.N      ??uart_init_1
+     52              				else
+     53              					SIM_SCGC1 |= SIM_SCGC1_UART5_MASK;
+   \                     ??uart_init_5:
+   \   00000066   0x....             LDR.N    R6,??DataTable1_6  ;; 0x40048028
+   \   00000068   0x6836             LDR      R6,[R6, #+0]
+   \   0000006A   0xF456 0x6600      ORRS     R6,R6,#0x800
+   \   0000006E   0x....             LDR.N    R7,??DataTable1_6  ;; 0x40048028
+   \   00000070   0x603E             STR      R6,[R7, #+0]
+     54                                          
+     55              /* Make sure that the transmitter and receiver are disabled while we 
+     56               * change settings.
+     57               */
+     58              UART_C2_REG(uartch) &= ~(UART_C2_TE_MASK
+     59          				| UART_C2_RE_MASK );
+   \                     ??uart_init_1:
+   \   00000072   0x78C6             LDRB     R6,[R0, #+3]
+   \   00000074   0xF016 0x06F3      ANDS     R6,R6,#0xF3
+   \   00000078   0x70C6             STRB     R6,[R0, #+3]
+     60          
+     61              /* Configure the UART for 8-bit mode, no parity */
+     62              UART_C1_REG(uartch) = 0;	/* We need all default settings, so entire register is cleared */
+   \   0000007A   0x2600             MOVS     R6,#+0
+   \   0000007C   0x7086             STRB     R6,[R0, #+2]
+     63              
+     64              /* Calculate baud settings */
+     65              sbr = (uint16)((sysclk*1000)/(baud * 16));
+   \   0000007E   0xF44F 0x767A      MOV      R6,#+1000
+   \   00000082   0xFB06 0xF601      MUL      R6,R6,R1
+   \   00000086   0x0117             LSLS     R7,R2,#+4
+   \   00000088   0xFB96 0xF6F7      SDIV     R6,R6,R7
+   \   0000008C   0x0033             MOVS     R3,R6
+     66                  
+     67              /* Save off the current value of the UARTx_BDH except for the SBR field */
+     68              temp = UART_BDH_REG(uartch) & ~(UART_BDH_SBR(0x1F));
+   \   0000008E   0x7806             LDRB     R6,[R0, #+0]
+   \   00000090   0xF016 0x06E0      ANDS     R6,R6,#0xE0
+   \   00000094   0x0035             MOVS     R5,R6
+     69              
+     70              UART_BDH_REG(uartch) = temp |  UART_BDH_SBR(((sbr & 0x1F00) >> 8));
+   \   00000096   0xB29B             UXTH     R3,R3            ;; ZeroExt  R3,R3,#+16,#+16
+   \   00000098   0x0A1E             LSRS     R6,R3,#+8
+   \   0000009A   0xF016 0x061F      ANDS     R6,R6,#0x1F
+   \   0000009E   0x432E             ORRS     R6,R6,R5
+   \   000000A0   0x7006             STRB     R6,[R0, #+0]
+     71              UART_BDL_REG(uartch) = (uint8)(sbr & UART_BDL_SBR_MASK);
+   \   000000A2   0x7043             STRB     R3,[R0, #+1]
+     72              
+     73              /* Determine if a fractional divider is needed to get closer to the baud rate */
+     74              brfa = (((sysclk*32000)/(baud * 16)) - (sbr * 32));
+   \   000000A4   0xF44F 0x46FA      MOV      R6,#+32000
+   \   000000A8   0xFB06 0xF601      MUL      R6,R6,R1
+   \   000000AC   0x0117             LSLS     R7,R2,#+4
+   \   000000AE   0xFB96 0xF6F7      SDIV     R6,R6,R7
+   \   000000B2   0xB29B             UXTH     R3,R3            ;; ZeroExt  R3,R3,#+16,#+16
+   \   000000B4   0xEBB6 0x1643      SUBS     R6,R6,R3, LSL #+5
+   \   000000B8   0x0034             MOVS     R4,R6
+     75              
+     76              /* Save off the current value of the UARTx_C4 register except for the BRFA field */
+     77              temp = UART_C4_REG(uartch) & ~(UART_C4_BRFA(0x1F));
+   \   000000BA   0x7A86             LDRB     R6,[R0, #+10]
+   \   000000BC   0xF016 0x06E0      ANDS     R6,R6,#0xE0
+   \   000000C0   0x0035             MOVS     R5,R6
+     78              
+     79              UART_C4_REG(uartch) = temp |  UART_C4_BRFA(brfa);    
+   \   000000C2   0xF014 0x061F      ANDS     R6,R4,#0x1F
+   \   000000C6   0x432E             ORRS     R6,R6,R5
+   \   000000C8   0x7286             STRB     R6,[R0, #+10]
+     80          
+     81              /* Enable receiver and transmitter */
+     82          	UART_C2_REG(uartch) |= (UART_C2_TE_MASK
+     83          				| UART_C2_RE_MASK );
+   \   000000CA   0x78C6             LDRB     R6,[R0, #+3]
+   \   000000CC   0xF056 0x060C      ORRS     R6,R6,#0xC
+   \   000000D0   0x70C6             STRB     R6,[R0, #+3]
+     84          }
+   \   000000D2   0xBCF0             POP      {R4-R7}
+   \   000000D4   0x4770             BX       LR               ;; return
+     85          /********************************************************************/
+     86          /*
+     87           * Wait for a character to be received on the specified UART
+     88           *
+     89           * Parameters:
+     90           *  channel      UART channel to read from
+     91           *
+     92           * Return Values:
+     93           *  the received character
+     94           */
+
+   \                                 In section .text, align 2, keep-with-next
+     95          char uart_getchar (UART_MemMapPtr channel)
+     96          {
+     97              /* Wait until character has been received */
+     98              while (!(UART_S1_REG(channel) & UART_S1_RDRF_MASK));
+   \                     uart_getchar:
+   \                     ??uart_getchar_0:
+   \   00000000   0x7901             LDRB     R1,[R0, #+4]
+   \   00000002   0x0689             LSLS     R1,R1,#+26
+   \   00000004   0xD5FC             BPL.N    ??uart_getchar_0
+     99              
+    100              /* Return the 8-bit data from the receiver */
+    101              return UART_D_REG(channel);
+   \   00000006   0x79C0             LDRB     R0,[R0, #+7]
+   \   00000008   0x4770             BX       LR               ;; return
+    102          }
+    103          /********************************************************************/
+    104          /*
+    105           * Wait for space in the UART Tx FIFO and then send a character
+    106           *
+    107           * Parameters:
+    108           *  channel      UART channel to send to
+    109           *  ch			 character to send
+    110           */ 
+
+   \                                 In section .text, align 2, keep-with-next
+    111          void uart_putchar (UART_MemMapPtr channel, char ch)
+    112          {
+    113              /* Wait until space is available in the FIFO */
+    114              while(!(UART_S1_REG(channel) & UART_S1_TDRE_MASK));
+   \                     uart_putchar:
+   \                     ??uart_putchar_0:
+   \   00000000   0x7902             LDRB     R2,[R0, #+4]
+   \   00000002   0x0612             LSLS     R2,R2,#+24
+   \   00000004   0xD5FC             BPL.N    ??uart_putchar_0
+    115              
+    116              /* Send the character */
+    117              UART_D_REG(channel) = (uint8)ch;
+   \   00000006   0x71C1             STRB     R1,[R0, #+7]
+    118           }
+   \   00000008   0x4770             BX       LR               ;; return
+    119          /********************************************************************/
+    120          /*
+    121           * Check to see if a character has been received
+    122           *
+    123           * Parameters:
+    124           *  channel      UART channel to check for a character
+    125           *
+    126           * Return values:
+    127           *  0       No character received
+    128           *  1       Character has been received
+    129           */
+
+   \                                 In section .text, align 2, keep-with-next
+    130          int uart_getchar_present (UART_MemMapPtr channel)
+    131          {
+    132              return (UART_S1_REG(channel) & UART_S1_RDRF_MASK);
+   \                     uart_getchar_present:
+   \   00000000   0x7900             LDRB     R0,[R0, #+4]
+   \   00000002   0xF010 0x0020      ANDS     R0,R0,#0x20
+   \   00000006   0x4770             BX       LR               ;; return
+    133          }
+    134          /********************************************************************/
+    135           
+    136          
+    137          
+    138          /*******需用到UART中断，请在isr.h中粘贴一下代码:*********
+    139          
+    140          //UART模块中断服务定义
+    141          #undef  VECTOR_061
+    142          #define VECTOR_061 LPLD_UART_Isr
+    143          #undef  VECTOR_063
+    144          #define VECTOR_063 LPLD_UART_Isr
+    145          #undef  VECTOR_065
+    146          #define VECTOR_065 LPLD_UART_Isr
+    147          #undef  VECTOR_067
+    148          #define VECTOR_067 LPLD_UART_Isr
+    149          #undef  VECTOR_069
+    150          #define VECTOR_069 LPLD_UART_Isr
+    151          #undef  VECTOR_071
+    152          #define VECTOR_071 LPLD_UART_Isr
+    153          //以下函数在LPLD_Kinetis底层包，不必修改
+    154          extern void LPLD_UART_Isr(void);
+    155          
+    156          ***********************************************************/
+    157          
+    158          
+    159          
+    160          
+    161          
+
+   \                                 In section .bss, align 4
+    162          UART_ISR_CALLBACK UART_R_ISR[6];  //用户接收中断函数入口地址数组
+   \                     UART_R_ISR:
+   \   00000000                      DS8 24
+
+   \                                 In section .bss, align 4
+    163          UART_ISR_CALLBACK UART_T_ISR[6];  //用户发送中断函数入口地址数组
+   \                     UART_T_ISR:
+   \   00000000                      DS8 24
+    164          
+    165          //UART映射地址数组
+
+   \                                 In section .data, align 4
+    166          volatile UART_MemMapPtr UARTx_Ptr[5] = {UART0_BASE_PTR, 
+   \                     UARTx_Ptr:
+   \   00000000   0x4006A000         DC32 4006A000H, 4006B000H, 4006C000H, 4006D000H, 400EA000H
+   \              0x4006B000   
+   \              0x4006C000   
+   \              0x4006D000   
+   \              0x400EA000   
+    167                                                  UART1_BASE_PTR, 
+    168                                                  UART2_BASE_PTR, 
+    169                                                  UART3_BASE_PTR, 
+    170                                                  UART4_BASE_PTR};
+    171          
+    172          
+    173          
+    174          /******************************一下为自己添加的程序************************************************/
+    175          /*************************************************************************
+    176          
+    177          *
+    178          *  函数名称：uart_irq_EN
+    179          *  功能说明：开串口接收中断
+    180          *  参数说明：UARTn       模块号（UART0~UART5）;UART_NUM,串口序号，0到5
+    181          *  函数返回：无
+    182          *  修改时间：2012-1-20
+    183          *  备    注：
+    184          *************************************************************************/
+
+   \                                 In section .text, align 2, keep-with-next
+    185          void uart_irq_EN(UART_MemMapPtr channel,uint8 UART_NUM)
+    186          {
+   \                     uart_irq_EN:
+   \   00000000   0xB538             PUSH     {R3-R5,LR}
+   \   00000002   0x0004             MOVS     R4,R0
+   \   00000004   0x000D             MOVS     R5,R1
+    187              UART_C2_REG(channel)|=UART_C2_RIE_MASK;      //开放UART接收中断
+   \   00000006   0x78E0             LDRB     R0,[R4, #+3]
+   \   00000008   0xF050 0x0020      ORRS     R0,R0,#0x20
+   \   0000000C   0x70E0             STRB     R0,[R4, #+3]
+    188              enable_irq((UART_NUM<<1)+45);			            //开接收引脚的IRQ中断
+   \   0000000E   0xB2ED             UXTB     R5,R5            ;; ZeroExt  R5,R5,#+24,#+24
+   \   00000010   0x0068             LSLS     R0,R5,#+1
+   \   00000012   0x302D             ADDS     R0,R0,#+45
+   \   00000014   0x.... 0x....      BL       enable_irq
+    189          }
+   \   00000018   0xBD31             POP      {R0,R4,R5,PC}    ;; return
+    190          
+    191          
+    192          /*************************************************************************
+    193          
+    194          *
+    195          *  函数名称：uart_irq_DIS
+    196          *  功能说明：关串口接收中断
+    197          *  参数说明：UARTn       模块号（UART0~UART5）;UART_NUM,串口序号，0到5
+    198          *  函数返回：无
+    199          *  修改时间：2012-1-20
+    200          *  备    注：
+    201          *************************************************************************/
+
+   \                                 In section .text, align 2, keep-with-next
+    202          void uart_irq_DIS(UART_MemMapPtr channel,uint8 UART_NUM)
+    203          {
+   \                     uart_irq_DIS:
+   \   00000000   0xB538             PUSH     {R3-R5,LR}
+   \   00000002   0x0004             MOVS     R4,R0
+   \   00000004   0x000D             MOVS     R5,R1
+    204              UART_C2_REG(channel)&=~UART_C2_RIE_MASK;     //禁止UART接收中断
+   \   00000006   0x78E0             LDRB     R0,[R4, #+3]
+   \   00000008   0xF010 0x00DF      ANDS     R0,R0,#0xDF
+   \   0000000C   0x70E0             STRB     R0,[R4, #+3]
+    205              disable_irq((UART_NUM<<1)+45);			            //关接收引脚的IRQ中断
+   \   0000000E   0xB2ED             UXTB     R5,R5            ;; ZeroExt  R5,R5,#+24,#+24
+   \   00000010   0x0068             LSLS     R0,R5,#+1
+   \   00000012   0x302D             ADDS     R0,R0,#+45
+   \   00000014   0x.... 0x....      BL       disable_irq
+    206          }
+   \   00000018   0xBD31             POP      {R0,R4,R5,PC}    ;; return
+    207          
+    208          
+    209          
+    210          /*************************************************************************
+    211          *  
+    212          *  函数名称：USART3_IRQHandler
+    213          *  功能说明：串口1 中断 接收 服务函数
+    214          *  参数说明：无   
+    215          *  函数返回：无
+    216          *  修改时间：2012-2-14    已测试
+    217          *  备    注：
+    218          *************************************************************************/
+
+   \                                 In section .text, align 4, keep-with-next
+    219          void USART3_IRQHandler(void)
+    220          {
+   \                     USART3_IRQHandler:
+   \   00000000   0xB510             PUSH     {R4,LR}
+    221              uint8 data=0;
+   \   00000002   0x2400             MOVS     R4,#+0
+    222              
+    223              DisableInterrupts;		    //关总中断
+   \   00000004   0xB672             CPSID i         
+    224              
+    225              //接收一个字节数据并回发
+    226              data=uart_getchar (UART3_BASE_PTR);                //接收到一个数据
+   \   00000006   0x....             LDR.N    R0,??DataTable1_4  ;; 0x4006d000
+   \   00000008   0x.... 0x....      BL       uart_getchar
+   \   0000000C   0x0004             MOVS     R4,R0
+    227              printf("\n你发送的数据为：%c",data);      //发送出去
+   \   0000000E   0xB2E4             UXTB     R4,R4            ;; ZeroExt  R4,R4,#+24,#+24
+   \   00000010   0x0021             MOVS     R1,R4
+   \   00000012   0x....             LDR.N    R0,??DataTable1_7
+   \   00000014   0x.... 0x....      BL       printf
+    228           
+    229              
+    230              EnableInterrupts;		    //开总中断
+   \   00000018   0xB662             CPSIE i         
+    231          }
+   \   0000001A   0xBD10             POP      {R4,PC}          ;; return
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1:
+   \   00000000   0x4006A000         DC32     0x4006a000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_1:
+   \   00000000   0x40048034         DC32     0x40048034
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_2:
+   \   00000000   0x4006B000         DC32     0x4006b000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_3:
+   \   00000000   0x4006C000         DC32     0x4006c000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_4:
+   \   00000000   0x4006D000         DC32     0x4006d000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_5:
+   \   00000000   0x400EA000         DC32     0x400ea000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_6:
+   \   00000000   0x40048028         DC32     0x40048028
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_7:
+   \   00000000   0x........         DC32     `?<Constant "\\n\\304\\343\\267\\242\\313\\315\\265\\304`
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant "\\n\\304\\343\\267\\242\\313\\315\\265\\304`:
+   \   00000000   0x0A 0xC4          DC8 "\012\304\343\267\242\313\315\265\304\312\375\276\335\316\252\243\272%c"
+   \              0xE3 0xB7    
+   \              0xA2 0xCB    
+   \              0xCD 0xB5    
+   \              0xC4 0xCA    
+   \              0xFD 0xBE    
+   \              0xDD 0xCE    
+   \              0xAA 0xA3    
+   \              0xBA 0x25    
+   \              0x63 0x00    
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+        8  USART3_IRQHandler
+              8 -> printf
+              8 -> uart_getchar
+        0  uart_getchar
+        0  uart_getchar_present
+       16  uart_init
+       16  uart_irq_DIS
+             16 -> disable_irq
+       16  uart_irq_EN
+             16 -> enable_irq
+        0  uart_putchar
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+      20  ?<Constant "\n\304\343\267\242\313\315\265\304
+       4  ??DataTable1
+       4  ??DataTable1_1
+       4  ??DataTable1_2
+       4  ??DataTable1_3
+       4  ??DataTable1_4
+       4  ??DataTable1_5
+       4  ??DataTable1_6
+       4  ??DataTable1_7
+      24  UART_R_ISR
+      24  UART_T_ISR
+      20  UARTx_Ptr
+      28  USART3_IRQHandler
+      10  uart_getchar
+       8  uart_getchar_present
+     214  uart_init
+      26  uart_irq_DIS
+      26  uart_irq_EN
+      10  uart_putchar
+
+ 
+  48 bytes in section .bss
+  20 bytes in section .data
+  20 bytes in section .rodata
+ 354 bytes in section .text
+ 
+ 354 bytes of CODE  memory
+  20 bytes of CONST memory
+  68 bytes of DATA  memory
+
+Errors: none
+Warnings: none

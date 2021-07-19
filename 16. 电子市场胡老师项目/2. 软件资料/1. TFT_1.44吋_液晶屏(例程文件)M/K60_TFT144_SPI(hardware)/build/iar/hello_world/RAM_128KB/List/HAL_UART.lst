@@ -1,0 +1,428 @@
+###############################################################################
+#                                                                             #
+#                                                       20/May/2013  14:31:40 #
+# IAR ANSI C/C++ Compiler V6.30.6.23336/W32 EVALUATION for ARM                #
+# Copyright 1999-2012 IAR Systems AB.                                         #
+#                                                                             #
+#    Cpu mode     =  thumb                                                    #
+#    Endian       =  little                                                   #
+#    Source file  =  C:\Documents and Settings\Administrator\桌面\Kinetis_K60 #
+#                    的FLASH读写例程\Kinetis_K60的FLASH读写例程\src\drivers\u #
+#                    art\HAL_UART.c                                           #
+#    Command line =  "C:\Documents and Settings\Administrator\桌面\Kinetis_K6 #
+#                    0的FLASH读写例程\Kinetis_K60的FLASH读写例程\src\drivers\ #
+#                    uart\HAL_UART.c" -D IAR -D TWR_K60N512 -lCN              #
+#                    "C:\Documents and Settings\Administrator\桌面\Kinetis_K6 #
+#                    0的FLASH读写例程\Kinetis_K60的FLASH读写例程\build\iar\he #
+#                    llo_world\RAM_128KB\List\" -lB "C:\Documents and         #
+#                    Settings\Administrator\桌面\Kinetis_K60的FLASH读写例程\K #
+#                    inetis_K60的FLASH读写例程\build\iar\hello_world\RAM_128K #
+#                    B\List\" -o "C:\Documents and                            #
+#                    Settings\Administrator\桌面\Kinetis_K60的FLASH读写例程\K #
+#                    inetis_K60的FLASH读写例程\build\iar\hello_world\RAM_128K #
+#                    B\Obj\" --no_cse --no_unroll --no_inline                 #
+#                    --no_code_motion --no_tbaa --no_clustering               #
+#                    --no_scheduling --debug --endian=little --cpu=Cortex-M4  #
+#                    -e --fpu=None --dlib_config "C:\Program Files\IAR        #
+#                    Systems\Embedded Workbench 6.0                           #
+#                    Evaluation\arm\INC\c\DLib_Config_Normal.h" -I            #
+#                    "C:\Documents and Settings\Administrator\桌面\Kinetis_K6 #
+#                    0的FLASH读写例程\Kinetis_K60的FLASH读写例程\build\iar\he #
+#                    llo_world\..\..\..\src\projects\hello_world\" -I         #
+#                    "C:\Documents and Settings\Administrator\桌面\Kinetis_K6 #
+#                    0的FLASH读写例程\Kinetis_K60的FLASH读写例程\build\iar\he #
+#                    llo_world\..\..\..\src\common\" -I "C:\Documents and     #
+#                    Settings\Administrator\桌面\Kinetis_K60的FLASH读写例程\K #
+#                    inetis_K60的FLASH读写例程\build\iar\hello_world\..\..\.. #
+#                    \src\cpu\" -I "C:\Documents and                          #
+#                    Settings\Administrator\桌面\Kinetis_K60的FLASH读写例程\K #
+#                    inetis_K60的FLASH读写例程\build\iar\hello_world\..\..\.. #
+#                    \src\cpu\headers\" -I "C:\Documents and                  #
+#                    Settings\Administrator\桌面\Kinetis_K60的FLASH读写例程\K #
+#                    inetis_K60的FLASH读写例程\build\iar\hello_world\..\..\.. #
+#                    \src\drivers\adc16\" -I "C:\Documents and                #
+#                    Settings\Administrator\桌面\Kinetis_K60的FLASH读写例程\K #
+#                    inetis_K60的FLASH读写例程\build\iar\hello_world\..\..\.. #
+#                    \src\drivers\enet\" -I "C:\Documents and                 #
+#                    Settings\Administrator\桌面\Kinetis_K60的FLASH读写例程\K #
+#                    inetis_K60的FLASH读写例程\build\iar\hello_world\..\..\.. #
+#                    \src\drivers\pmc\" -I "C:\Documents and                  #
+#                    Settings\Administrator\桌面\Kinetis_K60的FLASH读写例程\K #
+#                    inetis_K60的FLASH读写例程\build\iar\hello_world\..\..\.. #
+#                    \src\drivers\rtc\" -I "C:\Documents and                  #
+#                    Settings\Administrator\桌面\Kinetis_K60的FLASH读写例程\K #
+#                    inetis_K60的FLASH读写例程\build\iar\hello_world\..\..\.. #
+#                    \src\drivers\lptmr\" -I "C:\Documents and                #
+#                    Settings\Administrator\桌面\Kinetis_K60的FLASH读写例程\K #
+#                    inetis_K60的FLASH读写例程\build\iar\hello_world\..\..\.. #
+#                    \src\drivers\uart\" -I "C:\Documents and                 #
+#                    Settings\Administrator\桌面\Kinetis_K60的FLASH读写例程\K #
+#                    inetis_K60的FLASH读写例程\build\iar\hello_world\..\..\.. #
+#                    \src\drivers\mcg\" -I "C:\Documents and                  #
+#                    Settings\Administrator\桌面\Kinetis_K60的FLASH读写例程\K #
+#                    inetis_K60的FLASH读写例程\build\iar\hello_world\..\..\.. #
+#                    \src\drivers\wdog\" -I "C:\Documents and                 #
+#                    Settings\Administrator\桌面\Kinetis_K60的FLASH读写例程\K #
+#                    inetis_K60的FLASH读写例程\build\iar\hello_world\..\..\.. #
+#                    \src\platforms\" -I "C:\Documents and                    #
+#                    Settings\Administrator\桌面\Kinetis_K60的FLASH读写例程\K #
+#                    inetis_K60的FLASH读写例程\build\iar\hello_world\..\..\.. #
+#                    \src\drivers\ftm\" -I "C:\Documents and                  #
+#                    Settings\Administrator\桌面\Kinetis_K60的FLASH读写例程\K #
+#                    inetis_K60的FLASH读写例程\build\iar\hello_world\..\..\.. #
+#                    \src\drivers\SPI\" -I "C:\Documents and                  #
+#                    Settings\Administrator\桌面\Kinetis_K60的FLASH读写例程\K #
+#                    inetis_K60的FLASH读写例程\build\iar\hello_world\..\"     #
+#                    -On --use_c++_inline                                     #
+#    List file    =  C:\Documents and Settings\Administrator\桌面\Kinetis_K60 #
+#                    的FLASH读写例程\Kinetis_K60的FLASH读写例程\build\iar\hel #
+#                    lo_world\RAM_128KB\List\HAL_UART.lst                     #
+#    Object file  =  C:\Documents and Settings\Administrator\桌面\Kinetis_K60 #
+#                    的FLASH读写例程\Kinetis_K60的FLASH读写例程\build\iar\hel #
+#                    lo_world\RAM_128KB\Obj\HAL_UART.o                        #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+C:\Documents and Settings\Administrator\桌面\Kinetis_K60的FLASH读写例程\Kinetis_K60的FLASH读写例程\src\drivers\uart\HAL_UART.c
+      1          /*
+      2          
+      3           *
+      4           * 文件名: HAL_UART.c
+      5           * 用途: UART底层模块相关函数
+      6           
+      7          */
+      8          /*
+      9           *******需用到UART中断，请在isr.h中粘贴一下代码:*********
+     10          
+     11          //UART模块中断服务定义
+     12          #undef  VECTOR_061
+     13          #define VECTOR_061 LPLD_UART_Isr
+     14          #undef  VECTOR_063
+     15          #define VECTOR_063 LPLD_UART_Isr
+     16          #undef  VECTOR_065
+     17          #define VECTOR_065 LPLD_UART_Isr
+     18          #undef  VECTOR_067
+     19          #define VECTOR_067 LPLD_UART_Isr
+     20          #undef  VECTOR_069
+     21          #define VECTOR_069 LPLD_UART_Isr
+     22          #undef  VECTOR_071
+     23          #define VECTOR_071 LPLD_UART_Isr
+     24          //以下函数在LPLD_Kinetis底层包，不必修改
+     25          extern void LPLD_UART_Isr(void);
+     26          
+     27           ***********************代码结束*************************
+     28          */
+     29          
+     30          #include "common.h"
+     31          #include "HAL_UART.h"
+     32          
+     33          
+     34          extern int core_clk_khz;          //系统主频时钟频率
+     35          extern int periph_clk_khz;        //总线时钟频率
+     36          
+     37          
+     38          UART_ISR_CALLBACK UART_R_ISR[6];  //用户接收中断函数入口地址数组
+     39          UART_ISR_CALLBACK UART_T_ISR[6];  //用户发送中断函数入口地址数组
+     40          
+     41          //UART映射地址数组
+     42          volatile UART_MemMapPtr UARTx_Ptr[5] = {UART0_BASE_PTR, 
+     43                                                  UART1_BASE_PTR, 
+     44                                                  UART2_BASE_PTR, 
+     45                                                  UART3_BASE_PTR, 
+     46                                                  UART4_BASE_PTR};
+     47          
+     48          /*
+     49           * UART_Init
+     50           * 初始化UART通道及其波特率
+     51           * 
+     52           * 参数:
+     53           *    uartx--UART模块号
+     54           *      |__UART0          --UART0  -Txd:PTB17 -Rxd:PTB16
+     55           *      |__UART1          --UART1  -Txd:PTC4  -Rxd:PTC3
+     56           *      |__UART2          --UART2  -Txd:PTD3  -Rxd:PTD2
+     57           *      |__UART3          --UART3  -Txd:PTC17 -Rxd:PTC16
+     58           *      |__UART4          --UART4  -Txd:PTC15 -Rxd:PTC14
+     59           *      |__UART5          --UART5  -Txd:PTE8  -Rxd:PTE9
+     60           *    baud--波特率，推荐设置以下常用波特率
+     61           *      |__4800
+     62           *      |__9600
+     63           *      |__19200
+     64           *      |__38400
+     65           *      |__57600
+     66           *      |__115200
+     67           *
+     68           * 输出:
+     69           *    无
+     70           *
+     71           */
+     72          void UART_Init(UARTx uartx, int baud)
+     73          {
+     74            UART_MemMapPtr uartptr = UARTx_Ptr[uartx];
+     75            register uint16 sbr, brfa;
+     76            int sysclk;
+     77            uint8 temp;
+     78            
+     79            if ((uartptr == UART0_BASE_PTR) | (uartptr == UART1_BASE_PTR))
+     80              sysclk = core_clk_khz;
+     81            else
+     82              sysclk = periph_clk_khz;
+     83            
+     84            //使能选中的UART串口通道时钟   
+     85            if(uartptr == UART0_BASE_PTR)
+     86            {
+     87              SIM_SCGC4 |= SIM_SCGC4_UART0_MASK;
+     88              //使能 PTB17 引脚的 UART0_TXD 功能 
+     89              PORTB_PCR17 = PORT_PCR_MUX(0x3); 
+     90              //使能 PTB16 引脚的 UART0_RXD 功能 
+     91              PORTB_PCR16 = PORT_PCR_MUX(0x3);
+     92            }
+     93            else
+     94            {
+     95              if (uartptr == UART1_BASE_PTR)
+     96              {
+     97                SIM_SCGC4 |= SIM_SCGC4_UART1_MASK;
+     98                SIM_SCGC4 |= SIM_SCGC4_UART2_MASK;
+     99                //使能 PTC4 引脚的 UART1_TXD 功能 
+    100                PORTC_PCR4 = PORT_PCR_MUX(0x3); 
+    101                //使能 PTC3 引脚的 UART1_RXD 功能 
+    102                PORTC_PCR3 = PORT_PCR_MUX(0x3);
+    103              }
+    104              else
+    105              {
+    106                if (uartptr == UART2_BASE_PTR)
+    107                {
+    108                  SIM_SCGC4 |= SIM_SCGC4_UART2_MASK;
+    109                  //使能 PTD3 引脚的 UART2_TXD 功能 
+    110                  PORTD_PCR3 = PORT_PCR_MUX(0x3); 
+    111                  //使能 PTD2 引脚的 UART2_RXD 功能 
+    112                  PORTD_PCR2 = PORT_PCR_MUX(0x3);
+    113                }
+    114                else
+    115                {
+    116                  if(uartptr == UART3_BASE_PTR)
+    117                  {
+    118                    SIM_SCGC4 |= SIM_SCGC4_UART3_MASK;
+    119                    //使能 PTC17 引脚的 UART3_TXD 功能 
+    120                    PORTC_PCR15 = PORT_PCR_MUX(0x3); 
+    121                    //使能 PTC16 引脚的 UART3_RXD 功能 
+    122                    PORTC_PCR14 = PORT_PCR_MUX(0x3);
+    123                  }
+    124                  else
+    125                  {
+    126                    if(uartptr == UART4_BASE_PTR)
+    127                    {
+    128                      SIM_SCGC1 |= SIM_SCGC1_UART4_MASK;
+    129                      //使能 PTC15 引脚的 UART4_TXD 功能 
+    130                      PORTC_PCR15 = PORT_PCR_MUX(0x3); 
+    131                      //使能 PTC14 引脚的 UART4_RXD 功能 
+    132                      PORTC_PCR14 = PORT_PCR_MUX(0x3);
+    133                    }
+    134                    else
+    135                    {
+    136                      SIM_SCGC1 |= SIM_SCGC1_UART5_MASK;
+    137                      //使能 PTE8 引脚的 UART3_TXD 功能 
+    138                      PORTE_PCR8 = PORT_PCR_MUX(0x3); 
+    139                      //使能 PTE9 引脚的 UART3_RXD 功能 
+    140                      PORTE_PCR9 = PORT_PCR_MUX(0x3); 
+    141                    }
+    142                  }
+    143                }
+    144              }
+    145            }
+    146            
+    147            //在配置好其他寄存器前，先关闭发送器和接收器
+    148            UART_C2_REG(uartptr) &= ~(UART_C2_TE_MASK | UART_C2_RE_MASK );
+    149            
+    150            //配置UART为 8位, 无奇偶校验 */
+    151            UART_C1_REG(uartptr) = 0;	
+    152            
+    153            //计算波特率
+    154            sbr = (uint16)((sysclk*1000)/(baud * 16));
+    155            
+    156            //保存UARTx_BDH寄存器中除了SBR的值
+    157            temp = UART_BDH_REG(uartptr) & ~(UART_BDH_SBR(0x1F));
+    158            
+    159            UART_BDH_REG(uartptr) = temp |  UART_BDH_SBR(((sbr & 0x1F00) >> 8));
+    160            UART_BDL_REG(uartptr) = (uint8)(sbr & UART_BDL_SBR_MASK);
+    161            
+    162            //配置波特率的微调分数
+    163            brfa = (((sysclk*32000)/(baud * 16)) - (sbr * 32));
+    164            
+    165            //保存UARTx_C4寄存器中除了BRFA的值
+    166            temp = UART_C4_REG(uartptr) & ~(UART_C4_BRFA(0x1F));
+    167            
+    168            UART_C4_REG(uartptr) = temp |  UART_C4_BRFA(brfa);    
+    169            
+    170            //使能发送器和接收器
+    171            UART_C2_REG(uartptr) |= (UART_C2_TE_MASK | UART_C2_RE_MASK );
+    172          }
+    173          
+    174          /*
+    175           * UART_GetChar
+    176           * 串口查询方式读取一个字节
+    177           * 
+    178           * 参数:
+    179           *    uartx--UART模块号
+    180           *      |__UART0          --UART0  -Txd:PTB17 -Rxd:PTB16
+    181           *      |__UART1          --UART1  -Txd:PTC4  -Rxd:PTC3
+    182           *      |__UART2          --UART2  -Txd:PTD3  -Rxd:PTD2
+    183           *      |__UART3          --UART3  -Txd:PTC17 -Rxd:PTC16
+    184           *      |__UART4          --UART4  -Txd:PTC15 -Rxd:PTC14
+    185           *      |__UART5          --UART5  -Txd:PTE8  -Rxd:PTE9
+    186           *
+    187           * 输出:
+    188           *    串口接收的1个字节
+    189           *
+    190           */
+    191          char UART_GetChar(UARTx uartx)
+    192          {
+    193            UART_MemMapPtr uartptr = UARTx_Ptr[uartx];
+    194            
+    195            //等待数据接收
+    196            while (!(UART_S1_REG(uartptr) & UART_S1_RDRF_MASK));
+    197            
+    198            //返回接收的1个字节数据
+    199            return UART_D_REG(uartptr);
+    200          }
+    201          
+    202          /*
+    203           * LPLD_UART_PutChar
+    204           * 串口查询方式发送一个字节
+    205           * 
+    206           * 参数:
+    207           *    uartx--UART模块号
+    208           *      |__UART0          --UART0  -Txd:PTB17 -Rxd:PTB16
+    209           *      |__UART1          --UART1  -Txd:PTC4  -Rxd:PTC3
+    210           *      |__UART2          --UART2  -Txd:PTD3  -Rxd:PTD2
+    211           *      |__UART3          --UART3  -Txd:PTC17 -Rxd:PTC16
+    212           *      |__UART4          --UART4  -Txd:PTC15 -Rxd:PTC14
+    213           *      |__UART5          --UART5  -Txd:PTE8  -Rxd:PTE9
+    214           *    ch--待发送的1个字节
+    215           *
+    216           * 输出:
+    217           *    无
+    218           *
+    219           */
+    220          void LPLD_UART_PutChar(UARTx uartx, char ch)
+    221          {
+    222            UART_MemMapPtr uartptr = UARTx_Ptr[uartx];
+    223            
+    224            //等待FIFO准备就绪
+    225            while(!(UART_S1_REG(uartptr) & UART_S1_TDRE_MASK));
+    226            
+    227            //将要发送的1个字节发给UART数据寄存器
+    228            UART_D_REG(uartptr) = (uint8)ch;
+    229          }
+    230          
+    231          
+    232          /*
+    233           * LPLD_UART_PutCharArr
+    234           * 串口查询方式发送字节型数组
+    235           * 
+    236           * 参数:
+    237           *    uartx--UART模块号
+    238           *      |__UART0          --UART0  -Txd:PTB17 -Rxd:PTB16
+    239           *      |__UART1          --UART1  -Txd:PTC4  -Rxd:PTC3
+    240           *      |__UART2          --UART2  -Txd:PTD3  -Rxd:PTD2
+    241           *      |__UART3          --UART3  -Txd:PTC17 -Rxd:PTC16
+    242           *      |__UART4          --UART4  -Txd:PTC15 -Rxd:PTC14
+    243           *      |__UART5          --UART5  -Txd:PTE8  -Rxd:PTE9
+    244           *    *ch--待发送的字节数组头地址
+    245           *    len--字节数组长度
+    246           *
+    247           * 输出:
+    248           *    无
+    249           *
+    250           */
+    251          void LPLD_UART_PutCharArr(UARTx uartx, char *ch, int len)
+    252          {
+    253            while(len--)
+    254            {
+    255              LPLD_UART_PutChar(uartx, *(ch++));
+    256            }
+    257          }
+    258          
+    259          /*
+    260           * LPLD_UART_RIE_Enable
+    261           * 使能串口数据接收中断，设置中断函数入口
+    262           * 
+    263           * 参数:
+    264           *    uartx--UART模块号
+    265           *      |__UART0          --UART0  -Txd:PTB17 -Rxd:PTB16
+    266           *      |__UART1          --UART1  -Txd:PTC4  -Rxd:PTC3
+    267           *      |__UART2          --UART2  -Txd:PTD3  -Rxd:PTD2
+    268           *      |__UART3          --UART3  -Txd:PTC17 -Rxd:PTC16
+    269           *      |__UART4          --UART4  -Txd:PTC15 -Rxd:PTC14
+    270           *      |__UART5          --UART5  -Txd:PTE8  -Rxd:PTE9
+    271           *    isr_func--数据接收中断程序入口地址
+    272           *      |__用户在工程文件下定义的中断函数名，函数必须为:无返回值,无参数(eg. void isr(void);)
+    273           *
+    274           * 输出:
+    275           *    无
+    276           *
+    277           */
+    278          void LPLD_UART_RIE_Enable(UARTx uartx, UART_ISR_CALLBACK isr_func)
+    279          {
+    280            UART_MemMapPtr uartptr = UARTx_Ptr[uartx];
+    281            
+    282            UART_R_ISR[uartx] = isr_func;
+    283           
+    284            //使能UART接收中断
+    285            UART_C2_REG(uartptr) |= UART_C2_RIE_MASK; 
+    286            
+    287            //根据中断请求号使能相应中断
+    288            enable_irq( 45 + uartx*2);
+    289          }
+    290          
+    291          /*
+    292           * LPLD_UART_RIE_Disable
+    293           * 禁用串口数据接收中断
+    294           * 
+    295           * 参数:
+    296           *    uartx--UART模块号
+    297           *      |__UART0          --UART0  -Txd:PTB17 -Rxd:PTB16
+    298           *      |__UART1          --UART1  -Txd:PTC4  -Rxd:PTC3
+    299           *      |__UART2          --UART2  -Txd:PTD3  -Rxd:PTD2
+    300           *      |__UART3          --UART3  -Txd:PTC17 -Rxd:PTC16
+    301           *      |__UART4          --UART4  -Txd:PTC15 -Rxd:PTC14
+    302           *      |__UART5          --UART5  -Txd:PTE8  -Rxd:PTE9
+    303           *
+    304           * 输出:
+    305           *    无
+    306           *
+    307           */
+    308          void LPLD_UART_RIE_Disable(UARTx uartx)
+    309          {
+    310            UART_MemMapPtr uartptr = UARTx_Ptr[uartx];
+    311           
+    312            //禁用UART接收中断
+    313            UART_C2_REG(uartptr) &= ~UART_C2_RIE_MASK;  
+    314            
+    315            disable_irq( 45 + uartx*2);
+    316          }
+    317          
+    318          /*
+    319           * LPLD_UART_Isr
+    320           * UART通用中断底层入口函数
+    321           * 
+    322           * 用户无需修改，程序自动进入对应通道中断函数
+    323           */
+    324          void LPLD_UART_Isr(void)
+    325          {
+    326            #define UART_VECTORNUM   (*(volatile uint8_t*)(0xE000ED04))
+    327            uint8_t uart_ch = (UART_VECTORNUM - 61)/2;
+    328            UART_MemMapPtr uartch = (UART_MemMapPtr)((0x4006A+uart_ch)<<12);
+    329            if(uart_ch>3){
+    330              uartch = (UART_MemMapPtr)((0x400E6+uart_ch)<<12);  
+    331            }
+    332            
+    333            //进入接收中断函数
+    334            if(UART_S1_REG(uartch) & UART_S1_RDRF_MASK)
+    335            {
+    336              UART_R_ISR[uart_ch]();
+    337            }
+    338          }
+
+Errors: 20
+Warnings: none

@@ -1,0 +1,50 @@
+Removed Pin From Net: NetName=+6V Pin=C71-1
+Removed Pin From Net: NetName=GND Pin=C71-2
+Removed Pin From Net: NetName=GND Pin=CE2-2
+Removed Pin From Net: NetName=GND Pin=CE3-2
+Removed Pin From Net: NetName=GND Pin=D8-1
+Removed Pin From Net: NetName=+6V Pin=L6-1
+Removed Pin From Net: NetName=GND Pin=R52-2
+Removed Pin From Net: NetName=+6V Pin=R53-2
+Removed Pin From Net: NetName=GND Pin=U11-3
+Removed Pin From Net: NetName=GND Pin=U11-5
+Removed Member From Class: ClassName=Sheet1 Member=C71
+Removed Member From Class: ClassName=Sheet1 Member=D8
+Removed Member From Class: ClassName=Sheet1 Member=L6
+Removed Member From Class: ClassName=Sheet1 Member=R52
+Removed Member From Class: ClassName=Sheet1 Member=R53
+Removed Member From Class: ClassName=Sheet1 Member=U11
+Change Component DesignItemId : Designator=C2 Old DesignItemId=47u New DesignItemId=CAP1
+Change Component DesignItemId : Designator=C3 Old DesignItemId=47u New DesignItemId=CAP1
+Change Component DesignItemId : Designator=C4 Old DesignItemId=47u New DesignItemId=CAP1
+Change Component DesignItemId : Designator=C13 Old DesignItemId=47u New DesignItemId=CAP1
+Change Component DesignItemId : Designator=C18 Old DesignItemId=47u New DesignItemId=CAP1
+Change Component DesignItemId : Designator=CE2 Old DesignItemId=CAP3 New DesignItemId=CAP1
+Change Component DesignItemId : Designator=CE3 Old DesignItemId=CAP3 New DesignItemId=CAP1
+Change Component Footprint: Designator=C2 Old Footprint=3216C-1 New Footprint=C-0808-S
+Change Component Footprint: Designator=C3 Old Footprint=3216C-1 New Footprint=C-0808-S
+Change Component Footprint: Designator=C18 Old Footprint=3216C-1 New Footprint=C-0808-S
+Change Component Footprint: Designator=C4 Old Footprint=3216C-1 New Footprint=C-1010-S
+Change Component Footprint: Designator=C13 Old Footprint=3216C-1 New Footprint=C-1010-S
+Change Component Comment : Designator=C2 Old Comment=47u New Comment=CAP1
+Change Component Comment : Designator=C3 Old Comment=47u New Comment=CAP1
+Change Component Comment : Designator=C4 Old Comment=47u New Comment=CAP1
+Change Component Comment : Designator=C13 Old Comment=47u New Comment=CAP1
+Change Component Comment : Designator=C18 Old Comment=47u New Comment=CAP1
+Change Component Comment : Designator=CE2 Old Comment=220uF/35V New Comment=CAP1
+Change Component Comment : Designator=CE3 Old Comment=220uF/35V New Comment=CAP1
+Change Component Description : Designator=CE2 Old Description=220uF/35V New Description=10uF/16V
+Change Component Description : Designator=CE3 Old Description=220uF/35V New Description=10uF/16V
+Added Component: Designator=C60(0603C)
+Added Component: Designator=C61(0603C)
+Added Pin To Net: NetName=+12V Pin=C60-2
+Added Pin To Net: NetName=+6V Pin=C61-2
+Added Pin To Net: NetName=+12V Pin=CE2-1
+Added Pin To Net: NetName=NetC60_1 Pin=C60-1
+Added Pin To Net: NetName=NetC60_1 Pin=C61-1
+Added Pin To Net: NetName=NetC60_1 Pin=CE2-2
+Added Pin To Net: NetName=NetC60_1 Pin=CE3-2
+Added Net: Name=NetC60_1
+Added Member To Class: ClassName=Sheet1 Member=Component C60 Cap S1
+Added Member To Class: ClassName=Sheet1 Member=Component C61 Cap S1
+Added Room: Name=Sheet1

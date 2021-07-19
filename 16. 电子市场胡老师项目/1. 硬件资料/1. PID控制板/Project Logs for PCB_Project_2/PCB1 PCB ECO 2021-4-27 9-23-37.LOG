@@ -1,0 +1,3 @@
+Change Component Footprint: Designator=R7 Old Footprint=0603D New Footprint=0603R
+Change Component Footprint: Designator=JP1 Old Footprint=CON-2 New Footprint=CON-2-2.0
+Added Room: Name=Sheet1

@@ -1,0 +1,9 @@
+﻿  pid.cpp
+C:\Users\10101\Desktop\PID\PID\pid.cpp(24,14): warning C4305: “=”: 从“double”到“float”截断
+C:\Users\10101\Desktop\PID\PID\pid.cpp(25,14): warning C4305: “=”: 从“double”到“float”截断
+C:\Users\10101\Desktop\PID\PID\pid.cpp(26,14): warning C4305: “=”: 从“double”到“float”截断
+C:\Users\10101\Desktop\PID\PID\pid.cpp(40,37): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+C:\Users\10101\Desktop\PID\PID\pid.cpp(70,37): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+C:\Users\10101\Desktop\PID\PID\pid.cpp(122,37): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+C:\Users\10101\Desktop\PID\PID\pid.cpp(131,37): warning C4305: “参数”: 从“double”到“float”截断
+  PID.vcxproj -> C:\Users\10101\Desktop\PID\Debug\PID.exe

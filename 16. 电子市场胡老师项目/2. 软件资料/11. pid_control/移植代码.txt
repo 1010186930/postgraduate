@@ -1,0 +1,21 @@
+  /* USER CODE BEGIN 2 */
+  HAL_ADCEx_Calibration_Start(&hadc1);    //AD校准
+  HAL_ADC_Start_DMA(&hadc1, (uint32_t *)&ADC_DMA_Value, ADC_Channel_MAX);	//启动ADC的DMA转换方式
+  
+  PID_init();
+  
+  /* USER CODE END 2 */
+
+
+  while (1)
+  {
+    /* USER CODE END WHILE */
+
+    /* USER CODE BEGIN 3 */
+	  HAL_DAC_SetValue(&hdac, DAC_CHANNEL_1, DAC_ALIGN_12B_R, DAC_Value);
+	  HAL_DAC_Start(&hdac,DAC_CHANNEL_1);
+	  ADC_Value = ADC_DMA_Value[0];
+	  printf("%d\n", ADC_Value);
+	  DAC_Value = DAC_Value + PID_realize(800, ADC_Value);
+	  HAL_Delay(200);
+  }

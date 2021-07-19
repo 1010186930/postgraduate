@@ -1,0 +1,79 @@
+###############################################################################
+#                                                                             #
+#     IAR Assembler V6.30.6.53336/W32 for ARM 16/Aug/2015  09:08:42           #
+#     Copyright 1999-2012 IAR Systems AB.                                     #
+#                                                                             #
+#           Source file   =  C:\Users\Ping\Desktop\K60_TFT144_SPI(hardware)\src\cpu\crt0.s#
+#           List file     =  C:\Users\Ping\Desktop\K60_TFT144_SPI(hardware)\build\iar\hello_world\FLASH_512KB_PFLASH\List\crt0.lst#
+#           Object file   =  C:\Users\Ping\Desktop\K60_TFT144_SPI(hardware)\build\iar\hello_world\FLASH_512KB_PFLASH\Obj\crt0.o#
+#           Command line  =  C:\Users\Ping\Desktop\K60_TFT144_SPI(hardware)\src\cpu\crt0.s #
+#                            -OC:\Users\Ping\Desktop\K60_TFT144_SPI(hardware)\build\iar\hello_world\FLASH_512KB_PFLASH\Obj\ #
+#                            -s+ -M<> -w+ -r                                  #
+#                            -LC:\Users\Ping\Desktop\K60_TFT144_SPI(hardware)\build\iar\hello_world\FLASH_512KB_PFLASH\List\ #
+#                            -t8 --cpu Cortex-M4 --fpu None                   #
+#                                                                             #
+###############################################################################
+
+    1                           /*
+    2                            * File:        crt0.s
+    3                            * Purpose:     Lowest level routines for
+                                 Kinetis.
+    4                            *
+    5                            * Notes:       
+    6                            *
+    7                            */
+    8                           
+    9                           ;         AREA   Crt0, CODE, READONLY      ;
+                                 name this block of code
+   10                           
+   11                           
+   12                           
+   13                                   SECTION .noinit : CODE
+   14                                   EXPORT  __startup
+   15                           __startup
+   16                           
+   17    00000000 4FF00000          MOV     r0,#0                   ;
+                                                                     Initialize
+                                                                     the GPRs 
+                                                                     初始化寄存
+                                                                    器
+   18    00000004 4FF00001              MOV     r1,#0
+   19    00000008 4FF00002              MOV     r2,#0
+   20    0000000C 4FF00003              MOV     r3,#0
+   21    00000010 4FF00004              MOV     r4,#0
+   22    00000014 4FF00005              MOV     r5,#0
+   23    00000018 4FF00006              MOV     r6,#0
+   24    0000001C 4FF00007              MOV     r7,#0
+   25    00000020 4FF00008              MOV     r8,#0
+   26    00000024 4FF00009              MOV     r9,#0
+   27    00000028 4FF0000A              MOV     r10,#0
+   28    0000002C 4FF0000B              MOV     r11,#0
+   29    00000030 4FF0000C              MOV     r12,#0
+   30    00000034 62B6                  CPSIE   i                       ;
+                                                                         Unmask
+                                                                         interr
+                                                                        upts
+   31                                   import start
+   32    00000036 ........              BL      start                  ; call
+                                                                        the C
+                                                                        code 
+                                                                        调用
+                                                                        C语言
+                                                                        编写的
+                                                                        start
+                                                                        函数
+   33                           __done
+   34    0000003A FEE7                  B       __done
+   35                           
+   36                           
+   37                                   END
+##############################
+#           CRC:0            #
+#        Errors:   0         #
+#        Warnings: 0         #
+#         Bytes: 60          #
+##############################
+
+
+
+

@@ -1,0 +1,357 @@
+###############################################################################
+#                                                                             #
+#                                                       16/Aug/2015  08:45:40 #
+# IAR ANSI C/C++ Compiler V6.30.6.23336/W32 EVALUATION for ARM                #
+# Copyright 1999-2012 IAR Systems AB.                                         #
+#                                                                             #
+#    Cpu mode     =  thumb                                                    #
+#    Endian       =  little                                                   #
+#    Source file  =  C:\Users\Ping\Desktop\K60_TFT144_SPI\src\drivers\enet\mi #
+#                    i.c                                                      #
+#    Command line =  C:\Users\Ping\Desktop\K60_TFT144_SPI\src\drivers\enet\mi #
+#                    i.c -D IAR -D TWR_K60N512 -lCN                           #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\RAM_128KB\List\ -lB C:\Users\Ping\Desktop\K60_TFT144_ #
+#                    SPI\build\iar\hello_world\RAM_128KB\List\ -o             #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\RAM_128KB\Obj\ --no_cse --no_unroll --no_inline       #
+#                    --no_code_motion --no_tbaa --no_clustering               #
+#                    --no_scheduling --debug --endian=little --cpu=Cortex-M4  #
+#                    -e --fpu=None --dlib_config "C:\Program Files (x86)\IAR  #
+#                    Systems\Embedded Workbench 6.0                           #
+#                    Evaluation\arm\INC\c\DLib_Config_Normal.h" -I            #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\projects\hello_world\ -I                 #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\common\ -I C:\Users\Ping\Desktop\K60_TFT #
+#                    144_SPI\build\iar\hello_world\..\..\..\src\cpu\ -I       #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\cpu\headers\ -I                          #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\drivers\adc16\ -I                        #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\drivers\enet\ -I                         #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\drivers\pmc\ -I                          #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\drivers\rtc\ -I                          #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\drivers\lptmr\ -I                        #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\drivers\uart\ -I                         #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\drivers\mcg\ -I                          #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\drivers\wdog\ -I                         #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\platforms\ -I                            #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\drivers\ftm\ -I                          #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\drivers\SPI\ -I                          #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\drivers\OLED\ -I                         #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\..\..\src\drivers\TFT\ -I                          #
+#                    C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\..\ -On --use_c++_inline                              #
+#    List file    =  C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\RAM_128KB\List\mii.lst                                #
+#    Object file  =  C:\Users\Ping\Desktop\K60_TFT144_SPI\build\iar\hello_wor #
+#                    ld\RAM_128KB\Obj\mii.o                                   #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+C:\Users\Ping\Desktop\K60_TFT144_SPI\src\drivers\enet\mii.c
+      1          /*!
+      2           * \file    mii.c
+      3           * \brief   Media Independent Interface (MII) driver
+      4           * \version $Revision: 1.2 $
+      5           * \author  Michael Norman
+      6           * 
+      7           * \warning This driver assumes that FEC0 is used for all MII management
+      8           *          communications. For dual PHYs, etc. Insure that FEC0_MDC and
+      9           *          FEC0_MDIO are connected to the PHY's MDC and MDIO.
+     10           */
+     11          
+     12          #include "common.h"
+     13          #include "mii.h"
+     14          
+     15          /********************************************************************/
+     16          /*
+     17           * \brief   Initialize the MII interface controller
+     18           * \param   System Clock Frequency (in MHz)
+     19           * \warning The system clock in this case is the clock that drives
+     20           *          the FEC logic.  This may be different from the speed at which 
+     21           *          the CPU is operating.
+     22           * 
+     23           * Initialize the MII clock (EMDC) frequency. The desired MII clock is 2.5MHz:
+     24           *
+     25           * MII Speed Setting = System_Clock / (2.5MHz * 2)
+     26           * (plus 1 to round up)
+     27           */
+
+   \                                 In section .text, align 2, keep-with-next
+     28          void
+     29          mii_init(int ch, int sys_clk_mhz)
+     30          {
+     31              ENET_MSCR/*(ch)*/ = 0
+     32          #ifdef TSIEVB/*TSI EVB requires a longer hold time than default 10 ns*/
+     33                                | ENET_MSCR_HOLDTIME(2) 
+     34          #endif                      
+     35                                | ENET_MSCR_MII_SPEED((2*sys_clk_mhz/5)+1)
+     36                                ;
+   \                     mii_init:
+   \   00000000   0x004A             LSLS     R2,R1,#+1
+   \   00000002   0x2305             MOVS     R3,#+5
+   \   00000004   0xFB92 0xF2F3      SDIV     R2,R2,R3
+   \   00000008   0x1C52             ADDS     R2,R2,#+1
+   \   0000000A   0x0052             LSLS     R2,R2,#+1
+   \   0000000C   0xF012 0x027E      ANDS     R2,R2,#0x7E
+   \   00000010   0x....             LDR.N    R3,??DataTable2  ;; 0x400c0044
+   \   00000012   0x601A             STR      R2,[R3, #+0]
+     37          }
+   \   00000014   0x4770             BX       LR               ;; return
+     38          /********************************************************************/
+     39          /*!
+     40           * \brief Write a value to a PHY's MII register.
+     41           * 
+     42           * \param   phy_addr    Address of the PHY
+     43           * \param   reg_addr    Address of the register in the PHY
+     44           * \param   data        Data to be written to the PHY register
+     45           * \return  0 if write is successful; 1 if write times out
+     46           *
+     47           * mii_write() polls for the FEC's MII interrupt event (which should
+     48           * be masked from the interrupt handler) and clears it. If after a
+     49           * suitable amount of time the event isn't triggered, a non-zero value 
+     50           * is returned.
+     51           */
+
+   \                                 In section .text, align 2, keep-with-next
+     52          int 
+     53          mii_write(int ch, int phy_addr, int reg_addr, int data)
+     54          {
+   \                     mii_write:
+   \   00000000   0xB470             PUSH     {R4-R6}
+   \   00000002   0x0004             MOVS     R4,R0
+     55          	int timeout;
+     56          
+     57          	/* Clear the MII interrupt bit */
+     58          	ENET_EIR/*(ch)*/ = ENET_EIR_MII_MASK;
+   \   00000004   0x....             LDR.N    R0,??DataTable2_1  ;; 0x400c0004
+   \   00000006   0xF45F 0x0600      MOVS     R6,#+8388608
+   \   0000000A   0x6006             STR      R6,[R0, #+0]
+     59          
+     60          	/* Initiatate the MII Management write */
+     61          	ENET_MMFR/*(ch)*/ = 0
+     62          		| ENET_MMFR_ST(0x01)
+     63          		| ENET_MMFR_OP(0x01)
+     64          		| ENET_MMFR_PA(phy_addr)
+     65          		| ENET_MMFR_RA(reg_addr)
+     66          		| ENET_MMFR_TA(0x02)
+     67          		| ENET_MMFR_DATA(data);
+   \   0000000C   0x05C8             LSLS     R0,R1,#+23
+   \   0000000E   0xF010 0x6078      ANDS     R0,R0,#0xF800000
+   \   00000012   0x0496             LSLS     R6,R2,#+18
+   \   00000014   0xF416 0x06F8      ANDS     R6,R6,#0x7C0000
+   \   00000018   0x4330             ORRS     R0,R6,R0
+   \   0000001A   0xB29E             UXTH     R6,R3            ;; ZeroExt  R6,R3,#+16,#+16
+   \   0000001C   0x4330             ORRS     R0,R6,R0
+   \   0000001E   0x....             LDR.N    R6,??DataTable2_2  ;; 0x50020000
+   \   00000020   0x4330             ORRS     R0,R6,R0
+   \   00000022   0x....             LDR.N    R6,??DataTable2_3  ;; 0x400c0040
+   \   00000024   0x6030             STR      R0,[R6, #+0]
+     68          
+     69          	/* Poll for the MII interrupt (interrupt should be masked) */
+     70                  for (timeout = 0; timeout < MII_TIMEOUT; timeout++)
+   \   00000026   0x2000             MOVS     R0,#+0
+   \   00000028   0x0005             MOVS     R5,R0
+   \                     ??mii_write_0:
+   \   0000002A   0x....             LDR.N    R0,??DataTable2_4  ;; 0x1ffff
+   \   0000002C   0x4285             CMP      R5,R0
+   \   0000002E   0xDA05             BGE.N    ??mii_write_1
+     71          	{
+     72          		if (ENET_EIR/*(ch)*/ & ENET_EIR_MII_MASK)
+   \   00000030   0x....             LDR.N    R0,??DataTable2_1  ;; 0x400c0004
+   \   00000032   0x6800             LDR      R0,[R0, #+0]
+   \   00000034   0x0200             LSLS     R0,R0,#+8
+   \   00000036   0xD401             BMI.N    ??mii_write_1
+     73          			break;
+     74          	}
+   \                     ??mii_write_2:
+   \   00000038   0x1C6D             ADDS     R5,R5,#+1
+   \   0000003A   0xE7F6             B.N      ??mii_write_0
+     75          
+     76          	if(timeout == MII_TIMEOUT) 
+   \                     ??mii_write_1:
+   \   0000003C   0x....             LDR.N    R0,??DataTable2_4  ;; 0x1ffff
+   \   0000003E   0x4285             CMP      R5,R0
+   \   00000040   0xD101             BNE.N    ??mii_write_3
+     77          		return 1;
+   \   00000042   0x2001             MOVS     R0,#+1
+   \   00000044   0xE004             B.N      ??mii_write_4
+     78          
+     79          	/* Clear the MII interrupt bit */
+     80          	ENET_EIR/*(ch)*/ = ENET_EIR_MII_MASK;
+   \                     ??mii_write_3:
+   \   00000046   0x....             LDR.N    R0,??DataTable2_1  ;; 0x400c0004
+   \   00000048   0xF45F 0x0600      MOVS     R6,#+8388608
+   \   0000004C   0x6006             STR      R6,[R0, #+0]
+     81          
+     82          	return 0;
+   \   0000004E   0x2000             MOVS     R0,#+0
+   \                     ??mii_write_4:
+   \   00000050   0xBC70             POP      {R4-R6}
+   \   00000052   0x4770             BX       LR               ;; return
+     83          }
+     84          /********************************************************************/
+     85          /*!
+     86           * \brief   Read a value from a PHY's MII register.
+     87           * \param   phy_addr    Address of the PHY
+     88           * \param   reg_addr    Address of the register in the PHY
+     89           * \param   data        Pointer to location were read data will be stored
+     90           * \return  0 if write is successful; 1 if write times out
+     91           *
+     92           * mii_read() polls for the FEC's MII interrupt event (which should
+     93           * be masked from the interrupt handler) and clears it. If after a
+     94           * suitable amount of time the event isn't triggered, a non-zero value 
+     95           * is returned.
+     96           */
+
+   \                                 In section .text, align 2, keep-with-next
+     97          int 
+     98          mii_read(int ch, int phy_addr, int reg_addr, int *data)
+     99          {
+   \                     mii_read:
+   \   00000000   0xB470             PUSH     {R4-R6}
+   \   00000002   0x0004             MOVS     R4,R0
+    100          	int timeout;
+    101          
+    102          	/* Clear the MII interrupt bit */
+    103          	ENET_EIR/*(ch)*/ = ENET_EIR_MII_MASK;
+   \   00000004   0x....             LDR.N    R0,??DataTable2_1  ;; 0x400c0004
+   \   00000006   0xF45F 0x0600      MOVS     R6,#+8388608
+   \   0000000A   0x6006             STR      R6,[R0, #+0]
+    104          
+    105          	/* Initiatate the MII Management read */
+    106          	ENET_MMFR/*(ch)*/ = 0
+    107          		| ENET_MMFR_ST(0x01)
+    108          		| ENET_MMFR_OP(0x2)
+    109          		| ENET_MMFR_PA(phy_addr)
+    110          		| ENET_MMFR_RA(reg_addr)
+    111          		| ENET_MMFR_TA(0x02);
+   \   0000000C   0x05C8             LSLS     R0,R1,#+23
+   \   0000000E   0xF010 0x6078      ANDS     R0,R0,#0xF800000
+   \   00000012   0x0496             LSLS     R6,R2,#+18
+   \   00000014   0xF416 0x06F8      ANDS     R6,R6,#0x7C0000
+   \   00000018   0x4330             ORRS     R0,R6,R0
+   \   0000001A   0x....             LDR.N    R6,??DataTable2_5  ;; 0x60020000
+   \   0000001C   0x4330             ORRS     R0,R6,R0
+   \   0000001E   0x....             LDR.N    R6,??DataTable2_3  ;; 0x400c0040
+   \   00000020   0x6030             STR      R0,[R6, #+0]
+    112          
+    113          	/* Poll for the MII interrupt (interrupt should be masked) */
+    114          	for (timeout = 0; timeout < MII_TIMEOUT; timeout++)
+   \   00000022   0x2000             MOVS     R0,#+0
+   \   00000024   0x0005             MOVS     R5,R0
+   \                     ??mii_read_0:
+   \   00000026   0x....             LDR.N    R0,??DataTable2_4  ;; 0x1ffff
+   \   00000028   0x4285             CMP      R5,R0
+   \   0000002A   0xDA05             BGE.N    ??mii_read_1
+    115          	{
+    116          		if (ENET_EIR/*(ch)*/ & ENET_EIR_MII_MASK)
+   \   0000002C   0x....             LDR.N    R0,??DataTable2_1  ;; 0x400c0004
+   \   0000002E   0x6800             LDR      R0,[R0, #+0]
+   \   00000030   0x0200             LSLS     R0,R0,#+8
+   \   00000032   0xD401             BMI.N    ??mii_read_1
+    117          			break;
+    118          	}
+   \                     ??mii_read_2:
+   \   00000034   0x1C6D             ADDS     R5,R5,#+1
+   \   00000036   0xE7F6             B.N      ??mii_read_0
+    119              
+    120          	if(timeout == MII_TIMEOUT) 
+   \                     ??mii_read_1:
+   \   00000038   0x....             LDR.N    R0,??DataTable2_4  ;; 0x1ffff
+   \   0000003A   0x4285             CMP      R5,R0
+   \   0000003C   0xD101             BNE.N    ??mii_read_3
+    121          		return 1;
+   \   0000003E   0x2001             MOVS     R0,#+1
+   \   00000040   0xE008             B.N      ??mii_read_4
+    122          
+    123          	/* Clear the MII interrupt bit */
+    124          	ENET_EIR/*(ch)*/ = ENET_EIR_MII_MASK;
+   \                     ??mii_read_3:
+   \   00000042   0x....             LDR.N    R0,??DataTable2_1  ;; 0x400c0004
+   \   00000044   0xF45F 0x0600      MOVS     R6,#+8388608
+   \   00000048   0x6006             STR      R6,[R0, #+0]
+    125          
+    126          	*data = ENET_MMFR/*(ch)*/ & 0x0000FFFF;
+   \   0000004A   0x....             LDR.N    R0,??DataTable2_3  ;; 0x400c0040
+   \   0000004C   0x6800             LDR      R0,[R0, #+0]
+   \   0000004E   0xB280             UXTH     R0,R0            ;; ZeroExt  R0,R0,#+16,#+16
+   \   00000050   0x6018             STR      R0,[R3, #+0]
+    127          
+    128          	return 0;
+   \   00000052   0x2000             MOVS     R0,#+0
+   \                     ??mii_read_4:
+   \   00000054   0xBC70             POP      {R4-R6}
+   \   00000056   0x4770             BX       LR               ;; return
+    129          }
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable2:
+   \   00000000   0x400C0044         DC32     0x400c0044
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable2_1:
+   \   00000000   0x400C0004         DC32     0x400c0004
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable2_2:
+   \   00000000   0x50020000         DC32     0x50020000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable2_3:
+   \   00000000   0x400C0040         DC32     0x400c0040
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable2_4:
+   \   00000000   0x0001FFFF         DC32     0x1ffff
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable2_5:
+   \   00000000   0x60020000         DC32     0x60020000
+    130          /********************************************************************/
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+        0  mii_init
+       12  mii_read
+       12  mii_write
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       4  ??DataTable2
+       4  ??DataTable2_1
+       4  ??DataTable2_2
+       4  ??DataTable2_3
+       4  ??DataTable2_4
+       4  ??DataTable2_5
+      22  mii_init
+      88  mii_read
+      84  mii_write
+
+ 
+ 218 bytes in section .text
+ 
+ 218 bytes of CODE memory
+
+Errors: none
+Warnings: none

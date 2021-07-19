@@ -1,0 +1,32 @@
+Removed Pin From Net: NetName=+3.2V Pin=C19-1
+Removed Pin From Net: NetName=GND Pin=C19-2
+Removed Pin From Net: NetName=GND Pin=C21-1
+Removed Pin From Net: NetName=+3.3V Pin=C21-2
+Removed Pin From Net: NetName=+6V Pin=L2-1
+Change Component DesignItemId : Designator=L2 Old DesignItemId=Inductor New DesignItemId=100uH
+Change Component Footprint: Designator=U8 Old Footprint=LQFP64 New Footprint=LQFP64-1
+Change Component Comment : Designator=L2 Old Comment= New Comment=100uH
+Change Component Description : Designator=L2 Old Description=Inductor New Description=
+Change Component Library : Designator=L2 Old Library=Miscellaneous Devices.IntLib New Library=
+Added Component: Designator=L2(L1270)
+Added Pin To Net: NetName=GND Pin=C19-1
+Added Pin To Net: NetName=+3.2V Pin=C19-2
+Added Pin To Net: NetName=+3.3V Pin=L2-1
+Added Pin To Net: NetName=+6V Pin=L2-1
+Added Pin To Net: NetName=NetC30_2 Pin=P6-3
+Added Pin To Net: NetName=+3.3V Pin=R1-2
+Added Pin To Net: NetName=+3.3V Pin=U8-1
+Added Pin To Net: NetName=GND Pin=U8-12
+Added Pin To Net: NetName=+3.2V Pin=U8-13
+Added Pin To Net: NetName=GND Pin=U8-18
+Added Pin To Net: NetName=+3.3V Pin=U8-19
+Added Pin To Net: NetName=GND Pin=U8-31
+Added Pin To Net: NetName=+3.3V Pin=U8-32
+Added Pin To Net: NetName=GND Pin=U8-47
+Added Pin To Net: NetName=+3.3V Pin=U8-48
+Added Pin To Net: NetName=GND Pin=U8-63
+Added Pin To Net: NetName=+3.3V Pin=U8-64
+Change Net Name : Old Net Name=NetC30_2 New Net Name=NRST
+Added Pin To Net: NetName=PA3 Pin=U8-17
+Added Net: Name=PA3
+Added Room: Name=Sheet1
