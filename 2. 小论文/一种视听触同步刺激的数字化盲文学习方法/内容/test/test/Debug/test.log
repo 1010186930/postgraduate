@@ -1,0 +1,11 @@
+﻿  test.cpp
+C:\Users\Administrator\Desktop\test\test\test.cpp(283,17): warning C4018: “<”: 有符号/无符号不匹配
+C:\Users\Administrator\Desktop\test\test\test.cpp(286,17): warning C4018: “<”: 有符号/无符号不匹配
+C:\Users\Administrator\Desktop\test\test\test.cpp(464,6): warning C4101: “i”: 未引用的局部变量
+C:\Users\Administrator\Desktop\test\test\test.cpp(804,14): warning C4101: “m”: 未引用的局部变量
+C:\Users\Administrator\Desktop\test\test\test.cpp(804,23): warning C4101: “k”: 未引用的局部变量
+C:\Users\Administrator\Desktop\test\test\test.cpp(801,6): warning C4101: “count_s”: 未引用的局部变量
+C:\Users\Administrator\Desktop\test\test\test.cpp(803,7): warning C4101: “gdtmp”: 未引用的局部变量
+C:\Users\Administrator\Desktop\test\test\test.cpp(804,17): warning C4101: “n”: 未引用的局部变量
+C:\Users\Administrator\Desktop\test\test\test.cpp(802,6): warning C4101: “dx”: 未引用的局部变量
+  test.vcxproj -> C:\Users\Administrator\Desktop\test\Debug\test.exe
